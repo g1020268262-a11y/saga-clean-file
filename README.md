@@ -28,6 +28,25 @@ recorded policy input, binds that result to the archived production observation,
 and reconstructs the fixed ProVerif scenario region. It is not a general
 implementation-to-model refinement proof.
 
+## Research Contributions
+
+1. **Implementation-level authorization inconsistency.** We identify and
+   reproduce an order-dependent authorization decision inconsistency in the
+   unchanged SAGA production contact-policy matcher. For the recorded policy, a
+   specific deny followed by a wildcard allow results in an implementation
+   allow, contrary to the documented most-specific-rule semantics.
+2. **Evidence-bound formal consequence analysis.** We develop a bounded Decision
+   Bridge that evaluates the recorded policy under a finite specification,
+   checks the archived production observation and its source provenance, and
+   reconstructs a fixed ProVerif divergence scenario. The resulting model is
+   used to analyze symbolic authorization consequences, including `ChatAccept`
+   reachability and the `ChatAccept ==> TokenIssue` correspondence.
+3. **Bounded consumer-side propagation validation.** We execute the relevant
+   SAGA Provider and receiver paths under documented fixtures and transport
+   substitutions, validating propagation of the authorization inconsistency
+   through token issuance and storage. The validation stops before
+   application-message acceptance.
+
 ## Repository layout
 
 - `saga/` and `agent_backend/`: retained upstream implementation code required by

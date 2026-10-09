@@ -62,11 +62,12 @@ From the repository root:
 
 ```text
 python -B -m unittest discover -s proofs/decision_bridge -p test_bridge.py -v
-python -B proofs/decision_bridge/run_bridge.py
+python -B proofs/decision_bridge/run_bridge.py --output .runtime/bridge-replay-check
 ```
 
-The default replay creates a new timestamped directory under
-`proofs/decision_bridge/evidence/` containing:
+The command above explicitly selects a temporary output path. The replay writes
+its five output files to the specified Git-ignored
+`.runtime/bridge-replay-check/` directory:
 
 - `input.json`;
 - `bridge-result.json`;
@@ -74,9 +75,11 @@ The default replay creates a new timestamped directory under
 - `summary.txt`; and
 - `manifest.json`.
 
-Existing output paths are rejected. An explicit, new repository-relative output
-path can be supplied with `--output`. A saved input can be replayed with
-`--input`.
+The directory must not already exist; use a different output name for subsequent
+runs. Existing archived evidence is never overwritten. Without `--output`,
+`run_bridge.py` retains its default behavior of creating a new timestamped
+directory under `proofs/decision_bridge/evidence/`. A saved input can be replayed
+with `--input`.
 
 For a clean-checkout reconstruction and ProVerif execution:
 
