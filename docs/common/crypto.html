@@ -79,8 +79,9 @@ el.replaceWith(d);
     return x25519.X25519PrivateKey.from_private_bytes(key_bytes)</code></pre>
 </details>
 <div class="desc"><p>Convert bytes to an X25519 Public key</p>
-<h2 id="args">Args</h2>
 <dl>
+<dt>Args</dt>
+<dt>-----=</dt>
 <dt><strong><code>key_bytes</code></strong></dt>
 <dd>The bytes representing the X25519 private key.</dd>
 </dl></div>
@@ -119,8 +120,9 @@ el.replaceWith(d);
     return x25519.X25519PublicKey.from_public_bytes(key_bytes)</code></pre>
 </details>
 <div class="desc"><p>Convert bytes to an X25519 Public key</p>
-<h2 id="args">Args</h2>
 <dl>
+<dt>Args</dt>
+<dt>-----=</dt>
 <dt><strong><code>key_bytes</code></strong></dt>
 <dd>The bytes representing the X25519 public key.</dd>
 </dl></div>
@@ -189,8 +191,9 @@ el.replaceWith(d);
     return json.loads(token.decode(&#39;utf-8&#39;))</code></pre>
 </details>
 <div class="desc"><p>Decrypts an encrypted token using AES-GCM with a Diffie-Hellman shared key.</p>
-<h2 id="args">Args</h2>
 <dl>
+<dt>Args</dt>
+<dt>-----=</dt>
 <dt><strong><code>encrypted_token</code></strong></dt>
 <dd>The Base64-encoded encrypted token.</dd>
 <dt><strong><code>sdhkey</code></strong></dt>
@@ -219,8 +222,9 @@ el.replaceWith(d);
     return pem.encode(&#39;ascii&#39;)</code></pre>
 </details>
 <div class="desc"><p>Convert DER bytes to properly line-wrapped PEM format (64-char lines).</p>
-<h2 id="args">Args</h2>
 <dl>
+<dt>Args</dt>
+<dt>-----=</dt>
 <dt><strong><code>der_bytes</code></strong></dt>
 <dd>The DER-encoded bytes of the certificate.</dd>
 </dl></div>
@@ -254,8 +258,9 @@ el.replaceWith(d);
     return x25519_private_key, x25519_public_key</code></pre>
 </details>
 <div class="desc"><p>Derive an X25519 keypair from an Ed25519 private key.</p>
-<h2 id="args">Args</h2>
 <dl>
+<dt>Args</dt>
+<dt>-----=</dt>
 <dt><strong><code>ed25519_private_key</code></strong></dt>
 <dd>The Ed25519 private key object.</dd>
 </dl></div>
@@ -308,8 +313,9 @@ el.replaceWith(d);
     return encrypted_data</code></pre>
 </details>
 <div class="desc"><p>Encrypts a token dictionary using AES-GCM with a Diffie-Hellman shared key.</p>
-<h2 id="args">Args</h2>
 <dl>
+<dt>Args</dt>
+<dt>-----=</dt>
 <dt><strong><code>token_dict</code></strong></dt>
 <dd>The dictionary containing the token data.</dd>
 <dt><strong><code>sdhkey</code></strong></dt>
@@ -512,8 +518,9 @@ el.replaceWith(d);
     return cert</code></pre>
 </details>
 <div class="desc"><p>Generates an X.509 certificate signed by a Certificate Authority (CA).</p>
-<h2 id="args">Args</h2>
 <dl>
+<dt>Args</dt>
+<dt>-----=</dt>
 <dt><strong><code>config</code></strong></dt>
 <dd>A dictionary containing certificate information (e.g., COUNTRY_NAME).</dd>
 <dt><strong><code>public_key</code></strong></dt>
@@ -546,8 +553,9 @@ el.replaceWith(d);
     return private_key, public_key, cert</code></pre>
 </details>
 <div class="desc"><p>Loads the CA's private key, public key, and certificate from files.</p>
-<h2 id="args">Args</h2>
 <dl>
+<dt>Args</dt>
+<dt>-----=</dt>
 <dt><strong><code>path</code></strong></dt>
 <dd>The directory where the keys and certificate are stored.</dd>
 <dt><strong><code>orgname</code></strong></dt>
@@ -582,8 +590,9 @@ el.replaceWith(d);
     return ed25519_private_key, ed25519_public_key</code></pre>
 </details>
 <div class="desc"><p>Load the Ed25519 private and public keys from files.</p>
-<h2 id="args">Args</h2>
 <dl>
+<dt>Args</dt>
+<dt>-----=</dt>
 <dt><strong><code>name</code></strong></dt>
 <dd>The base name of the key files (without extension).</dd>
 </dl></div>
@@ -628,8 +637,9 @@ el.replaceWith(d);
     return base64.b64decode(&#34;&#34;.join(pem_body))</code></pre>
 </details>
 <div class="desc"><p>Converts a PEM format string to bytes by removing the header, footer, and newlines.</p>
-<h2 id="args">Args</h2>
 <dl>
+<dt>Args</dt>
+<dt>-----=</dt>
 <dt><strong><code>pem_string</code></strong></dt>
 <dd>The PEM formatted string.</dd>
 </dl></div>
@@ -681,8 +691,9 @@ el.replaceWith(d);
         cert_file.write(ca_certificate.public_bytes(serialization.Encoding.PEM))</code></pre>
 </details>
 <div class="desc"><p>Saves the CA's private key, public key, and certificate to files in <code>.key</code>, <code>.pub</code>, and <code>.crt</code> formats.</p>
-<h2 id="args">Args</h2>
 <dl>
+<dt>Args</dt>
+<dt>-----=</dt>
 <dt><strong><code>path</code></strong></dt>
 <dd>The directory where the keys and certificate will be saved.</dd>
 <dt><strong><code>orgname</code></strong></dt>
@@ -731,8 +742,9 @@ el.replaceWith(d);
     return f&#34;{name}.key&#34;, f&#34;{name}.pub&#34;</code></pre>
 </details>
 <div class="desc"><p>Save the Ed25519 private and public keys to files.</p>
-<h2 id="args">Args</h2>
 <dl>
+<dt>Args</dt>
+<dt>-----=</dt>
 <dt><strong><code>name</code></strong></dt>
 <dd>The base name for the key files (without extension).</dd>
 <dt><strong><code>ed25519_private_key</code></strong></dt>
@@ -775,8 +787,9 @@ el.replaceWith(d);
         ))</code></pre>
 </details>
 <div class="desc"><p>Save the X25519 private and public keys to files.</p>
-<h2 id="args">Args</h2>
 <dl>
+<dt>Args</dt>
+<dt>-----=</dt>
 <dt><strong><code>name</code></strong></dt>
 <dd>The base name for the key files (without extension).</dd>
 <dt><strong><code>x25519_private_key</code></strong></dt>
@@ -808,8 +821,9 @@ el.replaceWith(d);
     return f&#34;{name}.crt&#34;</code></pre>
 </details>
 <div class="desc"><p>Save the X.509 certificate to a file.</p>
-<h2 id="args">Args</h2>
 <dl>
+<dt>Args</dt>
+<dt>-----=</dt>
 <dt><strong><code>name</code></strong></dt>
 <dd>The base name for the certificate file (without extension).</dd>
 <dt><strong><code>certificate</code></strong></dt>
@@ -840,8 +854,9 @@ el.replaceWith(d);
     return message, signature</code></pre>
 </details>
 <div class="desc"><p>Sign a message using the Ed25519 private key.</p>
-<h2 id="args">Args</h2>
 <dl>
+<dt>Args</dt>
+<dt>-----=</dt>
 <dt><strong><code>ed25519_private_key</code></strong></dt>
 <dd>The Ed25519 private key object.</dd>
 <dt><strong><code>message</code></strong></dt>
@@ -877,8 +892,9 @@ el.replaceWith(d);
         return False</code></pre>
 </details>
 <div class="desc"><p>Verify a signature using the Ed25519 public key.</p>
-<h2 id="args">Args</h2>
 <dl>
+<dt>Args</dt>
+<dt>-----=</dt>
 <dt><strong><code>ed25519_public_key</code></strong></dt>
 <dd>The Ed25519 public key object.</dd>
 <dt><strong><code>message</code></strong></dt>
@@ -911,8 +927,9 @@ el.replaceWith(d);
     )</code></pre>
 </details>
 <div class="desc"><p>Verify a given certificate using the CA certificate.</p>
-<h2 id="args">Args</h2>
 <dl>
+<dt>Args</dt>
+<dt>-----=</dt>
 <dt><strong><code>certificate</code></strong></dt>
 <dd>The X.509 certificate to verify.</dd>
 <dt><strong><code>ca_certificate</code></strong></dt>

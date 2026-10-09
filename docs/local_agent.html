@@ -190,8 +190,9 @@ def run(self, query: str,
     pass</code></pre>
 </details>
 <div class="desc"><p>Run the local agent with the given query.</p>
-<h2 id="args">Args</h2>
 <dl>
+<dt>Args</dt>
+<dt>-----=</dt>
 <dt><strong><code>query</code></strong> :&ensp;<code>str</code></dt>
 <dd>The query to run.</dd>
 <dt><strong><code>initiating_agent</code></strong> :&ensp;<code>bool</code></dt>
@@ -202,9 +203,8 @@ def run(self, query: str,
 <dt>We recommend not reusing agent classes, as most libraries attach minimal overhead to local agent wrappers, and reusing them can increase the attack surface for prompt injection and data leakage (as well as increase context window length).</dt>
 <dt><strong><code>**kwargs</code></strong></dt>
 <dd>Additional keyword arguments.</dd>
-</dl>
-<h2 id="returns">Returns</h2>
-<dl>
+<dt>Returns</dt>
+<dt>-----=</dt>
 <dt><code>Tuple[<a title="saga.local_agent.LocalAgent" href="#saga.local_agent.LocalAgent">LocalAgent</a>, str]</code></dt>
 <dd>A tuple containing the agent instance (a new one, if no agent instance was provided) and the result string.</dd>
 </dl></div>

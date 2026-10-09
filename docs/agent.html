@@ -73,8 +73,9 @@ el.replaceWith(d);
         return obj</code></pre>
 </details>
 <div class="desc"><p>Deserializes the object from a JSON string.</p>
-<h2 id="args">Args</h2>
 <dl>
+<dt>Args</dt>
+<dt>-----=</dt>
 <dt><strong><code>obj</code></strong></dt>
 <dd>The object to deserialize. It can be a base64 encoded string, list, dict, or any other type.</dd>
 </dl></div>
@@ -111,13 +112,13 @@ el.replaceWith(d);
     return material</code></pre>
 </details>
 <div class="desc"><p>Reads the agent material from the agent.json file in the given directory.</p>
-<h2 id="args">Args</h2>
 <dl>
+<dt>Args</dt>
+<dt>-----=</dt>
 <dt><strong><code>dir_path</code></strong> :&ensp;<code>Path</code></dt>
 <dd>The directory path where the agent.json file is located.</dd>
-</dl>
-<h2 id="returns">Returns</h2>
-<dl>
+<dt>Returns</dt>
+<dt>-----=</dt>
 <dt><code>dict</code></dt>
 <dd>The material read from the agent.json file.</dd>
 </dl></div>
@@ -147,8 +148,9 @@ el.replaceWith(d);
         return obj</code></pre>
 </details>
 <div class="desc"><p>Serializes the object to a JSON string.</p>
-<h2 id="args">Args</h2>
 <dl>
+<dt>Args</dt>
+<dt>-----=</dt>
 <dt><strong><code>obj</code></strong></dt>
 <dd>The object to serialize. It can be a bytes, list, dict, or any other type.</dd>
 </dl></div>
@@ -1272,8 +1274,9 @@ el.replaceWith(d);
 This class is responsible for managing the agent's lifecycle, handling communication with other agents,
 and managing the agent's access control and security features.</p>
 <p>Initializes the Agent object with the given work directory and material.</p>
-<h2 id="args">Args</h2>
 <dl>
+<dt>Args</dt>
+<dt>-----=</dt>
 <dt><strong><code>workdir</code></strong> :&ensp;<code>str</code></dt>
 <dd>The working directory for the agent.</dd>
 <dt><strong><code>material</code></strong> :&ensp;<code>dict</code></dt>
@@ -1580,8 +1583,9 @@ This function performs the following steps:
 2. Verifies the receiving agent's identity and device information.
 3. Creates a secure connection to the receiving agent.
 4. Initiates a conversation with the receiving agent.</p>
-<h2 id="args">Args</h2>
 <dl>
+<dt>Args</dt>
+<dt>-----=</dt>
 <dt><strong><code>r_aid</code></strong></dt>
 <dd>The AID of the receiving agent.</dd>
 <dt><strong><code>message</code></strong></dt>
@@ -1645,8 +1649,9 @@ The token contains the following information:
 - Expiration Timestamp: The timestamp when the token expires (1 hour from issue).
 - Communication Quota: The maximum number of communications allowed with this token.
 - Recipient PAC: The public access control key of the recipient agent.</p>
-<h2 id="args">Args</h2>
 <dl>
+<dt>Args</dt>
+<dt>-----=</dt>
 <dt><strong><code>recipient_pac</code></strong></dt>
 <dd>The public access control key of the recipient agent.</dd>
 <dt><strong><code>sdhk</code></strong></dt>
@@ -1680,8 +1685,9 @@ The token contains the following information:
 </details>
 <div class="desc"><p>This is a 'smarter' way to get the provider's certificate. This function uses the requests library
 to get the certificate of the server.</p>
-<h2 id="returns">Returns</h2>
-<p>cert (Certificate): The provider's certificate as a cryptography.x509.Certificate object.</p></div>
+<p>Returns
+-----=
+cert (Certificate): The provider's certificate as a cryptography.x509.Certificate object.</p></div>
 </dd>
 <dt id="saga.agent.Agent.handle_i_agent_connection"><code class="name flex">
 <span>def <span class="ident">handle_i_agent_connection</span></span>(<span>self, conn, fromaddr)</span>
@@ -1933,8 +1939,9 @@ to get the certificate of the server.</p>
 3. Checks access control rules to ensure the initiating agent is allowed to contact this agent.
 4. Verifies the initiating agent's user certificate and PAC.
 5. If all checks pass, it initiates a conversation with the initiating agent.</p>
-<h2 id="args">Args</h2>
 <dl>
+<dt>Args</dt>
+<dt>-----=</dt>
 <dt><strong><code>conn</code></strong></dt>
 <dd>The connection object for the incoming connection.</dd>
 <dt><strong><code>fromaddr</code></strong></dt>
@@ -2038,8 +2045,9 @@ to get the certificate of the server.</p>
 <div class="desc"><p>This function initiates a conversation with the receiving agent.
 It sends the initial message to the receiving agent and waits for a response.
 Returns true if the conversation ended from the initiating side.</p>
-<h2 id="args">Args</h2>
 <dl>
+<dt>Args</dt>
+<dt>-----=</dt>
 <dt><strong><code>conn</code></strong></dt>
 <dd>The connection to the receiving agent.</dd>
 <dt><strong><code>token</code></strong> :&ensp;<code>str</code></dt>
@@ -2139,13 +2147,15 @@ and ensures proper socket closure on shutdown.</p></div>
 </details>
 <div class="desc"><p>Looks up the target agent by its AID.
 This function sends a request to the provider to look up the target agent's AID.</p>
-<h2 id="args">Args</h2>
 <dl>
+<dt>Args</dt>
+<dt>-----=</dt>
 <dt><strong><code>t_aid</code></strong> :&ensp;<code>str</code></dt>
 <dd>The AID of the target agent.</dd>
 </dl>
-<h2 id="returns">Returns</h2>
-<p>data (dict): The data returned by the provider, which contains the target agent's information.
+<p>Returns
+-----=
+data (dict): The data returned by the provider, which contains the target agent's information.
 If the access is denied, it returns None.</p></div>
 </dd>
 <dt id="saga.agent.Agent.receive_conversation"><code class="name flex">
@@ -2247,8 +2257,9 @@ If the access is denied, it returns None.</p></div>
 <div class="desc"><p>This function receives a conversation from the initiating agent.
 It waits for a message from the initiating agent and processes it.
 Returns true if the conversation ended from the receiving side.</p>
-<h2 id="args">Args</h2>
 <dl>
+<dt>Args</dt>
+<dt>-----=</dt>
 <dt><strong><code>conn</code></strong></dt>
 <dd>The connection to the initiating agent.</dd>
 <dt><strong><code>token</code></strong></dt>
@@ -2300,8 +2311,9 @@ Returns true if the conversation ended from the receiving side.</p>
 <div class="desc"><p>Makes sure that the token that was received from the receiving agent is valid.
 - If it is expired, it is invalid.
 - If the communication quota is reached, it is invalid.</p>
-<h2 id="args">Args</h2>
 <dl>
+<dt>Args</dt>
+<dt>-----=</dt>
 <dt><strong><code>token</code></strong> :&ensp;<code>str</code></dt>
 <dd>The token to check.</dd>
 </dl></div>
@@ -2340,13 +2352,15 @@ Returns true if the conversation ended from the receiving side.</p>
         return None</code></pre>
 </details>
 <div class="desc"><p>Receives a JSON payload from the given connection.</p>
-<h2 id="args">Args</h2>
 <dl>
+<dt>Args</dt>
+<dt>-----=</dt>
 <dt><strong><code>conn</code></strong></dt>
 <dd>The connection to receive the data from.</dd>
 </dl>
-<h2 id="returns">Returns</h2>
-<p>response (dict): The JSON payload received from the connection.
+<p>Returns
+-----=
+response (dict): The JSON payload received from the connection.
 If the reception fails, it returns None.</p></div>
 </dd>
 <dt id="saga.agent.Agent.retrieve_valid_token"><code class="name flex">
@@ -2400,8 +2414,9 @@ If the token is not valid, it removes it from the received tokens and the aid_to
     conn.sendall(len(data).to_bytes(4, &#39;big&#39;) + data)</code></pre>
 </details>
 <div class="desc"><p>Sends a JSON payload over the given connection.</p>
-<h2 id="args">Args</h2>
 <dl>
+<dt>Args</dt>
+<dt>-----=</dt>
 <dt><strong><code>conn</code></strong></dt>
 <dd>The connection to send the data over.</dd>
 <dt><strong><code>payload</code></strong> :&ensp;<code>dict</code></dt>
@@ -2430,8 +2445,9 @@ If the token is not valid, it removes it from the received tokens and the aid_to
         self.aid_to_token[r_aid] = token_str</code></pre>
 </details>
 <div class="desc"><p>Stores the token that was received from the receiving agent.</p>
-<h2 id="args">Args</h2>
 <dl>
+<dt>Args</dt>
+<dt>-----=</dt>
 <dt><strong><code>r_aid</code></strong></dt>
 <dd>The AID of the receiving agent.</dd>
 <dt><strong><code>token_str</code></strong></dt>
@@ -2498,8 +2514,9 @@ If the token is not valid, it removes it from the received tokens and the aid_to
 - If it was not generated by self, it is invalid.
 - If it is expired, it is invalid.
 - If the communication quota is reached, it is invalid.</p>
-<h2 id="args">Args</h2>
 <dl>
+<dt>Args</dt>
+<dt>-----=</dt>
 <dt><strong><code>token</code></strong> :&ensp;<code>str</code></dt>
 <dd>The token to check.</dd>
 <dt><strong><code>recipient_pac</code></strong></dt>
