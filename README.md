@@ -34,8 +34,6 @@ implementation-to-model refinement proof.
   the matcher and consumer validation paths.
 - `proofs/reproduce_matcher.py`: read-only direct invocation of the production
   matcher for the recorded counterexample.
-- `proofs/test_matcher_bug.py`: compact, standalone logic-level demonstration of
-  the same order-dependent behavior.
 - `proofs/proverif/`: baseline and authorization-analysis ProVerif models.
 - `proofs/decision_bridge/`: finite specification evaluator, provenance checks,
   scenario generator, tests, fixed observations, and one representative replay.
@@ -91,7 +89,6 @@ Run all commands from the repository root.
 
 ```text
 python -B proofs/reproduce_matcher.py
-python -B proofs/test_matcher_bug.py
 ```
 
 Expected result: for the ordered policy containing a specific deny followed by a

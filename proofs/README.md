@@ -8,8 +8,6 @@ the SAGA authorization analysis.
 
 - `reproduce_matcher.py` invokes the unchanged production matcher directly for
   the recorded ordered-rule counterexample and writes no files.
-- `test_matcher_bug.py` is a compact standalone demonstration of the
-  order-dependent selection behavior.
 - `proverif/` contains the retained baseline, authorization, gate-control, and
   divergence-scenario models.
 - `decision_bridge/` evaluates the finite specification for the recorded input,
