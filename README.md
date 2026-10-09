@@ -103,13 +103,13 @@ archived production observation is under
 
 ```text
 python -B -m unittest discover -s proofs/decision_bridge -p test_bridge.py -v
-python -B proofs/decision_bridge/run_bridge.py
+python -B proofs/decision_bridge/run_bridge.py --output .runtime/bridge-replay-check
 ```
 
 Expected result: the tests pass, and the replay reports `SpecDecision = Deny`,
-`ImplObserved = Allow`, and `divergence = true`. A new timestamped replay is
-written to `proofs/decision_bridge/evidence/`; existing archives are never
-overwritten.
+`ImplObserved = Allow`, and `divergence = true`. The `.runtime/` directory is a
+Git-ignored location for temporary output, so this replay leaves the Git worktree
+clean and does not overwrite any archived evidence.
 
 To reconstruct the full scenario and run ProVerif in one provenance-checked
 workflow, use a clean Git checkout:
