@@ -1,0 +1,27 @@
+{
+  "executed_utc": "2026-09-16T12:39:59.844483+00:00",
+  "base_commit": "7372111bea150e32cee390a616849316d2780bfc",
+  "source": "saga/common/contact_policy.py",
+  "source_sha256": "2e37f59651acc31ed9fad8436462faabcb49c52ab3032eccd1529cd72870aa97",
+  "python_version": "3.14.3 (main, Feb  5 2026, 13:34:54)  [MINGW GCC UCRT 15.2.0 64 bit (AMD64)]",
+  "aid": "alice@example.com:agent",
+  "rules": [
+    {
+      "pattern": "alice@example.com:*",
+      "budget": -1
+    },
+    {
+      "pattern": "*",
+      "budget": 10
+    }
+  ],
+  "rulebook_valid": true,
+  "specificities": [
+    70,
+    0
+  ],
+  "expected_under_documented_most_specific_semantics": -1,
+  "actual_specific_deny_then_wildcard_allow": 10,
+  "actual_wildcard_allow_then_specific_deny": -1,
+  "scope": "Direct call of the unmodified matcher only; no Provider, network, token issuance, or message acceptance tested."
+}

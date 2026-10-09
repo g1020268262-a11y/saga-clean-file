@@ -1,0 +1,524 @@
+{
+  "after": {
+    "active_tokens": {
+      "61c0f2058fcc605bb419fa6331eba0a7d5e30320a797904da8125afc0f5c2de7": {
+        "communication_quota": 50,
+        "expiration_timestamp": "2026-09-26T08:00:26.420578+00:00",
+        "issue_timestamp": "2026-09-26T07:00:26.420578+00:00",
+        "nonce": "HAqhtkLJHAYstrZ4",
+        "recipient_pac": "RMD+lF2lqmXa+YbunGxBhZXMEJZF8bF9ChzEDmm+jkE="
+      }
+    },
+    "counter": [
+      {
+        "aid": "alice@example.com:agent",
+        "budget": 9
+      }
+    ],
+    "provider_otk_sigs": [],
+    "provider_otks": [],
+    "provider_rules": [
+      {
+        "budget": -1,
+        "pattern": "alice@example.com:*"
+      },
+      {
+        "budget": 10,
+        "pattern": "*"
+      }
+    ],
+    "receiver_otks": [],
+    "receiver_rules": [
+      {
+        "budget": -1,
+        "pattern": "alice@example.com:*"
+      },
+      {
+        "budget": 10,
+        "pattern": "*"
+      }
+    ]
+  },
+  "assertions": [
+    {
+      "actual": "OK",
+      "expected": "OK",
+      "name": "supported_spec",
+      "status": "pass",
+      "through_event": 0
+    },
+    {
+      "actual": -1,
+      "expected": -1,
+      "name": "spec_budget",
+      "status": "pass",
+      "through_event": 0
+    },
+    {
+      "actual": [
+        {
+          "budget": -1,
+          "pattern": "alice@example.com:*"
+        },
+        {
+          "budget": 10,
+          "pattern": "*"
+        }
+      ],
+      "expected": [
+        {
+          "budget": -1,
+          "pattern": "alice@example.com:*"
+        },
+        {
+          "budget": 10,
+          "pattern": "*"
+        }
+      ],
+      "name": "provider_rules",
+      "status": "pass",
+      "through_event": 0
+    },
+    {
+      "actual": [
+        {
+          "budget": -1,
+          "pattern": "alice@example.com:*"
+        },
+        {
+          "budget": 10,
+          "pattern": "*"
+        }
+      ],
+      "expected": [
+        {
+          "budget": -1,
+          "pattern": "alice@example.com:*"
+        },
+        {
+          "budget": 10,
+          "pattern": "*"
+        }
+      ],
+      "name": "receiver_rules",
+      "status": "pass",
+      "through_event": 0
+    },
+    {
+      "actual": [],
+      "expected": [],
+      "name": "initial_counter",
+      "status": "pass",
+      "through_event": 0
+    },
+    {
+      "actual": {},
+      "expected": {},
+      "name": "initial_active_tokens",
+      "status": "pass",
+      "through_event": 0
+    },
+    {
+      "actual": 1,
+      "expected": 1,
+      "name": "initial_otk_count",
+      "status": "pass",
+      "through_event": 0
+    },
+    {
+      "actual": [
+        "61cc26234768cd2803cc0f8bde4d57944e2daaf10a9563ffba78740ad2aa32f3"
+      ],
+      "expected": [
+        "61cc26234768cd2803cc0f8bde4d57944e2daaf10a9563ffba78740ad2aa32f3"
+      ],
+      "name": "initial_otk_binding",
+      "status": "pass",
+      "through_event": 0
+    },
+    {
+      "actual": 200,
+      "expected": 200,
+      "name": "http_status",
+      "status": "pass",
+      "through_event": 2
+    },
+    {
+      "actual": 1,
+      "expected": 1,
+      "name": "released_otk_count",
+      "status": "pass",
+      "through_event": 2
+    },
+    {
+      "actual": "bob@example.com:receiver",
+      "expected": "bob@example.com:receiver",
+      "name": "response_receiver",
+      "status": "pass",
+      "through_event": 2
+    },
+    {
+      "actual": [
+        "61cc26234768cd2803cc0f8bde4d57944e2daaf10a9563ffba78740ad2aa32f3"
+      ],
+      "expected": [
+        "61cc26234768cd2803cc0f8bde4d57944e2daaf10a9563ffba78740ad2aa32f3"
+      ],
+      "name": "released_otk_binding",
+      "status": "pass",
+      "through_event": 2
+    },
+    {
+      "actual": 1,
+      "expected": 1,
+      "name": "exactly_one_token_response",
+      "status": "pass",
+      "through_event": 7
+    },
+    {
+      "actual": [
+        "token"
+      ],
+      "expected": [
+        "token"
+      ],
+      "name": "token_response_shape",
+      "status": "pass",
+      "through_event": 7
+    },
+    {
+      "actual": true,
+      "expected": true,
+      "name": "active_token_binding",
+      "status": "pass",
+      "through_event": 7
+    },
+    {
+      "actual": {
+        "communication_quota": 50,
+        "expiration_timestamp": "2026-09-26T08:00:26.420578+00:00",
+        "issue_timestamp": "2026-09-26T07:00:26.420578+00:00",
+        "nonce": "HAqhtkLJHAYstrZ4",
+        "recipient_pac": "RMD+lF2lqmXa+YbunGxBhZXMEJZF8bF9ChzEDmm+jkE="
+      },
+      "expected": {
+        "communication_quota": 50,
+        "expiration_timestamp": "2026-09-26T08:00:26.420578+00:00",
+        "issue_timestamp": "2026-09-26T07:00:26.420578+00:00",
+        "nonce": "HAqhtkLJHAYstrZ4",
+        "recipient_pac": "RMD+lF2lqmXa+YbunGxBhZXMEJZF8bF9ChzEDmm+jkE="
+      },
+      "name": "token_decryption_matches_storage",
+      "status": "pass",
+      "through_event": 7
+    },
+    {
+      "actual": "RMD+lF2lqmXa+YbunGxBhZXMEJZF8bF9ChzEDmm+jkE=",
+      "expected": "RMD+lF2lqmXa+YbunGxBhZXMEJZF8bF9ChzEDmm+jkE=",
+      "name": "token_pac",
+      "status": "pass",
+      "through_event": 7
+    },
+    {
+      "actual": 50,
+      "expected": 50,
+      "name": "token_initial_quota",
+      "status": "pass",
+      "through_event": 7
+    },
+    {
+      "actual": true,
+      "expected": true,
+      "name": "token_valid_time",
+      "status": "pass",
+      "through_event": 7
+    },
+    {
+      "actual": 1,
+      "expected": 1,
+      "name": "cutoff_count",
+      "status": "pass",
+      "through_event": 8
+    },
+    {
+      "actual": true,
+      "expected": true,
+      "name": "stored_before_cutoff",
+      "status": "pass",
+      "through_event": 8
+    },
+    {
+      "actual": true,
+      "expected": true,
+      "name": "sent_before_cutoff",
+      "status": "pass",
+      "through_event": 8
+    },
+    {
+      "actual": [
+        "provider",
+        "receiver"
+      ],
+      "expected": [
+        "provider",
+        "receiver"
+      ],
+      "name": "matcher_consumers",
+      "status": "pass",
+      "through_event": 8
+    },
+    {
+      "actual": [
+        [
+          {
+            "budget": -1,
+            "pattern": "alice@example.com:*"
+          },
+          {
+            "budget": 10,
+            "pattern": "*"
+          }
+        ],
+        "alice@example.com:agent"
+      ],
+      "expected": [
+        [
+          {
+            "budget": -1,
+            "pattern": "alice@example.com:*"
+          },
+          {
+            "budget": 10,
+            "pattern": "*"
+          }
+        ],
+        "alice@example.com:agent"
+      ],
+      "name": "provider_matcher_input",
+      "status": "pass",
+      "through_event": 8
+    },
+    {
+      "actual": 10,
+      "expected": 10,
+      "name": "provider_matcher_budget",
+      "status": "pass",
+      "through_event": 8
+    },
+    {
+      "actual": [
+        [
+          {
+            "budget": -1,
+            "pattern": "alice@example.com:*"
+          },
+          {
+            "budget": 10,
+            "pattern": "*"
+          }
+        ],
+        "alice@example.com:agent"
+      ],
+      "expected": [
+        [
+          {
+            "budget": -1,
+            "pattern": "alice@example.com:*"
+          },
+          {
+            "budget": 10,
+            "pattern": "*"
+          }
+        ],
+        "alice@example.com:agent"
+      ],
+      "name": "receiver_matcher_input",
+      "status": "pass",
+      "through_event": 8
+    },
+    {
+      "actual": 10,
+      "expected": 10,
+      "name": "receiver_matcher_budget",
+      "status": "pass",
+      "through_event": 8
+    },
+    {
+      "actual": 0,
+      "expected": 0,
+      "name": "local_agent_run_count",
+      "status": "pass",
+      "through_event": 8
+    },
+    {
+      "actual": 0,
+      "expected": 0,
+      "name": "conversation_reads",
+      "status": "pass",
+      "through_event": 8
+    },
+    {
+      "actual": [],
+      "expected": [],
+      "name": "provider_otks_consumed",
+      "status": "pass",
+      "through_event": 8
+    },
+    {
+      "actual": [],
+      "expected": [],
+      "name": "provider_otk_sigs_consumed",
+      "status": "pass",
+      "through_event": 8
+    },
+    {
+      "actual": [
+        {
+          "aid": "alice@example.com:agent",
+          "budget": 9
+        }
+      ],
+      "expected": [
+        {
+          "aid": "alice@example.com:agent",
+          "budget": 9
+        }
+      ],
+      "name": "provider_counter",
+      "status": "pass",
+      "through_event": 8
+    },
+    {
+      "actual": [],
+      "expected": [],
+      "name": "receiver_otks_consumed",
+      "status": "pass",
+      "through_event": 8
+    },
+    {
+      "actual": 1,
+      "expected": 1,
+      "name": "active_token_count",
+      "status": "pass",
+      "through_event": 8
+    },
+    {
+      "actual": true,
+      "expected": true,
+      "name": "connection_closed",
+      "status": "pass",
+      "through_event": 8
+    }
+  ],
+  "before": {
+    "active_tokens": {},
+    "counter": [],
+    "provider_otk_sigs": [
+      "ca5373271e84b1bec3e638d47a0709b4a10aa777c6e1dcfe47cd91a003c91448"
+    ],
+    "provider_otks": [
+      "61cc26234768cd2803cc0f8bde4d57944e2daaf10a9563ffba78740ad2aa32f3"
+    ],
+    "provider_rules": [
+      {
+        "budget": -1,
+        "pattern": "alice@example.com:*"
+      },
+      {
+        "budget": 10,
+        "pattern": "*"
+      }
+    ],
+    "receiver_otks": [
+      "61cc26234768cd2803cc0f8bde4d57944e2daaf10a9563ffba78740ad2aa32f3"
+    ],
+    "receiver_rules": [
+      {
+        "budget": -1,
+        "pattern": "alice@example.com:*"
+      },
+      {
+        "budget": 10,
+        "pattern": "*"
+      }
+    ]
+  },
+  "case_id": "da",
+  "execution_status": "completed",
+  "expectations_met": true,
+  "handshake": {
+    "card": {
+      "IP": "127.0.0.1",
+      "agent_cert": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUJ1akNDQVd5Z0F3SUJBZ0lVTkM1YUUwaUZtUW9KNW50RDdKVFdReitvNEJBd0JRWURLMlZ3TUZBeEN6QUoKQmdOVkJBWVRBbFZUTVEwd0N3WURWUVFJREFSVVpYTjBNUTB3Q3dZRFZRUUhEQVJVWlhOME1ROHdEUVlEVlFRSwpEQVpRYUdGelpURXhFakFRQmdOVkJBTU1DWEJvWVhObE1TMWpZVEFlRncweU5qQTVNall4TlRBd01qWmFGdzB5Ck56QTVNall4TlRBd01qWmFNR3N4Q3pBSkJnTlZCQVlUQWxoWU1SSXdFQVlEVlFRSURBbEJibTl1ZVcxdmRYTXgKRWpBUUJnTlZCQWNNQ1VGdWIyNTViVzkxY3pFU01CQUdBMVVFQ2d3SlFXNXZibmx0YjNWek1TQXdIZ1lEVlFRRApEQmRoYkdsalpVQmxlR0Z0Y0d4bExtTnZiVHBoWjJWdWREQXFNQVVHQXl0bGNBTWhBSHdKUFVaT29wWllLQ3FmCjRhRHFtTWc5ZlE3Wm93WERNVFVjZXlQYm5FSElvejB3T3pBTUJnTlZIUk1CQWY4RUFqQUFNQ3NHQTFVZEVRRUIKL3dRaE1CK0NGMkZzYVdObFFHVjRZVzF3YkdVdVkyOXRPbUZuWlc1MGh3Ui9BQUFCTUFVR0F5dGxjQU5CQU9mdwpycXFXQW9adGZkT0tyWGgwTWJ4TEZsNE9oQlhKdVFWUDh1aVUrNzZRZWx3clpPNVJWajhFbjZtcElVNjIwV08zCkNmbDB3M1VtUndxanY3OXBmZ009Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K",
+      "agent_sig": "I62HXIg6rO/0Wg5gbOjjKVIY4uS1iDgKMOiLLU0sQpMTh+Q7gLw130jXDzpbPcSICSfkvWz2uZZrrjwZJo1kBg==",
+      "aid": "alice@example.com:agent",
+      "device": "phase1",
+      "pac": "RMD+lF2lqmXa+YbunGxBhZXMEJZF8bF9ChzEDmm+jkE=",
+      "port": 12345
+    },
+    "crt_u": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUJyakNDQVdDZ0F3SUJBZ0lVVGFkdFVFWlh4aWtSc3RCWis2V2JJMC80b0pnd0JRWURLMlZ3TUZBeEN6QUoKQmdOVkJBWVRBbFZUTVEwd0N3WURWUVFJREFSVVpYTjBNUTB3Q3dZRFZRUUhEQVJVWlhOME1ROHdEUVlEVlFRSwpEQVpRYUdGelpURXhFakFRQmdOVkJBTU1DWEJvWVhObE1TMWpZVEFlRncweU5qQTVNall4TlRBd01qWmFGdzB5Ck56QTVNall4TlRBd01qWmFNR1V4Q3pBSkJnTlZCQVlUQWxoWU1SSXdFQVlEVlFRSURBbEJibTl1ZVcxdmRYTXgKRWpBUUJnTlZCQWNNQ1VGdWIyNTViVzkxY3pFU01CQUdBMVVFQ2d3SlFXNXZibmx0YjNWek1Sb3dHQVlEVlFRRApEQkZoYkdsalpVQmxlR0Z0Y0d4bExtTnZiVEFxTUFVR0F5dGxjQU1oQUdIVElqTmx1RWVIR2ViZ0xIdW1Za094CkZXNzZBZW9VNVFkbm44aGVxblpFb3pjd05UQU1CZ05WSFJNQkFmOEVBakFBTUNVR0ExVWRFUUVCL3dRYk1CbUMKRVdGc2FXTmxRR1Y0WVcxd2JHVXVZMjl0aHdSL0FBQUJNQVVHQXl0bGNBTkJBSXRNTk9GeFdHdStSeHN6RWRQQwo1N1hWMjFNWHM4N3Q5MTYwUFBjSHhUM1BMMXpJTGU3ZVJ5TExqRk1VbFJ1RXpGcTJtaGpVY0ZabjF1aGQ4NnRyCmpBaz0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=",
+    "otk": "3KmYS16OKLDP2wZuKw9YfgMHA0eCnWep9X9+ghcKhy8=",
+    "stamp": "shJPVu+/Z0uUngXs4CzRSDtix+hptNL84py902f4uedC3v4thFFCB8CIcs9Nhg/AEEtZ7YaLOoSCWJMYu9DzBw=="
+  },
+  "http": {
+    "body": {
+      "IP": "127.0.0.1",
+      "agent_cert": {
+        "$binary": {
+          "base64": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUJ2RENDQVc2Z0F3SUJBZ0lVSndDNkhWbWxiK1oxcmoxUXVjLzF0ZkZkSkY4d0JRWURLMlZ3TUZBeEN6QUoKQmdOVkJBWVRBbFZUTVEwd0N3WURWUVFJREFSVVpYTjBNUTB3Q3dZRFZRUUhEQVJVWlhOME1ROHdEUVlEVlFRSwpEQVpRYUdGelpURXhFakFRQmdOVkJBTU1DWEJvWVhObE1TMWpZVEFlRncweU5qQTVNall4TlRBd01qWmFGdzB5Ck56QTVNall4TlRBd01qWmFNR3d4Q3pBSkJnTlZCQVlUQWxoWU1SSXdFQVlEVlFRSURBbEJibTl1ZVcxdmRYTXgKRWpBUUJnTlZCQWNNQ1VGdWIyNTViVzkxY3pFU01CQUdBMVVFQ2d3SlFXNXZibmx0YjNWek1TRXdId1lEVlFRRApEQmhpYjJKQVpYaGhiWEJzWlM1amIyMDZjbVZqWldsMlpYSXdLakFGQmdNclpYQURJUUFxa1dqVUwzOGFqeWdvCjlzTmloSUtmcTc0eWZkQUxGRnVmamUvdTkzd3dFcU0rTUR3d0RBWURWUjBUQVFIL0JBSXdBREFzQmdOVkhSRUIKQWY4RUlqQWdnaGhpYjJKQVpYaGhiWEJzWlM1amIyMDZjbVZqWldsMlpYS0hCSDhBQUFFd0JRWURLMlZ3QTBFQQphTnZNQXozOTdVOU9FYkhvb3hzeUFUajNpRWdzSUtHNlp6QjB5NTBVYURBelZpVFhBbytvM0JJWWFpdWVVSXoyCnlBWjg0M1ZmeXZ1WEg5MVpNMkk4Q3c9PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==",
+          "subType": "00"
+        }
+      },
+      "agent_sig": {
+        "$binary": {
+          "base64": "jHU+T/wwtl1eQCY4p0w0094GdRiVAa7EO5KMIkbPEtALOiN7uoaugRWhGQmDpCeWaf3CAQ02xOvNwQC5B0rpBg==",
+          "subType": "00"
+        }
+      },
+      "aid": "bob@example.com:receiver",
+      "crt_u": {
+        "$binary": {
+          "base64": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUJxakNDQVZ5Z0F3SUJBZ0lVTGxoMkdldm94T1lxWTlzenBPeVdwSjkvUldvd0JRWURLMlZ3TUZBeEN6QUoKQmdOVkJBWVRBbFZUTVEwd0N3WURWUVFJREFSVVpYTjBNUTB3Q3dZRFZRUUhEQVJVWlhOME1ROHdEUVlEVlFRSwpEQVpRYUdGelpURXhFakFRQmdOVkJBTU1DWEJvWVhObE1TMWpZVEFlRncweU5qQTVNall4TlRBd01qWmFGdzB5Ck56QTVNall4TlRBd01qWmFNR014Q3pBSkJnTlZCQVlUQWxoWU1SSXdFQVlEVlFRSURBbEJibTl1ZVcxdmRYTXgKRWpBUUJnTlZCQWNNQ1VGdWIyNTViVzkxY3pFU01CQUdBMVVFQ2d3SlFXNXZibmx0YjNWek1SZ3dGZ1lEVlFRRApEQTlpYjJKQVpYaGhiWEJzWlM1amIyMHdLakFGQmdNclpYQURJUURJNzkwb0ZyL0ZHcURqNGhjTEtBcVhiRWtvCk9KVE1UVEpjWW1NMjlaWW9SS00xTURNd0RBWURWUjBUQVFIL0JBSXdBREFqQmdOVkhSRUJBZjhFR1RBWGdnOWkKYjJKQVpYaGhiWEJzWlM1amIyMkhCSDhBQUFFd0JRWURLMlZ3QTBFQXNHNW5qU3F1eGE4WlBUblhCZnRNTEhSbgpwNFhTcDJsekJyUFB0bUx2Q2ZtbElNNU1LT3pyemdnUlpNaTEvVjlrWkxuVTZidHFNUWZCRWV6VUFzUlZCZz09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K",
+          "subType": "00"
+        }
+      },
+      "device": "phase1",
+      "one_time_key_sigs": [
+        {
+          "$binary": {
+            "base64": "d0RqyLddsCZBufiT7mnLEQXSArfHwBdAOLMB5wjKv+9Qtt1bfXWVTGSlMrWgmN+aqClUO/3F+CktLpkh0hYjCQ==",
+            "subType": "00"
+          }
+        }
+      ],
+      "one_time_keys": [
+        {
+          "$binary": {
+            "base64": "3KmYS16OKLDP2wZuKw9YfgMHA0eCnWep9X9+ghcKhy8=",
+            "subType": "00"
+          }
+        }
+      ],
+      "pac": {
+        "$binary": {
+          "base64": "98PsrusmvQWPpmcWwG2g+ZGzH7u18/Tat7kRdTTz2nE=",
+          "subType": "00"
+        }
+      },
+      "port": 12345
+    },
+    "raw_body": "{\"aid\": \"bob@example.com:receiver\", \"device\": \"phase1\", \"IP\": \"127.0.0.1\", \"port\": 12345, \"agent_cert\": {\"$binary\": {\"base64\": \"LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUJ2RENDQVc2Z0F3SUJBZ0lVSndDNkhWbWxiK1oxcmoxUXVjLzF0ZkZkSkY4d0JRWURLMlZ3TUZBeEN6QUoKQmdOVkJBWVRBbFZUTVEwd0N3WURWUVFJREFSVVpYTjBNUTB3Q3dZRFZRUUhEQVJVWlhOME1ROHdEUVlEVlFRSwpEQVpRYUdGelpURXhFakFRQmdOVkJBTU1DWEJvWVhObE1TMWpZVEFlRncweU5qQTVNall4TlRBd01qWmFGdzB5Ck56QTVNall4TlRBd01qWmFNR3d4Q3pBSkJnTlZCQVlUQWxoWU1SSXdFQVlEVlFRSURBbEJibTl1ZVcxdmRYTXgKRWpBUUJnTlZCQWNNQ1VGdWIyNTViVzkxY3pFU01CQUdBMVVFQ2d3SlFXNXZibmx0YjNWek1TRXdId1lEVlFRRApEQmhpYjJKQVpYaGhiWEJzWlM1amIyMDZjbVZqWldsMlpYSXdLakFGQmdNclpYQURJUUFxa1dqVUwzOGFqeWdvCjlzTmloSUtmcTc0eWZkQUxGRnVmamUvdTkzd3dFcU0rTUR3d0RBWURWUjBUQVFIL0JBSXdBREFzQmdOVkhSRUIKQWY4RUlqQWdnaGhpYjJKQVpYaGhiWEJzWlM1amIyMDZjbVZqWldsMlpYS0hCSDhBQUFFd0JRWURLMlZ3QTBFQQphTnZNQXozOTdVOU9FYkhvb3hzeUFUajNpRWdzSUtHNlp6QjB5NTBVYURBelZpVFhBbytvM0JJWWFpdWVVSXoyCnlBWjg0M1ZmeXZ1WEg5MVpNMkk4Q3c9PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==\", \"subType\": \"00\"}}, \"pac\": {\"$binary\": {\"base64\": \"98PsrusmvQWPpmcWwG2g+ZGzH7u18/Tat7kRdTTz2nE=\", \"subType\": \"00\"}}, \"agent_sig\": {\"$binary\": {\"base64\": \"jHU+T/wwtl1eQCY4p0w0094GdRiVAa7EO5KMIkbPEtALOiN7uoaugRWhGQmDpCeWaf3CAQ02xOvNwQC5B0rpBg==\", \"subType\": \"00\"}}, \"one_time_keys\": [{\"$binary\": {\"base64\": \"3KmYS16OKLDP2wZuKw9YfgMHA0eCnWep9X9+ghcKhy8=\", \"subType\": \"00\"}}], \"one_time_key_sigs\": [{\"$binary\": {\"base64\": \"d0RqyLddsCZBufiT7mnLEQXSArfHwBdAOLMB5wjKv+9Qtt1bfXWVTGSlMrWgmN+aqClUO/3F+CktLpkh0hYjCQ==\", \"subType\": \"00\"}}], \"crt_u\": {\"$binary\": {\"base64\": \"LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUJxakNDQVZ5Z0F3SUJBZ0lVTGxoMkdldm94T1lxWTlzenBPeVdwSjkvUldvd0JRWURLMlZ3TUZBeEN6QUoKQmdOVkJBWVRBbFZUTVEwd0N3WURWUVFJREFSVVpYTjBNUTB3Q3dZRFZRUUhEQVJVWlhOME1ROHdEUVlEVlFRSwpEQVpRYUdGelpURXhFakFRQmdOVkJBTU1DWEJvWVhObE1TMWpZVEFlRncweU5qQTVNall4TlRBd01qWmFGdzB5Ck56QTVNall4TlRBd01qWmFNR014Q3pBSkJnTlZCQVlUQWxoWU1SSXdFQVlEVlFRSURBbEJibTl1ZVcxdmRYTXgKRWpBUUJnTlZCQWNNQ1VGdWIyNTViVzkxY3pFU01CQUdBMVVFQ2d3SlFXNXZibmx0YjNWek1SZ3dGZ1lEVlFRRApEQTlpYjJKQVpYaGhiWEJzWlM1amIyMHdLakFGQmdNclpYQURJUURJNzkwb0ZyL0ZHcURqNGhjTEtBcVhiRWtvCk9KVE1UVEpjWW1NMjlaWW9SS00xTURNd0RBWURWUjBUQVFIL0JBSXdBREFqQmdOVkhSRUJBZjhFR1RBWGdnOWkKYjJKQVpYaGhiWEJzWlM1amIyMkhCSDhBQUFFd0JRWURLMlZ3QTBFQXNHNW5qU3F1eGE4WlBUblhCZnRNTEhSbgpwNFhTcDJsekJyUFB0bUx2Q2ZtbElNNU1LT3pyemdnUlpNaTEvVjlrWkxuVTZidHFNUWZCRWV6VUFzUlZCZz09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K\", \"subType\": \"00\"}}}",
+    "status": 200
+  },
+  "pair": "D/A",
+  "token": {
+    "decoded": {
+      "communication_quota": 50,
+      "expiration_timestamp": "2026-09-26T08:00:26.420578+00:00",
+      "issue_timestamp": "2026-09-26T07:00:26.420578+00:00",
+      "nonce": "HAqhtkLJHAYstrZ4",
+      "recipient_pac": "RMD+lF2lqmXa+YbunGxBhZXMEJZF8bF9ChzEDmm+jkE="
+    },
+    "sha256": "61c0f2058fcc605bb419fa6331eba0a7d5e30320a797904da8125afc0f5c2de7"
+  }
+}

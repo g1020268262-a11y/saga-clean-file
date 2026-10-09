@@ -1,0 +1,8 @@
+[
+  {"id": "aa", "pair": "A/A", "spec_budget": 10, "impl_budget": 10,
+   "rules": [{"pattern": "alice@example.com:*", "budget": 10}, {"pattern": "*", "budget": 10}]},
+  {"id": "dd", "pair": "D/D", "spec_budget": -1, "impl_budget": -1,
+   "rules": [{"pattern": "*", "budget": 10}, {"pattern": "alice@example.com:*", "budget": -1}]},
+  {"id": "da", "pair": "D/A", "spec_budget": -1, "impl_budget": 10,
+   "rules": [{"pattern": "alice@example.com:*", "budget": -1}, {"pattern": "*", "budget": 10}]}
+]

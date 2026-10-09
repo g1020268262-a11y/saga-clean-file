@@ -1,0 +1,142 @@
+{
+  "started_utc": "2026-09-16T12:38:34.947993+00:00",
+  "base_commit": "7372111bea150e32cee390a616849316d2780bfc",
+  "branch": "my-modification",
+  "publication_redactions": [
+    "Local executable and workspace paths were normalized to repository-relative values.",
+    "A non-artifact internal-note path was removed from the recorded post-run status."
+  ],
+  "pre_run_git_status": "?? proofs/proverif/agent_communication_authz.pv\n?? proofs/run_authz_diagnostic.py",
+  "proverif_executable": "proverif.exe",
+  "proverif_sha256": "702273912616a46919d5a2ecd0c5465cffdea9ff66296171d44d01d1700b8894",
+  "runner_sha256": "9d49cfa24553f08f81f5307a0068dc377e1cbb7da69459ec921ed15fd892a1a9",
+  "model_sha256_before": {
+    "proofs\\proverif\\registration.pv": "183b2867162ee2862861b84dff153f22f1a33d03616efc90f48f688c809e2da0",
+    "proofs\\proverif\\agent_communication.pv": "3faf15a801658dc70ceacf1752557cec62ad965854304ad703dce8bdee008302",
+    "proofs\\proverif\\agent_communication_authz.pv": "20dc6fe128b89b8da46a2d1d4adb410de0945ab6036cd093dee40eb8fdca7166"
+  },
+  "extension_is_additive_only": true,
+  "runs": [
+    {
+      "model": "proofs\\proverif\\registration.pv",
+      "command": [
+        "proverif.exe",
+        "proofs/proverif/registration.pv"
+      ],
+      "started_utc": "2026-09-16T12:38:35.362460+00:00",
+      "stdout": "registration.stdout.txt",
+      "stderr": "registration.stderr.txt",
+      "exit_code": 0,
+      "elapsed_seconds": 0.102,
+      "finished_utc": "2026-09-16T12:38:35.466894+00:00",
+      "results": [
+        "RESULT not event(start) is false.",
+        "RESULT not event(EndProvider(x,y,k)) is false.",
+        "RESULT not event(EndPeerA(x,y,k)) is false.",
+        "RESULT event(EndPeerA(x,y,k)) ==> event(EndProvider(x,y,k)) is true."
+      ],
+      "stdout_sha256": "9254444ad4ebdfb96dcb3d237ec482eb5c40e814d059f51483b04fe72a6e90da",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "model": "proofs\\proverif\\agent_communication.pv",
+      "command": [
+        "proverif.exe",
+        "proofs/proverif/agent_communication.pv"
+      ],
+      "started_utc": "2026-09-16T12:38:35.467984+00:00",
+      "stdout": "agent_communication.stdout.txt",
+      "stderr": "agent_communication.stderr.txt",
+      "exit_code": 0,
+      "elapsed_seconds": 334.595,
+      "finished_utc": "2026-09-16T12:44:10.063870+00:00",
+      "results": [
+        "RESULT not event(start) is false.",
+        "RESULT not event(EndAuthB(x,y,k)) is false.",
+        "RESULT not event(EndAuthA(x,y,k)) is false.",
+        "RESULT not event(EndProviderAuthA(x,y,k)) is false.",
+        "RESULT not event(EndProviderAuthB(x,y,k)) is false.",
+        "RESULT not event(EndAgentAuthA(x,y,k)) is false.",
+        "RESULT not event(EndAgentAuthB(x,y,k)) is false.",
+        "RESULT event(EndAgentAuthB(x,y,k)) ==> event(EndAgentAuthA(x,y,k)) is true.",
+        "RESULT event(EndAuthA(x,y,k)) ==> event(EndProviderAuthA(x,y,k)) is true.",
+        "RESULT event(EndAuthB(x,y,k)) ==> event(EndProviderAuthB(x,y,k)) is true.",
+        "RESULT not attacker_p6(token[]) is true."
+      ],
+      "stdout_sha256": "5b4d5becb9badeeed7f1968bed00e9b272876cf2d5088b2ac8ba3f02e9ce985b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "model": "proofs\\proverif\\agent_communication_authz.pv",
+      "command": [
+        "proverif.exe",
+        "proofs/proverif/agent_communication_authz.pv"
+      ],
+      "started_utc": "2026-09-16T12:44:10.066304+00:00",
+      "stdout": "agent_communication_authz.stdout.txt",
+      "stderr": "agent_communication_authz.stderr.txt",
+      "exit_code": 0,
+      "elapsed_seconds": 353.713,
+      "finished_utc": "2026-09-16T12:50:03.780537+00:00",
+      "results": [
+        "RESULT not event(start) is false.",
+        "RESULT not event(EndAuthB(x,y,k)) is false.",
+        "RESULT not event(EndAuthA(x,y,k)) is false.",
+        "RESULT not event(EndProviderAuthA(x,y,k)) is false.",
+        "RESULT not event(EndProviderAuthB(x,y,k)) is false.",
+        "RESULT not event(EndAgentAuthA(x,y,k)) is false.",
+        "RESULT not event(EndAgentAuthB(x,y,k)) is false.",
+        "RESULT event(EndAgentAuthB(x,y,k)) ==> event(EndAgentAuthA(x,y,k)) is true.",
+        "RESULT event(EndAuthA(x,y,k)) ==> event(EndProviderAuthA(x,y,k)) is true.",
+        "RESULT event(EndAuthB(x,y,k)) ==> event(EndProviderAuthB(x,y,k)) is true.",
+        "RESULT not attacker_p6(token[]) is true.",
+        "RESULT event(Accept(issuer,recipient,tok)) ==> event(PolicyAllow(issuer,recipient)) is false."
+      ],
+      "stdout_sha256": "7e624da1cb7f75d2565a94b88836668f4af6ec1edc1a6b5d71deaee5061fa3ec",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "completed": true,
+  "proverif_version": "Proverif 2.05. Cryptographic protocol verifier, by Bruno Blanchet, Vincent Cheval, and Marc Sylvestre",
+  "checks": {
+    "registration_four_results": true,
+    "baseline_eleven_results": true,
+    "extended_twelve_results": true,
+    "baseline_seven_reachable_events": true,
+    "baseline_three_authentication_correspondences_true": true,
+    "baseline_token_secrecy_true": true,
+    "all_baseline_results_preserved": true,
+    "authorization_correspondence_false": true,
+    "models_unchanged_during_run": true,
+    "runner_unchanged_during_run": true,
+    "git_head_unchanged_during_run": true,
+    "authorization_trace_reconstructed": true,
+    "deny_event_in_authorization_trace": true
+  },
+  "model_sha256_after": {
+    "proofs\\proverif\\registration.pv": "183b2867162ee2862861b84dff153f22f1a33d03616efc90f48f688c809e2da0",
+    "proofs\\proverif\\agent_communication.pv": "3faf15a801658dc70ceacf1752557cec62ad965854304ad703dce8bdee008302",
+    "proofs\\proverif\\agent_communication_authz.pv": "20dc6fe128b89b8da46a2d1d4adb410de0945ab6036cd093dee40eb8fdca7166"
+  },
+  "authorization_trace_source": {
+    "file": "agent_communication_authz.stdout.txt",
+    "first_line": 5247,
+    "last_line": 5698
+  },
+  "finished_utc": "2026-09-16T12:50:03.875412+00:00",
+  "post_run_git_status": "?? proofs/evidence/authz-stage1-20260916T123834944479Z/agent_communication.stderr.txt\n?? proofs/evidence/authz-stage1-20260916T123834944479Z/agent_communication.stdout.txt\n?? proofs/evidence/authz-stage1-20260916T123834944479Z/agent_communication_authz.stderr.txt\n?? proofs/evidence/authz-stage1-20260916T123834944479Z/agent_communication_authz.stdout.txt\n?? proofs/evidence/authz-stage1-20260916T123834944479Z/authorization-trace.txt\n?? proofs/evidence/authz-stage1-20260916T123834944479Z/manifest.json\n?? proofs/evidence/authz-stage1-20260916T123834944479Z/model-additions.diff\n?? proofs/evidence/authz-stage1-20260916T123834944479Z/policy-matcher-sanity.json\n?? proofs/evidence/authz-stage1-20260916T123834944479Z/policy-matcher-sanity.py\n?? proofs/evidence/authz-stage1-20260916T123834944479Z/proverif-version.txt\n?? proofs/evidence/authz-stage1-20260916T123834944479Z/registration.stderr.txt\n?? proofs/evidence/authz-stage1-20260916T123834944479Z/registration.stdout.txt\n?? proofs/evidence/authz-stage1-20260916T123834944479Z/verification-summary.txt\n?? proofs/proverif/agent_communication_authz.pv\n?? proofs/run_authz_diagnostic.py",
+  "evidence_sha256": {
+    "agent_communication.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "agent_communication.stdout.txt": "5b4d5becb9badeeed7f1968bed00e9b272876cf2d5088b2ac8ba3f02e9ce985b",
+    "agent_communication_authz.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "agent_communication_authz.stdout.txt": "7e624da1cb7f75d2565a94b88836668f4af6ec1edc1a6b5d71deaee5061fa3ec",
+    "authorization-trace.txt": "2f1dcf42fdfa19a5b4e320df93a6f92b48a9b5fd154a100c359619dde35d850c",
+    "model-additions.diff": "ccff472d8b926898ab793af68b71429ebf336d640ecaf244ba1342baffeb2e1a",
+    "policy-matcher-sanity.json": "b1148bdb2e2b450ca318b28266deb2dcd30d74af1ccec405ff855bf43c7fc56d",
+    "policy-matcher-sanity.py": "483aae0217d45d31163aa3874ad5180552ddb513e958c3815f92c9a93d2151b2",
+    "proverif-version.txt": "c00f1890d591537c078cc8ce60db401be65197779353e07a6fdbb8ae2b07ec5f",
+    "registration.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "registration.stdout.txt": "9254444ad4ebdfb96dcb3d237ec482eb5c40e814d059f51483b04fe72a6e90da",
+    "verification-summary.txt": "92a4156a03bd8d72e06cb032713b7a7547ce15cd61ad97e207bfb9d1a0ee3e6a"
+  }
+}

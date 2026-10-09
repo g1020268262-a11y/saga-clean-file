@@ -1,0 +1,32 @@
+proofs\proverif\registration.pv
+RESULT not event(start) is false.
+RESULT not event(EndProvider(x,y,k)) is false.
+RESULT not event(EndPeerA(x,y,k)) is false.
+RESULT event(EndPeerA(x,y,k)) ==> event(EndProvider(x,y,k)) is true.
+
+proofs\proverif\agent_communication.pv
+RESULT not event(start) is false.
+RESULT not event(EndAuthB(x,y,k)) is false.
+RESULT not event(EndAuthA(x,y,k)) is false.
+RESULT not event(EndProviderAuthA(x,y,k)) is false.
+RESULT not event(EndProviderAuthB(x,y,k)) is false.
+RESULT not event(EndAgentAuthA(x,y,k)) is false.
+RESULT not event(EndAgentAuthB(x,y,k)) is false.
+RESULT event(EndAgentAuthB(x,y,k)) ==> event(EndAgentAuthA(x,y,k)) is true.
+RESULT event(EndAuthA(x,y,k)) ==> event(EndProviderAuthA(x,y,k)) is true.
+RESULT event(EndAuthB(x,y,k)) ==> event(EndProviderAuthB(x,y,k)) is true.
+RESULT not attacker_p6(token[]) is true.
+
+proofs\proverif\agent_communication_authz.pv
+RESULT not event(start) is false.
+RESULT not event(EndAuthB(x,y,k)) is false.
+RESULT not event(EndAuthA(x,y,k)) is false.
+RESULT not event(EndProviderAuthA(x,y,k)) is false.
+RESULT not event(EndProviderAuthB(x,y,k)) is false.
+RESULT not event(EndAgentAuthA(x,y,k)) is false.
+RESULT not event(EndAgentAuthB(x,y,k)) is false.
+RESULT event(EndAgentAuthB(x,y,k)) ==> event(EndAgentAuthA(x,y,k)) is true.
+RESULT event(EndAuthA(x,y,k)) ==> event(EndProviderAuthA(x,y,k)) is true.
+RESULT event(EndAuthB(x,y,k)) ==> event(EndProviderAuthB(x,y,k)) is true.
+RESULT not attacker_p6(token[]) is true.
+RESULT event(Accept(issuer,recipient,tok)) ==> event(PolicyAllow(issuer,recipient)) is false.

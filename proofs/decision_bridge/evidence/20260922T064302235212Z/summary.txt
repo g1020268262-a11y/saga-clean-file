@@ -1,0 +1,4 @@
+Status: OK
+Spec: Deny; observation: Allow; divergence: True
+Fragment generated: True
+No ProVerif run. No refinement proof. Historical evidence unchanged.

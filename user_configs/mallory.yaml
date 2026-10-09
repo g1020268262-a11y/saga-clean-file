@@ -1,0 +1,26 @@
+name: Mallory Jensen
+email: mallory@mail.com
+passwd: "mallory"
+
+agents:
+  - name: "dummy_agent"
+    description: "A dummy agent for protocol testing."
+    endpoint:
+      ip: 127.0.0.1
+      port: 7002
+      device_name: lambda
+    contact_rulebook: [
+      {
+        "pattern": "*",
+        "budget": 100
+      }
+    ]
+    num_one_time_keys: 1
+    local_agent_config:
+      model_type: null
+      api_base: null
+      model: null
+      additional_authorized_imports: []
+      tools:
+        - email
+        - calendar

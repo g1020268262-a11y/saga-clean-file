@@ -1,0 +1,398 @@
+File "proofs\proverif\registration.pv", line 91, characters 35-39:
+Warning: identifier aid_A rebound.
+File "proofs\proverif\registration.pv", line 93, characters 10-14:
+Warning: identifier aid_A rebound.
+File "proofs\proverif\registration.pv", line 93, characters 102-105:
+Warning: identifier ED_A rebound.
+Process 0 (that is, the initial process):
+{1}new SK_CA: skey;
+{2}let PK_CA: pkey = pk(SK_CA) in
+{3}new SK_Prov: skey;
+{4}let PK_Prov: pkey = pk(SK_Prov) in
+{5}new SK_A: skey;
+{6}let PK_A: pkey = pk(SK_A) in
+{7}out(a, (PK_CA,PK_Prov,PK_A));
+{8}event start;
+(
+    {9}!
+    {10}let SK_CA_1: skey = SK_CA in
+    {11}phase 1;
+    {12}let Cert_A: bitstring = sign(SK_CA_1,concat1(aid_A,PK_A)) in
+    {13}out(prov_ca, (Cert_A,aid_A,PK_A));
+    {14}phase 2
+) | (
+    {15}!
+    {16}let SK_Prov_1: skey = SK_Prov in
+    {17}phase 2;
+    {18}in(prov_ca, (Cert_A_1: bitstring,aid_A_1: bitstring,PK_A_1: pkey));
+    {19}in(c, (aid_A_2: bitstring,OTK1_A_sig: bitstring,OTK1_A: pkey,sigma_A_sig: bitstring,PAC_A: pkey,ED_A_1: bitstring));
+    {20}if (checksign(PK_CA,concat1(aid_A_2,PK_A_1),Cert_A_1) = okay) then
+    {21}if (checksign(PK_A_1,rb(OTK1_A),OTK1_A_sig) = okay) then
+    {22}if (checksign(PK_A_1,concat2(aid_A_2,ED_A_1,PK_A_1,PAC_A,PK_Prov),sigma_A_sig) = okay) then
+    {23}let sigma_Prov_sig: bitstring = sign(SK_Prov_1,concat3(aid_A_2,ED_A_1,PK_A_1,PAC_A,sigma_A_sig)) in
+    {24}event EndProvider(ED_A_1,aid_A_2,OTK1_A);
+    {25}out(c, sigma_Prov_sig)
+) | (
+    {26}!
+    {27}let SK_A_1: skey = SK_A in
+    {28}phase 1;
+    {29}let PAC_A_1: pkey = pk(SAC_A) in
+    {30}let OTK1_A_1: pkey = pk(SOTK1_A) in
+    {31}let OTK1_A_sig_1: bitstring = sign(SK_A_1,rb(OTK1_A_1)) in
+    {32}phase 2;
+    {33}let sigma_A_sig_1: bitstring = sign(SK_A_1,concat2(aid_A,ED_A,PK_A,PAC_A_1,PK_Prov)) in
+    {34}out(c, (aid_A,OTK1_A_sig_1,OTK1_A_1,sigma_A_sig_1,PAC_A_1,ED_A));
+    {35}in(c, sigma_Prov_sig_1: bitstring);
+    {36}if (checksign(PK_Prov,concat3(aid_A,ED_A,PK_A,PAC_A_1,sigma_A_sig_1),sigma_Prov_sig_1) = okay) then
+    {37}event EndPeerA(ED_A,aid_A,OTK1_A_1)
+)
+
+--  Process 1 (that is, process 0, with let moved downwards):
+{1}new SK_CA: skey;
+{3}new SK_Prov: skey;
+{5}new SK_A: skey;
+{6}let PK_A: pkey = pk(SK_A) in
+{4}let PK_Prov: pkey = pk(SK_Prov) in
+{2}let PK_CA: pkey = pk(SK_CA) in
+{7}out(a, (PK_CA,PK_Prov,PK_A));
+{8}event start;
+(
+    {9}!
+    {11}phase 1;
+    {10}let SK_CA_1: skey = SK_CA in
+    {12}let Cert_A: bitstring = sign(SK_CA_1,concat1(aid_A,PK_A)) in
+    {13}out(prov_ca, (Cert_A,aid_A,PK_A));
+    {14}phase 2
+) | (
+    {15}!
+    {17}phase 2;
+    {18}in(prov_ca, (Cert_A_1: bitstring,aid_A_1: bitstring,PK_A_1: pkey));
+    {19}in(c, (aid_A_2: bitstring,OTK1_A_sig: bitstring,OTK1_A: pkey,sigma_A_sig: bitstring,PAC_A: pkey,ED_A_1: bitstring));
+    {20}if (checksign(PK_CA,concat1(aid_A_2,PK_A_1),Cert_A_1) = okay) then
+    {21}if (checksign(PK_A_1,rb(OTK1_A),OTK1_A_sig) = okay) then
+    {22}if (checksign(PK_A_1,concat2(aid_A_2,ED_A_1,PK_A_1,PAC_A,PK_Prov),sigma_A_sig) = okay) then
+    {24}event EndProvider(ED_A_1,aid_A_2,OTK1_A);
+    {16}let SK_Prov_1: skey = SK_Prov in
+    {23}let sigma_Prov_sig: bitstring = sign(SK_Prov_1,concat3(aid_A_2,ED_A_1,PK_A_1,PAC_A,sigma_A_sig)) in
+    {25}out(c, sigma_Prov_sig)
+) | (
+    {26}!
+    {28}phase 1;
+    {32}phase 2;
+    {29}let PAC_A_1: pkey = pk(SAC_A) in
+    {27}let SK_A_1: skey = SK_A in
+    {33}let sigma_A_sig_1: bitstring = sign(SK_A_1,concat2(aid_A,ED_A,PK_A,PAC_A_1,PK_Prov)) in
+    {30}let OTK1_A_1: pkey = pk(SOTK1_A) in
+    {31}let OTK1_A_sig_1: bitstring = sign(SK_A_1,rb(OTK1_A_1)) in
+    {34}out(c, (aid_A,OTK1_A_sig_1,OTK1_A_1,sigma_A_sig_1,PAC_A_1,ED_A));
+    {35}in(c, sigma_Prov_sig_1: bitstring);
+    {36}if (checksign(PK_Prov,concat3(aid_A,ED_A,PK_A,PAC_A_1,sigma_A_sig_1),sigma_Prov_sig_1) = okay) then
+    {37}event EndPeerA(ED_A,aid_A,OTK1_A_1)
+)
+
+-- Query not event(start) in process 1.
+Translating the process into Horn clauses...
+Completing...
+200 rules inserted. Base: 166 rules (63 with conclusion selected). Queue: 6 rules.
+Starting query not event(start)
+goal reachable: event(start)
+
+Derivation:
+
+1. Event start may be executed at {8}.
+event(start).
+
+2. By 1, event(start).
+The goal is reached, represented in the following fact:
+event(start).
+
+
+A more detailed output of the traces is available with
+  set traceDisplay = long.
+
+new SK_CA: skey creating SK_CA_2 at {1}
+
+new SK_Prov: skey creating SK_Prov_2 at {3}
+
+new SK_A: skey creating SK_A_2 at {5}
+
+out(a, (~M,~M_1,~M_2)) with ~M = pk(SK_CA_2), ~M_1 = pk(SK_Prov_2), ~M_2 = pk(SK_A_2) at {7}
+
+event start at {8} (goal)
+
+The event start is executed at {8}.
+A trace has been found.
+RESULT not event(start) is false.
+-- Query not event(EndProvider(x,y,k)) in process 1.
+Translating the process into Horn clauses...
+Completing...
+200 rules inserted. Base: 165 rules (62 with conclusion selected). Queue: 18 rules.
+Starting query not event(EndProvider(x,y,k))
+goal reachable: event(EndProvider(ED_A[],aid_A[],pk(SOTK1_A[])))
+
+Derivation:
+
+1. The message (pk(SK_CA[]),pk(SK_Prov[]),pk(SK_A[])) may be sent to the attacker at output {7}.
+attacker((pk(SK_CA[]),pk(SK_Prov[]),pk(SK_A[]))).
+
+2. By 1, the attacker may know (pk(SK_CA[]),pk(SK_Prov[]),pk(SK_A[])).
+Using the function 3-proj-3-tuple the attacker may obtain pk(SK_A[]).
+attacker(pk(SK_A[])).
+
+3. By 2, the attacker may know pk(SK_A[]).
+So the attacker may know pk(SK_A[]) in phase 1.
+attacker_p1(pk(SK_A[])).
+
+4. By 3, the attacker may know pk(SK_A[]) in phase 1.
+So the attacker may know pk(SK_A[]) in phase 2.
+attacker_p2(pk(SK_A[])).
+
+5. The attacker has some term aid_A_3 in phase 2.
+attacker_p2(aid_A_3).
+
+6. The message (sign(SK_CA[],concat1(aid_A[],pk(SK_A[]))),aid_A[],pk(SK_A[])) may be sent to the attacker in phase 1 at output {13}.
+attacker_p1((sign(SK_CA[],concat1(aid_A[],pk(SK_A[]))),aid_A[],pk(SK_A[]))).
+
+7. By 6, the attacker may know (sign(SK_CA[],concat1(aid_A[],pk(SK_A[]))),aid_A[],pk(SK_A[])) in phase 1.
+Using the function 1-proj-3-tuple the attacker may obtain sign(SK_CA[],concat1(aid_A[],pk(SK_A[]))) in phase 1.
+attacker_p1(sign(SK_CA[],concat1(aid_A[],pk(SK_A[])))).
+
+8. By 7, the attacker may know sign(SK_CA[],concat1(aid_A[],pk(SK_A[]))) in phase 1.
+So the attacker may know sign(SK_CA[],concat1(aid_A[],pk(SK_A[]))) in phase 2.
+attacker_p2(sign(SK_CA[],concat1(aid_A[],pk(SK_A[])))).
+
+9. By 8, the attacker may know sign(SK_CA[],concat1(aid_A[],pk(SK_A[]))) in phase 2.
+By 5, the attacker may know aid_A_3 in phase 2.
+By 4, the attacker may know pk(SK_A[]) in phase 2.
+Using the function 3-tuple the attacker may obtain (sign(SK_CA[],concat1(aid_A[],pk(SK_A[]))),aid_A_3,pk(SK_A[])) in phase 2.
+attacker_p2((sign(SK_CA[],concat1(aid_A[],pk(SK_A[]))),aid_A_3,pk(SK_A[]))).
+
+10. The message (aid_A[],sign(SK_A[],rb(pk(SOTK1_A[]))),pk(SOTK1_A[]),sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))),pk(SAC_A[]),ED_A[]) may be sent to the attacker in phase 2 at output {34}.
+attacker_p2((aid_A[],sign(SK_A[],rb(pk(SOTK1_A[]))),pk(SOTK1_A[]),sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))),pk(SAC_A[]),ED_A[])).
+
+11. By 10, the attacker may know (aid_A[],sign(SK_A[],rb(pk(SOTK1_A[]))),pk(SOTK1_A[]),sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))),pk(SAC_A[]),ED_A[]) in phase 2.
+Using the function 6-proj-6-tuple the attacker may obtain ED_A[] in phase 2.
+attacker_p2(ED_A[]).
+
+12. By 10, the attacker may know (aid_A[],sign(SK_A[],rb(pk(SOTK1_A[]))),pk(SOTK1_A[]),sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))),pk(SAC_A[]),ED_A[]) in phase 2.
+Using the function 5-proj-6-tuple the attacker may obtain pk(SAC_A[]) in phase 2.
+attacker_p2(pk(SAC_A[])).
+
+13. By 10, the attacker may know (aid_A[],sign(SK_A[],rb(pk(SOTK1_A[]))),pk(SOTK1_A[]),sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))),pk(SAC_A[]),ED_A[]) in phase 2.
+Using the function 4-proj-6-tuple the attacker may obtain sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))) in phase 2.
+attacker_p2(sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[])))).
+
+14. By 10, the attacker may know (aid_A[],sign(SK_A[],rb(pk(SOTK1_A[]))),pk(SOTK1_A[]),sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))),pk(SAC_A[]),ED_A[]) in phase 2.
+Using the function 3-proj-6-tuple the attacker may obtain pk(SOTK1_A[]) in phase 2.
+attacker_p2(pk(SOTK1_A[])).
+
+15. By 10, the attacker may know (aid_A[],sign(SK_A[],rb(pk(SOTK1_A[]))),pk(SOTK1_A[]),sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))),pk(SAC_A[]),ED_A[]) in phase 2.
+Using the function 2-proj-6-tuple the attacker may obtain sign(SK_A[],rb(pk(SOTK1_A[]))) in phase 2.
+attacker_p2(sign(SK_A[],rb(pk(SOTK1_A[])))).
+
+16. By 6, the attacker may know (sign(SK_CA[],concat1(aid_A[],pk(SK_A[]))),aid_A[],pk(SK_A[])) in phase 1.
+Using the function 2-proj-3-tuple the attacker may obtain aid_A[] in phase 1.
+attacker_p1(aid_A[]).
+
+17. By 16, the attacker may know aid_A[] in phase 1.
+So the attacker may know aid_A[] in phase 2.
+attacker_p2(aid_A[]).
+
+18. By 17, the attacker may know aid_A[] in phase 2.
+By 15, the attacker may know sign(SK_A[],rb(pk(SOTK1_A[]))) in phase 2.
+By 14, the attacker may know pk(SOTK1_A[]) in phase 2.
+By 13, the attacker may know sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))) in phase 2.
+By 12, the attacker may know pk(SAC_A[]) in phase 2.
+By 11, the attacker may know ED_A[] in phase 2.
+Using the function 6-tuple the attacker may obtain (aid_A[],sign(SK_A[],rb(pk(SOTK1_A[]))),pk(SOTK1_A[]),sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))),pk(SAC_A[]),ED_A[]) in phase 2.
+attacker_p2((aid_A[],sign(SK_A[],rb(pk(SOTK1_A[]))),pk(SOTK1_A[]),sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))),pk(SAC_A[]),ED_A[])).
+
+19. The message (sign(SK_CA[],concat1(aid_A[],pk(SK_A[]))),aid_A_3,pk(SK_A[])) that the attacker may have in phase 2 by 9 may be received at input {18}.
+The message (aid_A[],sign(SK_A[],rb(pk(SOTK1_A[]))),pk(SOTK1_A[]),sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))),pk(SAC_A[]),ED_A[]) that the attacker may have in phase 2 by 18 may be received at input {19}.
+So event EndProvider(ED_A[],aid_A[],pk(SOTK1_A[])) may be executed at {24}.
+event(EndProvider(ED_A[],aid_A[],pk(SOTK1_A[]))).
+
+20. By 19, event(EndProvider(ED_A[],aid_A[],pk(SOTK1_A[]))).
+The goal is reached, represented in the following fact:
+event(EndProvider(ED_A[],aid_A[],pk(SOTK1_A[]))).
+
+
+A more detailed output of the traces is available with
+  set traceDisplay = long.
+
+new SK_CA: skey creating SK_CA_2 at {1}
+
+new SK_Prov: skey creating SK_Prov_2 at {3}
+
+new SK_A: skey creating SK_A_2 at {5}
+
+out(a, (~M,~M_1,~M_2)) with ~M = pk(SK_CA_2), ~M_1 = pk(SK_Prov_2), ~M_2 = pk(SK_A_2) at {7}
+
+event start at {8}
+
+out(prov_ca, (~M_3,~M_4,~M_5)) with ~M_3 = sign(SK_CA_2,concat1(aid_A,pk(SK_A_2))), ~M_4 = aid_A, ~M_5 = pk(SK_A_2) at {13} in copy a_1
+
+out(c, (~M_6,~M_7,~M_8,~M_9,~M_10,~M_11)) with ~M_6 = aid_A, ~M_7 = sign(SK_A_2,rb(pk(SOTK1_A))), ~M_8 = pk(SOTK1_A), ~M_9 = sign(SK_A_2,concat2(aid_A,ED_A,pk(SK_A_2),pk(SAC_A),pk(SK_Prov_2))), ~M_10 = pk(SAC_A), ~M_11 = ED_A at {34} in copy a_2
+
+in(prov_ca, (~M_3,a_3,~M_2)) with ~M_3 = sign(SK_CA_2,concat1(aid_A,pk(SK_A_2))), ~M_2 = pk(SK_A_2) at {18} in copy a_4
+
+in(c, (~M_4,~M_7,~M_8,~M_9,~M_10,~M_11)) with ~M_4 = aid_A, ~M_7 = sign(SK_A_2,rb(pk(SOTK1_A))), ~M_8 = pk(SOTK1_A), ~M_9 = sign(SK_A_2,concat2(aid_A,ED_A,pk(SK_A_2),pk(SAC_A),pk(SK_Prov_2))), ~M_10 = pk(SAC_A), ~M_11 = ED_A at {19} in copy a_4
+
+event EndProvider(ED_A,aid_A,pk(SOTK1_A)) at {24} in copy a_4 (goal)
+
+The event EndProvider(ED_A,aid_A,pk(SOTK1_A)) is executed at {24} in copy a_4.
+A trace has been found.
+RESULT not event(EndProvider(x,y,k)) is false.
+-- Query not event(EndPeerA(x,y,k)) in process 1.
+Translating the process into Horn clauses...
+Completing...
+200 rules inserted. Base: 171 rules (62 with conclusion selected). Queue: 10 rules.
+Starting query not event(EndPeerA(x,y,k))
+goal reachable: event(EndPeerA(ED_A[],aid_A[],pk(SOTK1_A[])))
+
+Derivation:
+
+1. The message (pk(SK_CA[]),pk(SK_Prov[]),pk(SK_A[])) may be sent to the attacker at output {7}.
+attacker((pk(SK_CA[]),pk(SK_Prov[]),pk(SK_A[]))).
+
+2. By 1, the attacker may know (pk(SK_CA[]),pk(SK_Prov[]),pk(SK_A[])).
+Using the function 3-proj-3-tuple the attacker may obtain pk(SK_A[]).
+attacker(pk(SK_A[])).
+
+3. By 2, the attacker may know pk(SK_A[]).
+So the attacker may know pk(SK_A[]) in phase 1.
+attacker_p1(pk(SK_A[])).
+
+4. By 3, the attacker may know pk(SK_A[]) in phase 1.
+So the attacker may know pk(SK_A[]) in phase 2.
+attacker_p2(pk(SK_A[])).
+
+5. The attacker has some term aid_A_3 in phase 2.
+attacker_p2(aid_A_3).
+
+6. The message (sign(SK_CA[],concat1(aid_A[],pk(SK_A[]))),aid_A[],pk(SK_A[])) may be sent to the attacker in phase 1 at output {13}.
+attacker_p1((sign(SK_CA[],concat1(aid_A[],pk(SK_A[]))),aid_A[],pk(SK_A[]))).
+
+7. By 6, the attacker may know (sign(SK_CA[],concat1(aid_A[],pk(SK_A[]))),aid_A[],pk(SK_A[])) in phase 1.
+Using the function 1-proj-3-tuple the attacker may obtain sign(SK_CA[],concat1(aid_A[],pk(SK_A[]))) in phase 1.
+attacker_p1(sign(SK_CA[],concat1(aid_A[],pk(SK_A[])))).
+
+8. By 7, the attacker may know sign(SK_CA[],concat1(aid_A[],pk(SK_A[]))) in phase 1.
+So the attacker may know sign(SK_CA[],concat1(aid_A[],pk(SK_A[]))) in phase 2.
+attacker_p2(sign(SK_CA[],concat1(aid_A[],pk(SK_A[])))).
+
+9. By 8, the attacker may know sign(SK_CA[],concat1(aid_A[],pk(SK_A[]))) in phase 2.
+By 5, the attacker may know aid_A_3 in phase 2.
+By 4, the attacker may know pk(SK_A[]) in phase 2.
+Using the function 3-tuple the attacker may obtain (sign(SK_CA[],concat1(aid_A[],pk(SK_A[]))),aid_A_3,pk(SK_A[])) in phase 2.
+attacker_p2((sign(SK_CA[],concat1(aid_A[],pk(SK_A[]))),aid_A_3,pk(SK_A[]))).
+
+10. The message (aid_A[],sign(SK_A[],rb(pk(SOTK1_A[]))),pk(SOTK1_A[]),sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))),pk(SAC_A[]),ED_A[]) may be sent to the attacker in phase 2 at output {34}.
+attacker_p2((aid_A[],sign(SK_A[],rb(pk(SOTK1_A[]))),pk(SOTK1_A[]),sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))),pk(SAC_A[]),ED_A[])).
+
+11. By 10, the attacker may know (aid_A[],sign(SK_A[],rb(pk(SOTK1_A[]))),pk(SOTK1_A[]),sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))),pk(SAC_A[]),ED_A[]) in phase 2.
+Using the function 6-proj-6-tuple the attacker may obtain ED_A[] in phase 2.
+attacker_p2(ED_A[]).
+
+12. By 10, the attacker may know (aid_A[],sign(SK_A[],rb(pk(SOTK1_A[]))),pk(SOTK1_A[]),sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))),pk(SAC_A[]),ED_A[]) in phase 2.
+Using the function 5-proj-6-tuple the attacker may obtain pk(SAC_A[]) in phase 2.
+attacker_p2(pk(SAC_A[])).
+
+13. By 10, the attacker may know (aid_A[],sign(SK_A[],rb(pk(SOTK1_A[]))),pk(SOTK1_A[]),sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))),pk(SAC_A[]),ED_A[]) in phase 2.
+Using the function 4-proj-6-tuple the attacker may obtain sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))) in phase 2.
+attacker_p2(sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[])))).
+
+14. By 10, the attacker may know (aid_A[],sign(SK_A[],rb(pk(SOTK1_A[]))),pk(SOTK1_A[]),sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))),pk(SAC_A[]),ED_A[]) in phase 2.
+Using the function 3-proj-6-tuple the attacker may obtain pk(SOTK1_A[]) in phase 2.
+attacker_p2(pk(SOTK1_A[])).
+
+15. By 10, the attacker may know (aid_A[],sign(SK_A[],rb(pk(SOTK1_A[]))),pk(SOTK1_A[]),sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))),pk(SAC_A[]),ED_A[]) in phase 2.
+Using the function 2-proj-6-tuple the attacker may obtain sign(SK_A[],rb(pk(SOTK1_A[]))) in phase 2.
+attacker_p2(sign(SK_A[],rb(pk(SOTK1_A[])))).
+
+16. By 6, the attacker may know (sign(SK_CA[],concat1(aid_A[],pk(SK_A[]))),aid_A[],pk(SK_A[])) in phase 1.
+Using the function 2-proj-3-tuple the attacker may obtain aid_A[] in phase 1.
+attacker_p1(aid_A[]).
+
+17. By 16, the attacker may know aid_A[] in phase 1.
+So the attacker may know aid_A[] in phase 2.
+attacker_p2(aid_A[]).
+
+18. By 17, the attacker may know aid_A[] in phase 2.
+By 15, the attacker may know sign(SK_A[],rb(pk(SOTK1_A[]))) in phase 2.
+By 14, the attacker may know pk(SOTK1_A[]) in phase 2.
+By 13, the attacker may know sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))) in phase 2.
+By 12, the attacker may know pk(SAC_A[]) in phase 2.
+By 11, the attacker may know ED_A[] in phase 2.
+Using the function 6-tuple the attacker may obtain (aid_A[],sign(SK_A[],rb(pk(SOTK1_A[]))),pk(SOTK1_A[]),sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))),pk(SAC_A[]),ED_A[]) in phase 2.
+attacker_p2((aid_A[],sign(SK_A[],rb(pk(SOTK1_A[]))),pk(SOTK1_A[]),sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))),pk(SAC_A[]),ED_A[])).
+
+19. The message (sign(SK_CA[],concat1(aid_A[],pk(SK_A[]))),aid_A_3,pk(SK_A[])) that the attacker may have in phase 2 by 9 may be received at input {18}.
+The message (aid_A[],sign(SK_A[],rb(pk(SOTK1_A[]))),pk(SOTK1_A[]),sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))),pk(SAC_A[]),ED_A[]) that the attacker may have in phase 2 by 18 may be received at input {19}.
+So the message sign(SK_Prov[],concat3(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))))) may be sent to the attacker in phase 2 at output {25}.
+attacker_p2(sign(SK_Prov[],concat3(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[])))))).
+
+20. The message sign(SK_Prov[],concat3(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))))) that the attacker may have in phase 2 by 19 may be received at input {35}.
+So event EndPeerA(ED_A[],aid_A[],pk(SOTK1_A[])) may be executed at {37}.
+event(EndPeerA(ED_A[],aid_A[],pk(SOTK1_A[]))).
+
+21. By 20, event(EndPeerA(ED_A[],aid_A[],pk(SOTK1_A[]))).
+The goal is reached, represented in the following fact:
+event(EndPeerA(ED_A[],aid_A[],pk(SOTK1_A[]))).
+
+
+A more detailed output of the traces is available with
+  set traceDisplay = long.
+
+new SK_CA: skey creating SK_CA_2 at {1}
+
+new SK_Prov: skey creating SK_Prov_2 at {3}
+
+new SK_A: skey creating SK_A_2 at {5}
+
+out(a, (~M,~M_1,~M_2)) with ~M = pk(SK_CA_2), ~M_1 = pk(SK_Prov_2), ~M_2 = pk(SK_A_2) at {7}
+
+event start at {8}
+
+out(prov_ca, (~M_3,~M_4,~M_5)) with ~M_3 = sign(SK_CA_2,concat1(aid_A,pk(SK_A_2))), ~M_4 = aid_A, ~M_5 = pk(SK_A_2) at {13} in copy a_1
+
+out(c, (~M_6,~M_7,~M_8,~M_9,~M_10,~M_11)) with ~M_6 = aid_A, ~M_7 = sign(SK_A_2,rb(pk(SOTK1_A))), ~M_8 = pk(SOTK1_A), ~M_9 = sign(SK_A_2,concat2(aid_A,ED_A,pk(SK_A_2),pk(SAC_A),pk(SK_Prov_2))), ~M_10 = pk(SAC_A), ~M_11 = ED_A at {34} in copy a_2
+
+out(c, (~M_12,~M_13,~M_14,~M_15,~M_16,~M_17)) with ~M_12 = aid_A, ~M_13 = sign(SK_A_2,rb(pk(SOTK1_A))), ~M_14 = pk(SOTK1_A), ~M_15 = sign(SK_A_2,concat2(aid_A,ED_A,pk(SK_A_2),pk(SAC_A),pk(SK_Prov_2))), ~M_16 = pk(SAC_A), ~M_17 = ED_A at {34} in copy a_3
+
+in(prov_ca, (~M_3,a_4,~M_2)) with ~M_3 = sign(SK_CA_2,concat1(aid_A,pk(SK_A_2))), ~M_2 = pk(SK_A_2) at {18} in copy a_5
+
+in(c, (~M_4,~M_7,~M_8,~M_9,~M_10,~M_11)) with ~M_4 = aid_A, ~M_7 = sign(SK_A_2,rb(pk(SOTK1_A))), ~M_8 = pk(SOTK1_A), ~M_9 = sign(SK_A_2,concat2(aid_A,ED_A,pk(SK_A_2),pk(SAC_A),pk(SK_Prov_2))), ~M_10 = pk(SAC_A), ~M_11 = ED_A at {19} in copy a_5
+
+event EndProvider(ED_A,aid_A,pk(SOTK1_A)) at {24} in copy a_5
+
+out(c, ~M_18) with ~M_18 = sign(SK_Prov_2,concat3(aid_A,ED_A,pk(SK_A_2),pk(SAC_A),sign(SK_A_2,concat2(aid_A,ED_A,pk(SK_A_2),pk(SAC_A),pk(SK_Prov_2))))) at {25} in copy a_5
+
+in(c, ~M_18) with ~M_18 = sign(SK_Prov_2,concat3(aid_A,ED_A,pk(SK_A_2),pk(SAC_A),sign(SK_A_2,concat2(aid_A,ED_A,pk(SK_A_2),pk(SAC_A),pk(SK_Prov_2))))) at {35} in copy a_2
+
+event EndPeerA(ED_A,aid_A,pk(SOTK1_A)) at {37} in copy a_2 (goal)
+
+The event EndPeerA(ED_A,aid_A,pk(SOTK1_A)) is executed at {37} in copy a_2.
+A trace has been found.
+RESULT not event(EndPeerA(x,y,k)) is false.
+-- Query event(EndPeerA(x,y,k)) ==> event(EndProvider(x,y,k)) in process 1.
+Translating the process into Horn clauses...
+Completing...
+200 rules inserted. Base: 173 rules (62 with conclusion selected). Queue: 8 rules.
+Starting query event(EndPeerA(x,y,k)) ==> event(EndProvider(x,y,k))
+goal reachable: b-event(EndProvider(ED_A[],aid_A[],pk(SOTK1_A[]))) -> event(EndPeerA(ED_A[],aid_A[],pk(SOTK1_A[])))
+RESULT event(EndPeerA(x,y,k)) ==> event(EndProvider(x,y,k)) is true.
+
+--------------------------------------------------------------
+Verification summary:
+
+Query not event(start) is false.
+
+Query not event(EndProvider(x,y,k)) is false.
+
+Query not event(EndPeerA(x,y,k)) is false.
+
+Query event(EndPeerA(x,y,k)) ==> event(EndProvider(x,y,k)) is true.
+
+--------------------------------------------------------------
+

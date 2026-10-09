@@ -1,0 +1,23 @@
+{
+  "executed_utc": "20260922T064302235212Z",
+  "git_commit": "b5d0a6365d40fdeff240e54cce5ef7572f01808a",
+  "git_status": "?? proofs/decision_bridge/\n",
+  "generator_version": "decision-bridge-1",
+  "command": "python proofs/decision_bridge/run_bridge.py",
+  "input_hashes": {
+    "saga/common/contact_policy.py": "2e37f59651acc31ed9fad8436462faabcb49c52ab3032eccd1529cd72870aa97",
+    "proofs/proverif/agent_communication_authz_chat_turepass.pv": "e6ffbd5acebd3aa1f05ea7942c4f7eb23d4469357c7a01fea082de2b2e8ab121",
+    "proofs/evidence/authz-stage1-20260916T123834944479Z/policy-matcher-sanity.json": "b1148bdb2e2b450ca318b28266deb2dcd30d74af1ccec405ff855bf43c7fc56d",
+    "proofs/decision_bridge/bridge.py": "daaf999795686655fc7130fdc8311c0e129e0fe5a88b4deaa741523198624700",
+    "proofs/decision_bridge/collect_controls.py": "a95d6e5bd325cf6a5b6c364f69a1c41e5397524de11d86a9856579c088d94e0c",
+    "proofs/decision_bridge/run_bridge.py": "506c6fce2828c0fe10845d6e80afe1efee2498d1130740b0b98b9e2d20b718fd",
+    "proofs/decision_bridge/test_bridge.py": "3dac55e08f1684e4a954d7761848336b214488d4f66297b274f351c5020693b4"
+  },
+  "output_hashes": {
+    "bridge-result.json": "0f03af6fda5be5d23ca2077fd76bc9bb331918d0222459d8575eb2f220f147cc",
+    "input.json": "72de505b66ee8dc498d799f0fc3ef4464fa4c395a8b721473596333a16596013",
+    "scenario_turepass_from_bridge.inc": "73a4c13ca50adb71038a3aac4fa6bb8416a62add12526fa7c1cf3530e5d86887",
+    "summary.txt": "7155e46efc3c384c9c804cf78336e313eb56ddb80bce499dff01391d30483d44"
+  },
+  "proverif_executed": false
+}

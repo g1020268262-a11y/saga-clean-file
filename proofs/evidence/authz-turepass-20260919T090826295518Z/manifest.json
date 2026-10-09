@@ -1,0 +1,296 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-09-19T09:08:26.654830+00:00",
+  "git_commit": "f8bf8273bc41c82c2fb117f1be395877a55c6e13",
+  "branch": "my-modification",
+  "publication_redactions": [
+    "Local executable and workspace paths were normalized to repository-relative values.",
+    "An unrelated non-artifact writing-file status was removed from the post-run status."
+  ],
+  "pre_run_git_status": "",
+  "model": "proofs/proverif/agent_communication_authz_chat_turepass.pv",
+  "input_model_sha256_before": "e6ffbd5acebd3aa1f05ea7942c4f7eb23d4469357c7a01fea082de2b2e8ab121",
+  "proverif_executable": "proverif.exe",
+  "proverif_executable_sha256": "702273912616a46919d5a2ecd0c5465cffdea9ff66296171d44d01d1700b8894",
+  "proverif_version": "Proverif 2.05. Cryptographic protocol verifier, by Bruno Blanchet, Vincent Cheval, and Marc Sylvestre",
+  "version_command": [
+    "proverif.exe",
+    "-help"
+  ],
+  "version_exit_code": 0,
+  "working_directory": "proofs/proverif",
+  "command": [
+    "proverif.exe",
+    "agent_communication_authz_chat_turepass.pv"
+  ],
+  "declared_queries": [
+    "query receiver: bitstring, sender: bitstring, tok: bitstring, msg: bitstring; event(ChatAccept(receiver, sender, tok, msg)) ==> event(TokenIssue(receiver, sender, tok)).",
+    "query receiver: bitstring, sender: bitstring, tok: bitstring, msg: bitstring; event(ChatAccept(receiver, sender, tok, msg))."
+  ],
+  "source_sha256_before": {
+    "agent_backend/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "agent_backend/base.py": "60b88d145fb09d1857ee08bba9d31b3d4a67f264b19ed1eb8c7827e5bbb8aeb2",
+    "agent_backend/config.py": "f29c62f1533bf18f74f7c442f462766351d95aaee4699c305d1e7437b9534a12",
+    "agent_backend/tools/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "agent_backend/tools/base.py": "bd825b830c7524c3577ad461da292500baa0174a48726737790e95653f694a84",
+    "agent_backend/tools/calendar.py": "cde8814d31ed263efd669a988263a0378543463c84124b4e0bf23e2762d90a08",
+    "agent_backend/tools/documents.py": "9255924d0b624904929b885afe2cd9d3e44505ad8668de2765e37cd59aad6389",
+    "agent_backend/tools/email.py": "f93bd08e0ff7ddd7d1ae988255cadb74854d6ed154afb8c457ea0dc267977cd5",
+    "experiments/adversary.py": "c50bf17678b312d790e75c17e2121e9b259cd55847f9f6e23c9f6bd5e8151b1b",
+    "experiments/create_blogpost.py": "48d9135e20ff78091975460411d1b6d7caa3a3a10a3f66421110902f89cbc17c",
+    "experiments/expense_report.py": "2962e9ad97fc972abaafc148328c16904749e9fe4445a41b467feb9b03100175",
+    "experiments/hello_world.py": "2b7b808c8778dd625f2c4a881b2e9f9a8a81ab4419989db87f5b8ecdc2b00f02",
+    "experiments/schedule_meeting.py": "2b37724ffc725a430e3e730fa3d034a92704f42a1f7d1f9ace5d84a38ff53d17",
+    "experiments/seed_tool_data.py": "ad6600eaa3eeef2a781862f9353f11a2e0be06896e761c92b9c5d16e1eeb5cc7",
+    "experiments/test.py": "d7663ca2a8cf010df645e6440501ccbdae9fd2882a3045f844655616d906abe5",
+    "generate_credentials.py": "544c21f12ef3cf8dabe5a2d59d43baa910f9aef04d415aa8f3be33e595ba6020",
+    "proofs/build_authz_chat_gates.py": "1ad8bf1dda4c39fd4c4d410de9d71649102540a466588a2ec94275ce5db3c1bb",
+    "proofs/evidence/authz-stage1-20260916T123834944479Z/policy-matcher-sanity.py": "483aae0217d45d31163aa3874ad5180552ddb513e958c3815f92c9a93d2151b2",
+    "proofs/proverif/agent_communication.pv": "3faf15a801658dc70ceacf1752557cec62ad965854304ad703dce8bdee008302",
+    "proofs/proverif/agent_communication_authz.pv": "20dc6fe128b89b8da46a2d1d4adb410de0945ab6036cd093dee40eb8fdca7166",
+    "proofs/proverif/agent_communication_authz_chat_allow.pv": "cb0e2ce84d95eddeef6725893cdfaeb10679bb6b84656ec1d4f3e55df2d6f88b",
+    "proofs/proverif/agent_communication_authz_chat_deny.pv": "ddae27b3b8dfbc23878a72a5135d0a85129ae189640ff70814b0e592c7b1c507",
+    "proofs/proverif/agent_communication_authz_chat_p_allow_r_allow.pv": "7d2664ff18a1afee2b066c17abdbfb9d5f733948aae2993093d816992caceb0c",
+    "proofs/proverif/agent_communication_authz_chat_p_allow_r_deny.pv": "60f2c7b016c00147dedb33f64c2d161d00ae62df1fed83500e7214a97813cc7a",
+    "proofs/proverif/agent_communication_authz_chat_p_deny_r_allow.pv": "66101efb404ab1a6d9f2b71094ae769aee873c55f17df70b048257423295037e",
+    "proofs/proverif/agent_communication_authz_chat_turepass.pv": "e6ffbd5acebd3aa1f05ea7942c4f7eb23d4469357c7a01fea082de2b2e8ab121",
+    "proofs/proverif/old/agent_communication.pv": "061beefc477c49c4a770ffcf1d4038933db84e89db6425440626ec2297b9cf87",
+    "proofs/proverif/old/test.pv": "6725d52836bd1ce99e052f8c8072df2c42601d0c3633de06fe3066295ecc84a5",
+    "proofs/proverif/registration.pv": "183b2867162ee2862861b84dff153f22f1a33d03616efc90f48f688c809e2da0",
+    "proofs/run_authz_chat_gates.py": "2d37a1e08aa9fc7aa575eb730251f16cc854a5d17937dd66265c339dde4006b8",
+    "proofs/run_authz_chat_guarded.py": "2d57cb7feac366daea1c70b19faa8b4e189af8f1f44fd152f44b1a6ea315d175",
+    "proofs/run_authz_diagnostic.py": "9d49cfa24553f08f81f5307a0068dc377e1cbb7da69459ec921ed15fd892a1a9",
+    "proofs/test_matcher_bug.py": "22938d10f25d30c244dc90b8a7a9ef9c8959e8e53090dfc42705bea5372ac4aa",
+    "saga/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "saga/agent.py": "94bebf70df4f76e55c0bb8a54c5f29b7fa688ead197ece18f8ac9dec8edae8d5",
+    "saga/attack_models/adversaries/A1.py": "40b1820714af7eeafbe734d30a8998d4cc3dec425f774e246023b6143cf5462e",
+    "saga/attack_models/adversaries/A2.py": "bbbb2e6b9c86abb2e61e9ec5ace1c4f2a4d18852329999dcadb880e2dbb73795",
+    "saga/attack_models/adversaries/A3.py": "722b8aa0caa302537fe21ab688780d547949e1c01b46d69658cfc7766c7488cd",
+    "saga/attack_models/adversaries/A4.py": "9d08ad522e9306a7edca0de9df880b3c6a2f49b2d3a23f78181984fc2382da6b",
+    "saga/attack_models/adversaries/A5.py": "73de564c507f09686f5dfa976edd82f409e3dfdb154825031c9f2a6be55f7b78",
+    "saga/attack_models/adversaries/A6.py": "5533f318a56bee3fc0a42f509fff34a6134deb02cc25ab4b6b8faf79ba62cde7",
+    "saga/attack_models/adversaries/A8.py": "c1f601ba91007348afaadde5bab3c17d4cb7fd58fcffd1d4e6d9e9e7f82b753a",
+    "saga/attack_models/benign/A5.py": "b368b21b8d70e77df8a2831f9beb2e4d6e203476ab38fafb8093073d0ec4407b",
+    "saga/ca/CA.py": "c27b9e81b7db1dcbccdb54c52d4de2ce3ab883c82aefa2503dd0b6e714819480",
+    "saga/common/contact_policy.py": "2e37f59651acc31ed9fad8436462faabcb49c52ab3032eccd1529cd72870aa97",
+    "saga/common/crypto.py": "dca1a5fa145afbf419b1a71af068e0b98a3ac533a929862d12e023f5c8436b7b",
+    "saga/common/logger.py": "07f22cf22244d5dfc9afca3d2e549ee01a5be7474a98acc493f0c4ea3e04afc9",
+    "saga/common/overhead.py": "f3e1a37f5a3625a890ca7d3464fb79c2cd3e49b49fec99735ca07682215ae5e3",
+    "saga/config.py": "5a42594196897d607c368c2cddc469a327d1dac92fe5d5de66c4b0bceb7f4e23",
+    "saga/local_agent.py": "af0d127f5de32505dca768297418559332fea111fb5828abbf2fe2c4b2421166",
+    "saga/logger.py": "f2ce01f910a3331d21028ce63fcb0fa306bd69245b6443ceacfd15313515b625",
+    "saga/provider/provider.py": "097fd8ed76756d61336689259f496144484f8fa72d7d040dd2df90eedc934c6e",
+    "saga/user/__init__.py": "6f44a0a2dfaab874cdcf30326cea7f6d691756e6313885ab540c9eadfc6fcfaa",
+    "saga/user/user.py": "50d7fcaf000672dc20a1a5e8b6ffa3861164a95a658c96b959e330e7a9eb7daf",
+    "setup.py": "1387f0e20e45f9a50abce1354572a487a09540a6b57b6fe094dcffa1ee9943cc"
+  },
+  "historical_trace_sha256_before": "21386e33a63d1a4a133cd05f15bb5d946edc4d94bb7cd90b4d8853ac49b52fbb",
+  "scope": "Fresh execution of the unchanged symbolic consequence model. Fixed authorization-divergence assumptions; no Python matcher execution and no running-service reproduction. Not retrospective provenance for proofs/evidence/turetrace.",
+  "execution_status": "completed",
+  "completed": true,
+  "process_id": 22488,
+  "finished_utc": "2026-09-19T09:18:25.151799+00:00",
+  "elapsed_seconds": 598.391,
+  "exit_code": 0,
+  "results": [
+    "RESULT event(ChatAccept(receiver,sender_1,tok,msg)) ==> event(TokenIssue(receiver,sender_1,tok)) is true.",
+    "RESULT not event(ChatAccept(receiver,sender_1,tok,msg)) is false."
+  ],
+  "witness_observations": {
+    "ScenarioSpecDeny": [
+      {
+        "line": 3682,
+        "text": "insert ScenarioSpecDeny(BuggyPolicy,aid_B) at {11}"
+      },
+      {
+        "line": 3788,
+        "text": "get ScenarioSpecDeny(BuggyPolicy,aid_B) at {52} in copy a_6"
+      },
+      {
+        "line": 3800,
+        "text": "get ScenarioSpecDeny(BuggyPolicy,aid_B) at {52} in copy a_7"
+      },
+      {
+        "line": 3812,
+        "text": "get ScenarioSpecDeny(BuggyPolicy,aid_B) at {52} in copy a_8"
+      }
+    ],
+    "ScenarioImplAllow": [
+      {
+        "line": 3684,
+        "text": "insert ScenarioImplAllow(BuggyPolicy,aid_B) at {12}"
+      },
+      {
+        "line": 3792,
+        "text": "get ScenarioImplAllow(BuggyPolicy,aid_B) at {51} in copy a_6"
+      },
+      {
+        "line": 3804,
+        "text": "get ScenarioImplAllow(BuggyPolicy,aid_B) at {51} in copy a_7"
+      },
+      {
+        "line": 3816,
+        "text": "get ScenarioImplAllow(BuggyPolicy,aid_B) at {51} in copy a_8"
+      },
+      {
+        "line": 3828,
+        "text": "get ScenarioImplAllow(BuggyPolicy,aid_B) at {81} in copy a_5"
+      },
+      {
+        "line": 3844,
+        "text": "get ScenarioImplAllow(BuggyPolicy,aid_B) at {81} in copy a_3"
+      }
+    ],
+    "SpecIntendedDeny": [
+      {
+        "line": 3790,
+        "text": "event SpecIntendedDeny(aid_B,aid_A) at {47} in copy a_6"
+      },
+      {
+        "line": 3802,
+        "text": "event SpecIntendedDeny(aid_B,aid_A) at {47} in copy a_7"
+      },
+      {
+        "line": 3814,
+        "text": "event SpecIntendedDeny(aid_B,aid_A) at {47} in copy a_8"
+      }
+    ],
+    "ProviderRelease": [
+      {
+        "line": 3796,
+        "text": "event ProviderRelease(aid_A,aid_B) at {49} in copy a_6"
+      },
+      {
+        "line": 3808,
+        "text": "event ProviderRelease(aid_A,aid_B) at {49} in copy a_7"
+      },
+      {
+        "line": 3820,
+        "text": "event ProviderRelease(aid_A,aid_B) at {49} in copy a_8"
+      }
+    ],
+    "TokenIssue": [
+      {
+        "line": 3836,
+        "text": "event TokenIssue(aid_A,aid_B,senc(dh(pk(SAC_B),SOTK1_A),token_3)) at {74} in copy a_5"
+      },
+      {
+        "line": 3852,
+        "text": "event TokenIssue(aid_A,aid_B,senc(dh(pk(SAC_B),SOTK1_A),token_4)) at {74} in copy a_3"
+      }
+    ],
+    "TokenReceive": [
+      {
+        "line": 3864,
+        "text": "event TokenReceive(aid_A,aid_B,senc(dh(pk(SAC_B),SOTK1_A),token_3)) at {107} in copy a_12"
+      }
+    ],
+    "ChatSend": [
+      {
+        "line": 3870,
+        "text": "event ChatSend(aid_A,aid_B,senc(dh(pk(SAC_B),SOTK1_A),token_3),chat_msg_3) at {110} in copy a_12"
+      }
+    ],
+    "ChatAccept": [
+      {
+        "line": 3659,
+        "text": "So event ChatAccept(aid_A[],aid_B[],senc(dh(pk(SAC_B[]),SOTK1_A[]),token_2),chat_msg_2) may be executed at {79}."
+      },
+      {
+        "line": 3876,
+        "text": "event ChatAccept(aid_A,aid_B,senc(dh(pk(SAC_B),SOTK1_A),token_3),chat_msg_3) at {79} in copy a_3 (goal)"
+      },
+      {
+        "line": 3878,
+        "text": "The event ChatAccept(aid_A,aid_B,senc(dh(pk(SAC_B),SOTK1_A),token_3),chat_msg_3) is executed at {79} in copy a_3."
+      }
+    ]
+  },
+  "token_issue_standalone_query_present": false,
+  "source_sha256_after": {
+    "agent_backend/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "agent_backend/base.py": "60b88d145fb09d1857ee08bba9d31b3d4a67f264b19ed1eb8c7827e5bbb8aeb2",
+    "agent_backend/config.py": "f29c62f1533bf18f74f7c442f462766351d95aaee4699c305d1e7437b9534a12",
+    "agent_backend/tools/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "agent_backend/tools/base.py": "bd825b830c7524c3577ad461da292500baa0174a48726737790e95653f694a84",
+    "agent_backend/tools/calendar.py": "cde8814d31ed263efd669a988263a0378543463c84124b4e0bf23e2762d90a08",
+    "agent_backend/tools/documents.py": "9255924d0b624904929b885afe2cd9d3e44505ad8668de2765e37cd59aad6389",
+    "agent_backend/tools/email.py": "f93bd08e0ff7ddd7d1ae988255cadb74854d6ed154afb8c457ea0dc267977cd5",
+    "experiments/adversary.py": "c50bf17678b312d790e75c17e2121e9b259cd55847f9f6e23c9f6bd5e8151b1b",
+    "experiments/create_blogpost.py": "48d9135e20ff78091975460411d1b6d7caa3a3a10a3f66421110902f89cbc17c",
+    "experiments/expense_report.py": "2962e9ad97fc972abaafc148328c16904749e9fe4445a41b467feb9b03100175",
+    "experiments/hello_world.py": "2b7b808c8778dd625f2c4a881b2e9f9a8a81ab4419989db87f5b8ecdc2b00f02",
+    "experiments/schedule_meeting.py": "2b37724ffc725a430e3e730fa3d034a92704f42a1f7d1f9ace5d84a38ff53d17",
+    "experiments/seed_tool_data.py": "ad6600eaa3eeef2a781862f9353f11a2e0be06896e761c92b9c5d16e1eeb5cc7",
+    "experiments/test.py": "d7663ca2a8cf010df645e6440501ccbdae9fd2882a3045f844655616d906abe5",
+    "generate_credentials.py": "544c21f12ef3cf8dabe5a2d59d43baa910f9aef04d415aa8f3be33e595ba6020",
+    "proofs/build_authz_chat_gates.py": "1ad8bf1dda4c39fd4c4d410de9d71649102540a466588a2ec94275ce5db3c1bb",
+    "proofs/evidence/authz-stage1-20260916T123834944479Z/policy-matcher-sanity.py": "483aae0217d45d31163aa3874ad5180552ddb513e958c3815f92c9a93d2151b2",
+    "proofs/proverif/agent_communication.pv": "3faf15a801658dc70ceacf1752557cec62ad965854304ad703dce8bdee008302",
+    "proofs/proverif/agent_communication_authz.pv": "20dc6fe128b89b8da46a2d1d4adb410de0945ab6036cd093dee40eb8fdca7166",
+    "proofs/proverif/agent_communication_authz_chat_allow.pv": "cb0e2ce84d95eddeef6725893cdfaeb10679bb6b84656ec1d4f3e55df2d6f88b",
+    "proofs/proverif/agent_communication_authz_chat_deny.pv": "ddae27b3b8dfbc23878a72a5135d0a85129ae189640ff70814b0e592c7b1c507",
+    "proofs/proverif/agent_communication_authz_chat_p_allow_r_allow.pv": "7d2664ff18a1afee2b066c17abdbfb9d5f733948aae2993093d816992caceb0c",
+    "proofs/proverif/agent_communication_authz_chat_p_allow_r_deny.pv": "60f2c7b016c00147dedb33f64c2d161d00ae62df1fed83500e7214a97813cc7a",
+    "proofs/proverif/agent_communication_authz_chat_p_deny_r_allow.pv": "66101efb404ab1a6d9f2b71094ae769aee873c55f17df70b048257423295037e",
+    "proofs/proverif/agent_communication_authz_chat_turepass.pv": "e6ffbd5acebd3aa1f05ea7942c4f7eb23d4469357c7a01fea082de2b2e8ab121",
+    "proofs/proverif/old/agent_communication.pv": "061beefc477c49c4a770ffcf1d4038933db84e89db6425440626ec2297b9cf87",
+    "proofs/proverif/old/test.pv": "6725d52836bd1ce99e052f8c8072df2c42601d0c3633de06fe3066295ecc84a5",
+    "proofs/proverif/registration.pv": "183b2867162ee2862861b84dff153f22f1a33d03616efc90f48f688c809e2da0",
+    "proofs/run_authz_chat_gates.py": "2d37a1e08aa9fc7aa575eb730251f16cc854a5d17937dd66265c339dde4006b8",
+    "proofs/run_authz_chat_guarded.py": "2d57cb7feac366daea1c70b19faa8b4e189af8f1f44fd152f44b1a6ea315d175",
+    "proofs/run_authz_diagnostic.py": "9d49cfa24553f08f81f5307a0068dc377e1cbb7da69459ec921ed15fd892a1a9",
+    "proofs/test_matcher_bug.py": "22938d10f25d30c244dc90b8a7a9ef9c8959e8e53090dfc42705bea5372ac4aa",
+    "saga/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "saga/agent.py": "94bebf70df4f76e55c0bb8a54c5f29b7fa688ead197ece18f8ac9dec8edae8d5",
+    "saga/attack_models/adversaries/A1.py": "40b1820714af7eeafbe734d30a8998d4cc3dec425f774e246023b6143cf5462e",
+    "saga/attack_models/adversaries/A2.py": "bbbb2e6b9c86abb2e61e9ec5ace1c4f2a4d18852329999dcadb880e2dbb73795",
+    "saga/attack_models/adversaries/A3.py": "722b8aa0caa302537fe21ab688780d547949e1c01b46d69658cfc7766c7488cd",
+    "saga/attack_models/adversaries/A4.py": "9d08ad522e9306a7edca0de9df880b3c6a2f49b2d3a23f78181984fc2382da6b",
+    "saga/attack_models/adversaries/A5.py": "73de564c507f09686f5dfa976edd82f409e3dfdb154825031c9f2a6be55f7b78",
+    "saga/attack_models/adversaries/A6.py": "5533f318a56bee3fc0a42f509fff34a6134deb02cc25ab4b6b8faf79ba62cde7",
+    "saga/attack_models/adversaries/A8.py": "c1f601ba91007348afaadde5bab3c17d4cb7fd58fcffd1d4e6d9e9e7f82b753a",
+    "saga/attack_models/benign/A5.py": "b368b21b8d70e77df8a2831f9beb2e4d6e203476ab38fafb8093073d0ec4407b",
+    "saga/ca/CA.py": "c27b9e81b7db1dcbccdb54c52d4de2ce3ab883c82aefa2503dd0b6e714819480",
+    "saga/common/contact_policy.py": "2e37f59651acc31ed9fad8436462faabcb49c52ab3032eccd1529cd72870aa97",
+    "saga/common/crypto.py": "dca1a5fa145afbf419b1a71af068e0b98a3ac533a929862d12e023f5c8436b7b",
+    "saga/common/logger.py": "07f22cf22244d5dfc9afca3d2e549ee01a5be7474a98acc493f0c4ea3e04afc9",
+    "saga/common/overhead.py": "f3e1a37f5a3625a890ca7d3464fb79c2cd3e49b49fec99735ca07682215ae5e3",
+    "saga/config.py": "5a42594196897d607c368c2cddc469a327d1dac92fe5d5de66c4b0bceb7f4e23",
+    "saga/local_agent.py": "af0d127f5de32505dca768297418559332fea111fb5828abbf2fe2c4b2421166",
+    "saga/logger.py": "f2ce01f910a3331d21028ce63fcb0fa306bd69245b6443ceacfd15313515b625",
+    "saga/provider/provider.py": "097fd8ed76756d61336689259f496144484f8fa72d7d040dd2df90eedc934c6e",
+    "saga/user/__init__.py": "6f44a0a2dfaab874cdcf30326cea7f6d691756e6313885ab540c9eadfc6fcfaa",
+    "saga/user/user.py": "50d7fcaf000672dc20a1a5e8b6ffa3861164a95a658c96b959e330e7a9eb7daf",
+    "setup.py": "1387f0e20e45f9a50abce1354572a487a09540a6b57b6fe094dcffa1ee9943cc"
+  },
+  "input_model_sha256_after": "e6ffbd5acebd3aa1f05ea7942c4f7eb23d4469357c7a01fea082de2b2e8ab121",
+  "historical_trace_sha256_after": "21386e33a63d1a4a133cd05f15bb5d946edc4d94bb7cd90b4d8853ac49b52fbb",
+  "git_commit_after": "f8bf8273bc41c82c2fb117f1be395877a55c6e13",
+  "post_run_git_status": "?? proofs/evidence/authz-turepass-20260919T090826295518Z/agent_communication_authz_chat_turepass.stderr.txt\n?? proofs/evidence/authz-turepass-20260919T090826295518Z/agent_communication_authz_chat_turepass.stdout.txt\n?? proofs/evidence/authz-turepass-20260919T090826295518Z/manifest.json\n?? proofs/evidence/authz-turepass-20260919T090826295518Z/proverif-version.txt\n?? proofs/evidence/authz-turepass-20260919T090826295518Z/verification-summary.txt",
+  "checks": {
+    "model_bytes_unchanged": true,
+    "protected_sources_unchanged": true,
+    "historical_trace_unchanged": true,
+    "git_commit_unchanged": true,
+    "result_count_matches_declared_queries": true
+  },
+  "artifacts": {
+    "agent_communication_authz_chat_turepass.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "agent_communication_authz_chat_turepass.stdout.txt": {
+      "sha256": "4931d6da7b1a658cbfd1ab3f697ffb117ec58b86963d52ca3bca177f7b8f85f9",
+      "bytes": 336119
+    },
+    "proverif-version.txt": {
+      "sha256": "c00f1890d591537c078cc8ce60db401be65197779353e07a6fdbb8ae2b07ec5f",
+      "bytes": 997
+    },
+    "verification-summary.txt": {
+      "sha256": "f60e49d96f27570a33f13a4363d251e6b4f78f94d8bfa4f99b749ea06277139d",
+      "bytes": 1688
+    }
+  }
+}

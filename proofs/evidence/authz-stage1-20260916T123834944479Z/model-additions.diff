@@ -1,0 +1,73 @@
+diff --git "a/proofs\\proverif\\agent_communication.pv" "b/proofs\\proverif\\agent_communication_authz.pv"
+index 4a7a6dc..b578c07 100644
+--- "a/proofs\\proverif\\agent_communication.pv"
++++ "b/proofs\\proverif\\agent_communication_authz.pv"
+@@ -70,6 +70,19 @@ event EndProviderAuthB(bitstring, bitstring, pkey).
+ event EndAgentAuthA(bitstring, bitstring, key).
+ event EndAgentAuthB(bitstring, bitstring, key).
+ 
++(* AUTHZ-BEGIN *)
++(* Stage 1: proof-coverage diagnostic; policy is not an execution guard.
++   All new event tuples use (issuer, recipient[, token]).
++   PeerA issues the token; PeerB receives and verifies it.
++   PolicyAllow(issuer, recipient) means recipient may contact issuer.
++   Accept records token receipt, NOT application-message acceptance.
++   No PolicyAllow event is emitted and no matcher is modeled here. *)
++event PolicyAllow(bitstring, bitstring).
++event PolicyDeny(bitstring, bitstring).
++event TokenIssue(bitstring, bitstring, bitstring).
++event Accept(bitstring, bitstring, bitstring).
++(* AUTHZ-END *)
++
+ event start().
+ 
+ free ED_A: bitstring [private].
+@@ -115,6 +128,10 @@ let PeerA(SK_A: skey, PK_A: pkey, PK_Prov: pkey, PK_CA: pkey, PK_B: pkey) =
+   (* new token: bitstring; *)
+   let token_sig = sign(SK_A, token) in
+   event EndAgentAuthA(token, ED_A, DH_A);
++
++(* AUTHZ-BEGIN *)
++  event TokenIssue(aid_A, aid_B, token);
++(* AUTHZ-END *)
+   out(c, (token_sig, senc(DH_A, token)));
+ 
+   0.
+@@ -160,6 +177,10 @@ let PeerB(SK_B: skey, PK_B: pkey, PK_Prov: pkey, PK_CA: pkey, PK_A: pkey) =
+   if checksign(PK_A, token, token_sig) = okay then 
+   event EndAgentAuthB(token, ED_A, DH_B);
+ 
++(* AUTHZ-BEGIN *)
++  event Accept(aid_A, aid_B, token);
++(* AUTHZ-END *)
++
+   0.
+ 
+ let CA(SK_CA: skey, PK_CA: pkey, PK_A: pkey, PK_B: pkey, PK_Prov: pkey) =
+@@ -253,6 +274,13 @@ query x: bitstring, y:bitstring, k:pkey; event(EndAuthB(x, y, k)) ==> event(EndP
+ (* secrecy of the policy token transmitted from peer A to B, after authentication *)
+ query attacker(token). 
+ 
++(* AUTHZ-BEGIN *)
++(* Authorization soundness at token receipt, using issuer-first tuples. *)
++query issuer: bitstring, recipient: bitstring, tok: bitstring;
++    event(Accept(issuer, recipient, tok))
++    ==> event(PolicyAllow(issuer, recipient)).
++(* AUTHZ-END *)
++
+ (*
+ 
+ $ time proverif agent_communication.pv
+@@ -314,6 +342,12 @@ process
+   out(a, (PK_A, PK_B, PK_Prov, PK_CA)); (* give public keys to the attacker *)
+   event start();
+ 
++(* AUTHZ-BEGIN *)
++  (* Fixed diagnostic scenario: PeerB is denied contact with PeerA.
++     This declaration deliberately does not block the original protocol. *)
++  event PolicyDeny(aid_A, aid_B);
++(* AUTHZ-END *)
++
+   ( (!CA(SK_CA, PK_CA, PK_A, PK_B, PK_Prov)) | 
+     (!Provider(SK_Prov, PK_Prov, PK_CA)) | 
+     (!PeerA(SK_A, PK_A, PK_Prov, PK_CA, PK_B)) | 

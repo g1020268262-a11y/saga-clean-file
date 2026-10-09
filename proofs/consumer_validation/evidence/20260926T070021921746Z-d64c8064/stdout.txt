@@ -1,0 +1,31 @@
+15:00:26 [OVERHEAD] provider:access: 0.015625
+15:00:26 [NETWORK] Incoming connection from ('127.0.0.1', 23456).
+15:00:26 [CRYPTO] Verifying alice@example.com:agent's stamp from the Provider.
+15:00:26 [CRYPTO] Verifying alice@example.com:agent's user certificate.
+15:00:26 [CRYPTO] Verifying alice@example.com:agent's signature.
+15:00:26 [ACCESS] No valid received token found. For alice@example.com:agent. Generating new one.
+15:00:26 [ACCESS] Derived SDHK: [REDACTED]
+15:00:26 [ACCESS] Generated token: [REDACTED]
+15:00:26 [OVERHEAD] agent:token_recv: 0.0
+15:00:26 [OVERHEAD] agent:communication_proto_recv: 0.0
+15:00:26 [AGENT] Starting conversation with alice@example.com:agent.
+15:00:26 [OVERHEAD] agent:communication_conv_recv: 0.0
+15:00:26 [OVERHEAD] agent:llm_backend_recv: 0.0
+15:00:26 [NETWORK] Attempting to close connection.
+15:00:26 [NETWORK] Connection succesfully closed.
+15:00:26 [ERROR] Agent bob@example.com:receiver has blocklisted Agent alice@example.com:agent. 
+15:00:26 [OVERHEAD] provider:access: 0.0
+15:00:26 [NETWORK] Incoming connection from ('127.0.0.1', 23456).
+15:00:26 [CRYPTO] Verifying alice@example.com:agent's stamp from the Provider.
+15:00:26 [CRYPTO] Verifying alice@example.com:agent's user certificate.
+15:00:26 [CRYPTO] Verifying alice@example.com:agent's signature.
+15:00:26 [ACCESS] No valid received token found. For alice@example.com:agent. Generating new one.
+15:00:26 [ACCESS] Derived SDHK: [REDACTED]
+15:00:26 [ACCESS] Generated token: [REDACTED]
+15:00:26 [OVERHEAD] agent:token_recv: 0.0
+15:00:26 [OVERHEAD] agent:communication_proto_recv: 0.0
+15:00:26 [AGENT] Starting conversation with alice@example.com:agent.
+15:00:26 [OVERHEAD] agent:communication_conv_recv: 0.0
+15:00:26 [OVERHEAD] agent:llm_backend_recv: 0.0
+15:00:26 [NETWORK] Attempting to close connection.
+15:00:26 [NETWORK] Connection succesfully closed.

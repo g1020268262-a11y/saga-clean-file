@@ -1,0 +1,7 @@
+Phase 1 consumer propagation validation
+Scope: token issuance only; no message acceptance.
+A/A: completed; expectations_met=True
+D/D: completed; expectations_met=True
+D/A: completed; expectations_met=True
+TLS/registration/application execution not validated. No deployment exploit claim.
+Exit code: 0

@@ -1,0 +1,149 @@
+{
+  "started_utc": "2026-09-18T02:36:21.021865+00:00",
+  "git_head_before": "2685d956b2f98fb1c4634dd6ec817fe4d9c448b8",
+  "branch": "my-modification",
+  "pre_run_git_status": "",
+  "proverif_executable_name": "proverif.exe",
+  "proverif_sha256": "702273912616a46919d5a2ecd0c5465cffdea9ff66296171d44d01d1700b8894",
+  "source_sha256_before": {
+    "proofs/build_authz_chat_gates.py": "1ad8bf1dda4c39fd4c4d410de9d71649102540a466588a2ec94275ce5db3c1bb",
+    "proofs/run_authz_chat_gates.py": "2d37a1e08aa9fc7aa575eb730251f16cc854a5d17937dd66265c339dde4006b8",
+    "proofs/proverif/agent_communication_authz_chat_allow.pv": "cb0e2ce84d95eddeef6725893cdfaeb10679bb6b84656ec1d4f3e55df2d6f88b",
+    "proofs/proverif/registration.pv": "183b2867162ee2862861b84dff153f22f1a33d03616efc90f48f688c809e2da0",
+    "proofs/proverif/agent_communication.pv": "3faf15a801658dc70ceacf1752557cec62ad965854304ad703dce8bdee008302",
+    "proofs/proverif/agent_communication_authz.pv": "20dc6fe128b89b8da46a2d1d4adb410de0945ab6036cd093dee40eb8fdca7166",
+    "saga/common/contact_policy.py": "2e37f59651acc31ed9fad8436462faabcb49c52ab3032eccd1529cd72870aa97",
+    "saga/provider/provider.py": "097fd8ed76756d61336689259f496144484f8fa72d7d040dd2df90eedc934c6e",
+    "saga/agent.py": "94bebf70df4f76e55c0bb8a54c5f29b7fa688ead197ece18f8ac9dec8edae8d5",
+    "proofs/proverif/agent_communication_authz_chat_p_allow_r_allow.pv": "7d2664ff18a1afee2b066c17abdbfb9d5f733948aae2993093d816992caceb0c",
+    "proofs/proverif/agent_communication_authz_chat_p_deny_r_allow.pv": "66101efb404ab1a6d9f2b71094ae769aee873c55f17df70b048257423295037e",
+    "proofs/proverif/agent_communication_authz_chat_p_allow_r_deny.pv": "60f2c7b016c00147dedb33f64c2d161d00ae62df1fed83500e7214a97813cc7a"
+  },
+  "scope": "Independent abstract control gates; no rulebook matcher or TLS proof",
+  "models": [
+    {
+      "scenario": "p_allow_r_allow",
+      "model": "proofs/proverif/agent_communication_authz_chat_p_allow_r_allow.pv",
+      "working_directory": "proofs/proverif",
+      "command": [
+        "<proverif>",
+        "agent_communication_authz_chat_p_allow_r_allow.pv"
+      ],
+      "started_utc": "2026-09-18T02:36:21.519493+00:00",
+      "stdout": "p_allow_r_allow.stdout.txt",
+      "stderr": "p_allow_r_allow.stderr.txt",
+      "exit_code": 0,
+      "elapsed_seconds": 813.614,
+      "finished_utc": "2026-09-18T02:49:55.135093+00:00",
+      "results": [
+        "RESULT not event(ProviderRelease(aid_A[],aid_B[])) is false.",
+        "RESULT not event(TokenIssue(aid_A[],aid_B[],tok)) is false.",
+        "RESULT not event(ChatAccept(aid_A[],aid_B[],tok,msg)) is false.",
+        "RESULT event(ChatAccept(receiver,sender_1,tok,msg)) ==> event(TokenIssue(receiver,sender_1,tok)) is true.",
+        "RESULT event(ChatAccept(receiver,sender_1,tok,msg)) ==> event(ChatSend(receiver,sender_1,tok,msg)) is true."
+      ],
+      "stdout_sha256": "abf37703c74ce8327ba2bb19caf0213a8b8f2d5accf13b1e7e750e925d79db6c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reachable": {
+        "provider_release": true,
+        "token_issue": true,
+        "chat_accept": true
+      }
+    },
+    {
+      "scenario": "p_deny_r_allow",
+      "model": "proofs/proverif/agent_communication_authz_chat_p_deny_r_allow.pv",
+      "working_directory": "proofs/proverif",
+      "command": [
+        "<proverif>",
+        "agent_communication_authz_chat_p_deny_r_allow.pv"
+      ],
+      "started_utc": "2026-09-18T02:49:55.139808+00:00",
+      "stdout": "p_deny_r_allow.stdout.txt",
+      "stderr": "p_deny_r_allow.stderr.txt",
+      "exit_code": 0,
+      "elapsed_seconds": 507.146,
+      "finished_utc": "2026-09-18T02:58:22.286500+00:00",
+      "results": [
+        "RESULT not event(ProviderRelease(aid_A[],aid_B[])) is true.",
+        "RESULT not event(TokenIssue(aid_A[],aid_B[],tok)) is true.",
+        "RESULT not event(ChatAccept(aid_A[],aid_B[],tok,msg)) is true.",
+        "RESULT event(ChatAccept(receiver,sender_1,tok,msg)) ==> event(TokenIssue(receiver,sender_1,tok)) is true.",
+        "RESULT event(ChatAccept(receiver,sender_1,tok,msg)) ==> event(ChatSend(receiver,sender_1,tok,msg)) is true."
+      ],
+      "stdout_sha256": "612ec657b8f9318a589276d7e1543f2bb395a7f0946c515882ba8a327cc8e59d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reachable": {
+        "provider_release": false,
+        "token_issue": false,
+        "chat_accept": false
+      }
+    },
+    {
+      "scenario": "p_allow_r_deny",
+      "model": "proofs/proverif/agent_communication_authz_chat_p_allow_r_deny.pv",
+      "working_directory": "proofs/proverif",
+      "command": [
+        "<proverif>",
+        "agent_communication_authz_chat_p_allow_r_deny.pv"
+      ],
+      "started_utc": "2026-09-18T02:58:22.289099+00:00",
+      "stdout": "p_allow_r_deny.stdout.txt",
+      "stderr": "p_allow_r_deny.stderr.txt",
+      "exit_code": 0,
+      "elapsed_seconds": 552.533,
+      "finished_utc": "2026-09-18T03:07:34.823127+00:00",
+      "results": [
+        "RESULT not event(ProviderRelease(aid_A[],aid_B[])) is false.",
+        "RESULT not event(TokenIssue(aid_A[],aid_B[],tok)) is true.",
+        "RESULT not event(ChatAccept(aid_A[],aid_B[],tok,msg)) is true.",
+        "RESULT event(ChatAccept(receiver,sender_1,tok,msg)) ==> event(TokenIssue(receiver,sender_1,tok)) is true.",
+        "RESULT event(ChatAccept(receiver,sender_1,tok,msg)) ==> event(ChatSend(receiver,sender_1,tok,msg)) is true."
+      ],
+      "stdout_sha256": "c77655a8222a658f8b3376400acd6ba1c88daaeaf9cd2ec87a001b058da60849",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reachable": {
+        "provider_release": true,
+        "token_issue": false,
+        "chat_accept": false
+      }
+    }
+  ],
+  "completed": true,
+  "checks": {
+    "p_allow_r_allow_reachability": true,
+    "p_deny_r_allow_reachability": true,
+    "p_allow_r_deny_reachability": true,
+    "allowed_chat_implies_TokenIssue": true,
+    "allowed_chat_implies_ChatSend": true,
+    "sources_unchanged": true,
+    "git_head_unchanged": true
+  },
+  "finished_utc": "2026-09-18T03:07:34.940891+00:00",
+  "git_head_after": "2685d956b2f98fb1c4634dd6ec817fe4d9c448b8",
+  "post_run_git_status": "?? proofs/evidence/authz-chat-gates-20260918T023621017067Z/manifest.json\n?? proofs/evidence/authz-chat-gates-20260918T023621017067Z/p_allow_r_allow.stderr.txt\n?? proofs/evidence/authz-chat-gates-20260918T023621017067Z/p_allow_r_allow.stdout.txt\n?? proofs/evidence/authz-chat-gates-20260918T023621017067Z/p_allow_r_deny.stderr.txt\n?? proofs/evidence/authz-chat-gates-20260918T023621017067Z/p_allow_r_deny.stdout.txt\n?? proofs/evidence/authz-chat-gates-20260918T023621017067Z/p_deny_r_allow.stderr.txt\n?? proofs/evidence/authz-chat-gates-20260918T023621017067Z/p_deny_r_allow.stdout.txt\n?? proofs/evidence/authz-chat-gates-20260918T023621017067Z/proverif-version.txt\n?? proofs/evidence/authz-chat-gates-20260918T023621017067Z/verification-summary.txt",
+  "source_sha256_after": {
+    "proofs/build_authz_chat_gates.py": "1ad8bf1dda4c39fd4c4d410de9d71649102540a466588a2ec94275ce5db3c1bb",
+    "proofs/run_authz_chat_gates.py": "2d37a1e08aa9fc7aa575eb730251f16cc854a5d17937dd66265c339dde4006b8",
+    "proofs/proverif/agent_communication_authz_chat_allow.pv": "cb0e2ce84d95eddeef6725893cdfaeb10679bb6b84656ec1d4f3e55df2d6f88b",
+    "proofs/proverif/registration.pv": "183b2867162ee2862861b84dff153f22f1a33d03616efc90f48f688c809e2da0",
+    "proofs/proverif/agent_communication.pv": "3faf15a801658dc70ceacf1752557cec62ad965854304ad703dce8bdee008302",
+    "proofs/proverif/agent_communication_authz.pv": "20dc6fe128b89b8da46a2d1d4adb410de0945ab6036cd093dee40eb8fdca7166",
+    "saga/common/contact_policy.py": "2e37f59651acc31ed9fad8436462faabcb49c52ab3032eccd1529cd72870aa97",
+    "saga/provider/provider.py": "097fd8ed76756d61336689259f496144484f8fa72d7d040dd2df90eedc934c6e",
+    "saga/agent.py": "94bebf70df4f76e55c0bb8a54c5f29b7fa688ead197ece18f8ac9dec8edae8d5",
+    "proofs/proverif/agent_communication_authz_chat_p_allow_r_allow.pv": "7d2664ff18a1afee2b066c17abdbfb9d5f733948aae2993093d816992caceb0c",
+    "proofs/proverif/agent_communication_authz_chat_p_deny_r_allow.pv": "66101efb404ab1a6d9f2b71094ae769aee873c55f17df70b048257423295037e",
+    "proofs/proverif/agent_communication_authz_chat_p_allow_r_deny.pv": "60f2c7b016c00147dedb33f64c2d161d00ae62df1fed83500e7214a97813cc7a"
+  },
+  "evidence_sha256": {
+    "proverif-version.txt": "c00f1890d591537c078cc8ce60db401be65197779353e07a6fdbb8ae2b07ec5f",
+    "p_allow_r_allow.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "p_allow_r_allow.stdout.txt": "abf37703c74ce8327ba2bb19caf0213a8b8f2d5accf13b1e7e750e925d79db6c",
+    "p_allow_r_deny.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "p_allow_r_deny.stdout.txt": "c77655a8222a658f8b3376400acd6ba1c88daaeaf9cd2ec87a001b058da60849",
+    "p_deny_r_allow.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "p_deny_r_allow.stdout.txt": "612ec657b8f9318a589276d7e1543f2bb395a7f0946c515882ba8a327cc8e59d",
+    "verification-summary.txt": "21398f13a27114411174c0b99527dc079c6def4911f9a2226271f0be488b3f75"
+  }
+}

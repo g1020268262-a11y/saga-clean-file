@@ -1,0 +1,21 @@
+name: Candice Kimber
+email: candice@mail.com
+passwd: "candice"
+
+agents:
+  - name: "dummy_agent"
+    
+    description: "A dummy agent for protocol testing."
+    endpoint:
+      ip: 127.0.0.1
+      port: 7003
+      device_name: lambda
+    contact_rulebook: []
+    num_one_time_keys: 100
+    local_agent_config:
+      model: null
+      tools:
+        - email
+        - calendar
+      model_type: null
+      api_base: null

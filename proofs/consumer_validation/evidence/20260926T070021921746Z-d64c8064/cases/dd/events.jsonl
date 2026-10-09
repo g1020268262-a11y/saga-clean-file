@@ -1,0 +1,5 @@
+{"attempt_id": "1", "budget": -1, "case_id": "dd", "consumer": "provider", "rules": [{"budget": 10, "pattern": "*"}, {"budget": -1, "pattern": "alice@example.com:*"}], "rules_sha256": "b9b479c021746f5e54ed4937147f7aa41e69a5cfdd9685d40038981823f91f05", "seq": 1, "stage": "matcher", "status": "returned", "target": "alice@example.com:agent"}
+{"attempt_id": "1", "case_id": "dd", "otk_sha256": [], "response_sha256": "b31709e9ad9ad729475e5bdae28c5970108a7e327ff1f4bafd67f82599153e34", "seq": 2, "stage": "provider_response", "status": 403}
+{"attempt_id": "1", "case_id": "dd", "reason": "provider_denied", "seq": 3, "stage": "otk_release", "status": "not_reached"}
+{"attempt_id": "1", "case_id": "dd", "reason": "provider_denied", "seq": 4, "stage": "receiver_handshake", "status": "not_reached"}
+{"attempt_id": "1", "case_id": "dd", "reason": "provider_denied", "seq": 5, "stage": "token_issuance", "status": "not_reached"}

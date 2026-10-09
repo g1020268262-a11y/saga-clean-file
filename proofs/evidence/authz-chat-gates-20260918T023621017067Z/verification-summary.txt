@@ -1,0 +1,20 @@
+p_allow_r_allow
+RESULT not event(ProviderRelease(aid_A[],aid_B[])) is false.
+RESULT not event(TokenIssue(aid_A[],aid_B[],tok)) is false.
+RESULT not event(ChatAccept(aid_A[],aid_B[],tok,msg)) is false.
+RESULT event(ChatAccept(receiver,sender_1,tok,msg)) ==> event(TokenIssue(receiver,sender_1,tok)) is true.
+RESULT event(ChatAccept(receiver,sender_1,tok,msg)) ==> event(ChatSend(receiver,sender_1,tok,msg)) is true.
+
+p_deny_r_allow
+RESULT not event(ProviderRelease(aid_A[],aid_B[])) is true.
+RESULT not event(TokenIssue(aid_A[],aid_B[],tok)) is true.
+RESULT not event(ChatAccept(aid_A[],aid_B[],tok,msg)) is true.
+RESULT event(ChatAccept(receiver,sender_1,tok,msg)) ==> event(TokenIssue(receiver,sender_1,tok)) is true.
+RESULT event(ChatAccept(receiver,sender_1,tok,msg)) ==> event(ChatSend(receiver,sender_1,tok,msg)) is true.
+
+p_allow_r_deny
+RESULT not event(ProviderRelease(aid_A[],aid_B[])) is false.
+RESULT not event(TokenIssue(aid_A[],aid_B[],tok)) is true.
+RESULT not event(ChatAccept(aid_A[],aid_B[],tok,msg)) is true.
+RESULT event(ChatAccept(receiver,sender_1,tok,msg)) ==> event(TokenIssue(receiver,sender_1,tok)) is true.
+RESULT event(ChatAccept(receiver,sender_1,tok,msg)) ==> event(ChatSend(receiver,sender_1,tok,msg)) is true.

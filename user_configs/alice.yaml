@@ -1,0 +1,26 @@
+name: Alice Smith
+email: alice@mail.com
+passwd: "alice"
+
+agents:
+  - name: "dummy_agent"
+    description: "A dummy agent for protocol testing."
+    endpoint:
+      ip: 127.0.0.1
+      port: 7000
+      device_name: lambda
+    contact_rulebook: [
+      {
+        "pattern": "*",
+        "budget": 100
+      }
+    ]
+    num_one_time_keys: 5
+    local_agent_config:
+      model_type: null
+      api_base: null
+      model: null
+      additional_authorized_imports: []
+      tools:
+        - email
+        - calendar

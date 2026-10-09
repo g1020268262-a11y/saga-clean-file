@@ -1,0 +1,51 @@
+{
+  "case": {
+    "id": "dd",
+    "impl_budget": -1,
+    "pair": "D/D",
+    "rules": [
+      {
+        "budget": 10,
+        "pattern": "*"
+      },
+      {
+        "budget": -1,
+        "pattern": "alice@example.com:*"
+      }
+    ],
+    "spec_budget": -1
+  },
+  "context": {
+    "initiator": "alice@example.com:agent",
+    "policy_hash": "83c7318f8f944bd4e759384b88431254c7ac0e1676bd157d946ead77219adaa0",
+    "receiver": "bob@example.com:receiver",
+    "receiver_binding": "observed fixture owner in this consumer execution",
+    "rules": [
+      {
+        "budget": 10,
+        "id": "r0",
+        "pattern": "*",
+        "position": 0
+      },
+      {
+        "budget": -1,
+        "id": "r1",
+        "pattern": "alice@example.com:*",
+        "position": 1
+      }
+    ],
+    "target": "alice@example.com:agent"
+  },
+  "evaluation_fingerprint": "a2bafaa9ce362f9b13f7eca1a1fe66edfd574b240f4a79b836ee7d57ebdb2c99",
+  "initiator_cert_sha256": "2c565d5e1945cce6a710203ba54979523dde136196c42e581c70947100875e09",
+  "q_max": 50,
+  "receiver_cert_sha256": "b79c456aca649da8a5a320a96704260c97300817b5d5a15a724e7bb6ab064a9f",
+  "spec": {
+    "budget": -1,
+    "budget_class": "Negative",
+    "decision": "Deny",
+    "specificity": 70,
+    "status": "OK",
+    "winning_rule": "r1"
+  }
+}

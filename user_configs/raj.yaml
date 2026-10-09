@@ -1,0 +1,104 @@
+name: Raj Sharma
+email: raj.sharma@gmail.com
+passwd: "raj"
+
+agents:
+  - name: "calendar_agent"
+    description: "An agent that can interact with the user's calendar."
+    endpoint:
+      ip: 127.0.0.1
+      port: 7003
+      device_name: localhost
+    contact_rulebook: [
+      {
+        "pattern": "*",
+        "budget": 100
+      }
+    ]
+    num_one_time_keys: 100
+    local_agent_config:
+      model_type: "OpenAIServerModel"
+      base_agent_type: "CodeAgent"
+      api_base: "https://api.openai.com/v1"
+      model: "gpt-4.1-mini-2025-04-14"
+      additional_authorized_imports: [
+        "datetime"
+      ]
+      tools:
+        - calendar
+        - self
+      specific_agent_instruction: |
+        Some more specific instructions:
+        1. If there are multiple free available slots for a meeting, just pick the first one. Applies to both when you are the one scheduling or receiving a proposed meeting time.
+        2. Before scheduling a meeting, make sure you have the participant's email address. Also make sure they are available in that time slot. Ask if you don't know; do not assume anything!
+        3. If someone else indicates they are or will be scheduling a meeting, do not try to duplicate their effort.
+        4. Do not schedule a meeting before confirming the exact timeslot with them and making sure you have their email address for the calendar invite.
+        5. Every time you are asked or proposed a meeting time, check your availability via the calendar first.
+        6. If you were given a time slot for a meeting and you are not available in that time slot, check your existing events to find the next free slot when proposing a new time.
+        7. Before providing any details to someone to book a calendar event, make sure the meeting time works for you.
+  - name: "email_agent"
+    description: "An agent that can send and receive emails."
+    endpoint:
+      ip: 127.0.0.1
+      port: 7004
+      device_name: localhost
+    contact_rulebook: [
+      {
+        "pattern": "*",
+        "budget": 100
+      }
+    ]
+    num_one_time_keys: 100
+    local_agent_config:
+      model_type: "OpenAIServerModel"
+      base_agent_type: "CodeAgent"
+      api_base: "https://api.openai.com/v1"
+      model: "gpt-4.1-2025-04-14"
+      additional_authorized_imports: [
+        "datetime"
+      ]
+      tools:
+        - email
+        - self
+      specific_agent_instruction: |
+        Some more specific instructions:
+        1. Do not engage in niceties after you're done with the task.
+        2. If submitting an expense report, ALWAYS make sure you have also checked your own inbox for relevant expenses (if you were involved in the event).
+        3. If the task requires you to also scan your emails, make sure you do that.
+        4. If sharing data extracted from emails with someone else make it in a way that is human-friendly, not JSON objects.
+  - name: "writing_agent"
+    description: "An agent that can help in writing."
+    endpoint:
+      ip: 127.0.0.1
+      port: 7005
+      device_name: localhost
+    contact_rulebook: [
+      {
+        "pattern": "*",
+        "budget": 100
+      }
+    ]
+    num_one_time_keys: 100
+    local_agent_config:
+      model_type: "OpenAIServerModel"
+      base_agent_type: "CodeAgent"
+      api_base: "https://api.openai.com/v1"
+      model: "gpt-4.1-2025-04-14"
+      additional_authorized_imports: [
+        "datetime"
+      ]
+      tools:
+        - documents
+        - self
+      specific_agent_instruction: |
+        Some more specific instructions:
+        1. To get an idea of the user's writing style (and to use this style in your generations), please look at the user's blogposts as reference.
+        2. If collaborating with other people on a blogpost, please make sure both you and credit and that all contributors' name/email are added.
+        3. When writing, you try to use any available information/documents you have to ground your responses.
+        4. Feel free to make web searches when trying to research a topic.
+        5. Please make multiple passes over text when writing, especially when someone else is also involved in the writing process.
+        6. Please make multiple passes between you and the user when writing. It should be a collaborative process.
+        7. When collaborating, do not just copy paste sections and credit people for those sections. Instead, collaborate and stitch contributions in a meaningful way.
+        8. When collaborating with others, make sure you let them express their views since their expertise may be different from yours.
+        9. Always do a final pass for grammar-related improvements.
+        10. The only way to share drafts is via your standard response. The other cannot view your drafts unless you explicitly share them.

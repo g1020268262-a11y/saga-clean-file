@@ -1,0 +1,17 @@
+{
+  "executed_utc": "20260922T064049858703Z",
+  "base_commit": "b5d0a6365d40fdeff240e54cce5ef7572f01808a",
+  "source": "saga/common/contact_policy.py",
+  "source_sha256": "2e37f59651acc31ed9fad8436462faabcb49c52ab3032eccd1529cd72870aa97",
+  "collector_sha256": "a95d6e5bd325cf6a5b6c364f69a1c41e5397524de11d86a9856579c088d94e0c",
+  "python_version": "3.14.3 (main, Feb  5 2026, 13:34:54)  [MINGW GCC UCRT 15.2.0 64 bit (AMD64)]",
+  "aid": "alice@example.com:agent",
+  "rules": [
+    {
+      "pattern": "*",
+      "budget": 10
+    }
+  ],
+  "actual_budget": 10,
+  "scope": "NEW direct production matcher call only; no service or ProVerif execution"
+}

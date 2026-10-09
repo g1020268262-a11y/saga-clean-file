@@ -1,0 +1,452 @@
+Starting query event(Accept(issuer,recipient,tok)) ==> event(PolicyAllow(issuer,recipient))
+goal reachable: event(Accept(aid_A[],aid_B[],token[]))
+
+Derivation:
+
+1. The message (pk(SK_A[]),pk(SK_B[]),pk(SK_Prov[]),pk(SK_CA[])) may be sent to the attacker at output {9}.
+attacker((pk(SK_A[]),pk(SK_B[]),pk(SK_Prov[]),pk(SK_CA[]))).
+
+2. By 1, the attacker may know (pk(SK_A[]),pk(SK_B[]),pk(SK_Prov[]),pk(SK_CA[])).
+Using the function 1-proj-4-tuple the attacker may obtain pk(SK_A[]).
+attacker(pk(SK_A[])).
+
+3. By 2, the attacker may know pk(SK_A[]).
+So the attacker may know pk(SK_A[]) in phase 1.
+attacker_p1(pk(SK_A[])).
+
+4. By 3, the attacker may know pk(SK_A[]) in phase 1.
+So the attacker may know pk(SK_A[]) in phase 2.
+attacker_p2(pk(SK_A[])).
+
+5. The message (sign(SK_CA[],concat1(aid_A[],pk(SK_A[]))),aid_A[],pk(SK_A[])) may be sent to the attacker in phase 1 at output {16}.
+attacker_p1((sign(SK_CA[],concat1(aid_A[],pk(SK_A[]))),aid_A[],pk(SK_A[]))).
+
+6. By 5, the attacker may know (sign(SK_CA[],concat1(aid_A[],pk(SK_A[]))),aid_A[],pk(SK_A[])) in phase 1.
+Using the function 2-proj-3-tuple the attacker may obtain aid_A[] in phase 1.
+attacker_p1(aid_A[]).
+
+7. By 6, the attacker may know aid_A[] in phase 1.
+So the attacker may know aid_A[] in phase 2.
+attacker_p2(aid_A[]).
+
+8. By 5, the attacker may know (sign(SK_CA[],concat1(aid_A[],pk(SK_A[]))),aid_A[],pk(SK_A[])) in phase 1.
+Using the function 1-proj-3-tuple the attacker may obtain sign(SK_CA[],concat1(aid_A[],pk(SK_A[]))) in phase 1.
+attacker_p1(sign(SK_CA[],concat1(aid_A[],pk(SK_A[])))).
+
+9. By 8, the attacker may know sign(SK_CA[],concat1(aid_A[],pk(SK_A[]))) in phase 1.
+So the attacker may know sign(SK_CA[],concat1(aid_A[],pk(SK_A[]))) in phase 2.
+attacker_p2(sign(SK_CA[],concat1(aid_A[],pk(SK_A[])))).
+
+10. By 9, the attacker may know sign(SK_CA[],concat1(aid_A[],pk(SK_A[]))) in phase 2.
+By 7, the attacker may know aid_A[] in phase 2.
+By 4, the attacker may know pk(SK_A[]) in phase 2.
+Using the function 3-tuple the attacker may obtain (sign(SK_CA[],concat1(aid_A[],pk(SK_A[]))),aid_A[],pk(SK_A[])) in phase 2.
+attacker_p2((sign(SK_CA[],concat1(aid_A[],pk(SK_A[]))),aid_A[],pk(SK_A[]))).
+
+11. The message (aid_A[],sign(SK_A[],rb(pk(SOTK1_A[]))),pk(SOTK1_A[]),sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))),pk(SAC_A[]),ED_A[]) may be sent to the attacker in phase 2 at output {55}.
+attacker_p2((aid_A[],sign(SK_A[],rb(pk(SOTK1_A[]))),pk(SOTK1_A[]),sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))),pk(SAC_A[]),ED_A[])).
+
+12. By 11, the attacker may know (aid_A[],sign(SK_A[],rb(pk(SOTK1_A[]))),pk(SOTK1_A[]),sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))),pk(SAC_A[]),ED_A[]) in phase 2.
+Using the function 6-proj-6-tuple the attacker may obtain ED_A[] in phase 2.
+attacker_p2(ED_A[]).
+
+13. By 11, the attacker may know (aid_A[],sign(SK_A[],rb(pk(SOTK1_A[]))),pk(SOTK1_A[]),sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))),pk(SAC_A[]),ED_A[]) in phase 2.
+Using the function 5-proj-6-tuple the attacker may obtain pk(SAC_A[]) in phase 2.
+attacker_p2(pk(SAC_A[])).
+
+14. By 11, the attacker may know (aid_A[],sign(SK_A[],rb(pk(SOTK1_A[]))),pk(SOTK1_A[]),sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))),pk(SAC_A[]),ED_A[]) in phase 2.
+Using the function 4-proj-6-tuple the attacker may obtain sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))) in phase 2.
+attacker_p2(sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[])))).
+
+15. By 11, the attacker may know (aid_A[],sign(SK_A[],rb(pk(SOTK1_A[]))),pk(SOTK1_A[]),sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))),pk(SAC_A[]),ED_A[]) in phase 2.
+Using the function 3-proj-6-tuple the attacker may obtain pk(SOTK1_A[]) in phase 2.
+attacker_p2(pk(SOTK1_A[])).
+
+16. By 11, the attacker may know (aid_A[],sign(SK_A[],rb(pk(SOTK1_A[]))),pk(SOTK1_A[]),sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))),pk(SAC_A[]),ED_A[]) in phase 2.
+Using the function 2-proj-6-tuple the attacker may obtain sign(SK_A[],rb(pk(SOTK1_A[]))) in phase 2.
+attacker_p2(sign(SK_A[],rb(pk(SOTK1_A[])))).
+
+17. By 7, the attacker may know aid_A[] in phase 2.
+By 16, the attacker may know sign(SK_A[],rb(pk(SOTK1_A[]))) in phase 2.
+By 15, the attacker may know pk(SOTK1_A[]) in phase 2.
+By 14, the attacker may know sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))) in phase 2.
+By 13, the attacker may know pk(SAC_A[]) in phase 2.
+By 12, the attacker may know ED_A[] in phase 2.
+Using the function 6-tuple the attacker may obtain (aid_A[],sign(SK_A[],rb(pk(SOTK1_A[]))),pk(SOTK1_A[]),sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))),pk(SAC_A[]),ED_A[]) in phase 2.
+attacker_p2((aid_A[],sign(SK_A[],rb(pk(SOTK1_A[]))),pk(SOTK1_A[]),sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))),pk(SAC_A[]),ED_A[])).
+
+18. By 1, the attacker may know (pk(SK_A[]),pk(SK_B[]),pk(SK_Prov[]),pk(SK_CA[])).
+Using the function 2-proj-4-tuple the attacker may obtain pk(SK_B[]).
+attacker(pk(SK_B[])).
+
+19. By 18, the attacker may know pk(SK_B[]).
+So the attacker may know pk(SK_B[]) in phase 1.
+attacker_p1(pk(SK_B[])).
+
+20. By 19, the attacker may know pk(SK_B[]) in phase 1.
+So the attacker may know pk(SK_B[]) in phase 2.
+attacker_p2(pk(SK_B[])).
+
+21. By 20, the attacker may know pk(SK_B[]) in phase 2.
+So the attacker may know pk(SK_B[]) in phase 3.
+attacker_p3(pk(SK_B[])).
+
+22. By 21, the attacker may know pk(SK_B[]) in phase 3.
+So the attacker may know pk(SK_B[]) in phase 4.
+attacker_p4(pk(SK_B[])).
+
+23. The message (sign(SK_CA[],concat1(aid_B[],pk(SK_B[]))),aid_B[],pk(SK_B[])) may be sent to the attacker in phase 3 at output {20}.
+attacker_p3((sign(SK_CA[],concat1(aid_B[],pk(SK_B[]))),aid_B[],pk(SK_B[]))).
+
+24. By 23, the attacker may know (sign(SK_CA[],concat1(aid_B[],pk(SK_B[]))),aid_B[],pk(SK_B[])) in phase 3.
+Using the function 2-proj-3-tuple the attacker may obtain aid_B[] in phase 3.
+attacker_p3(aid_B[]).
+
+25. By 24, the attacker may know aid_B[] in phase 3.
+So the attacker may know aid_B[] in phase 4.
+attacker_p4(aid_B[]).
+
+26. By 23, the attacker may know (sign(SK_CA[],concat1(aid_B[],pk(SK_B[]))),aid_B[],pk(SK_B[])) in phase 3.
+Using the function 1-proj-3-tuple the attacker may obtain sign(SK_CA[],concat1(aid_B[],pk(SK_B[]))) in phase 3.
+attacker_p3(sign(SK_CA[],concat1(aid_B[],pk(SK_B[])))).
+
+27. By 26, the attacker may know sign(SK_CA[],concat1(aid_B[],pk(SK_B[]))) in phase 3.
+So the attacker may know sign(SK_CA[],concat1(aid_B[],pk(SK_B[]))) in phase 4.
+attacker_p4(sign(SK_CA[],concat1(aid_B[],pk(SK_B[])))).
+
+28. By 27, the attacker may know sign(SK_CA[],concat1(aid_B[],pk(SK_B[]))) in phase 4.
+By 25, the attacker may know aid_B[] in phase 4.
+By 22, the attacker may know pk(SK_B[]) in phase 4.
+Using the function 3-tuple the attacker may obtain (sign(SK_CA[],concat1(aid_B[],pk(SK_B[]))),aid_B[],pk(SK_B[])) in phase 4.
+attacker_p4((sign(SK_CA[],concat1(aid_B[],pk(SK_B[]))),aid_B[],pk(SK_B[]))).
+
+29. The message (aid_B[],sign(SK_B[],rb(pk(SOTK1_B[]))),pk(SOTK1_B[]),sign(SK_B[],concat2(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),pk(SK_Prov[]))),pk(SAC_B[]),ED_B[]) may be sent to the attacker in phase 4 at output {75}.
+attacker_p4((aid_B[],sign(SK_B[],rb(pk(SOTK1_B[]))),pk(SOTK1_B[]),sign(SK_B[],concat2(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),pk(SK_Prov[]))),pk(SAC_B[]),ED_B[])).
+
+30. By 29, the attacker may know (aid_B[],sign(SK_B[],rb(pk(SOTK1_B[]))),pk(SOTK1_B[]),sign(SK_B[],concat2(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),pk(SK_Prov[]))),pk(SAC_B[]),ED_B[]) in phase 4.
+Using the function 6-proj-6-tuple the attacker may obtain ED_B[] in phase 4.
+attacker_p4(ED_B[]).
+
+31. By 29, the attacker may know (aid_B[],sign(SK_B[],rb(pk(SOTK1_B[]))),pk(SOTK1_B[]),sign(SK_B[],concat2(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),pk(SK_Prov[]))),pk(SAC_B[]),ED_B[]) in phase 4.
+Using the function 5-proj-6-tuple the attacker may obtain pk(SAC_B[]) in phase 4.
+attacker_p4(pk(SAC_B[])).
+
+32. By 29, the attacker may know (aid_B[],sign(SK_B[],rb(pk(SOTK1_B[]))),pk(SOTK1_B[]),sign(SK_B[],concat2(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),pk(SK_Prov[]))),pk(SAC_B[]),ED_B[]) in phase 4.
+Using the function 4-proj-6-tuple the attacker may obtain sign(SK_B[],concat2(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),pk(SK_Prov[]))) in phase 4.
+attacker_p4(sign(SK_B[],concat2(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),pk(SK_Prov[])))).
+
+33. By 29, the attacker may know (aid_B[],sign(SK_B[],rb(pk(SOTK1_B[]))),pk(SOTK1_B[]),sign(SK_B[],concat2(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),pk(SK_Prov[]))),pk(SAC_B[]),ED_B[]) in phase 4.
+Using the function 3-proj-6-tuple the attacker may obtain pk(SOTK1_B[]) in phase 4.
+attacker_p4(pk(SOTK1_B[])).
+
+34. By 29, the attacker may know (aid_B[],sign(SK_B[],rb(pk(SOTK1_B[]))),pk(SOTK1_B[]),sign(SK_B[],concat2(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),pk(SK_Prov[]))),pk(SAC_B[]),ED_B[]) in phase 4.
+Using the function 2-proj-6-tuple the attacker may obtain sign(SK_B[],rb(pk(SOTK1_B[]))) in phase 4.
+attacker_p4(sign(SK_B[],rb(pk(SOTK1_B[])))).
+
+35. By 25, the attacker may know aid_B[] in phase 4.
+By 34, the attacker may know sign(SK_B[],rb(pk(SOTK1_B[]))) in phase 4.
+By 33, the attacker may know pk(SOTK1_B[]) in phase 4.
+By 32, the attacker may know sign(SK_B[],concat2(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),pk(SK_Prov[]))) in phase 4.
+By 31, the attacker may know pk(SAC_B[]) in phase 4.
+By 30, the attacker may know ED_B[] in phase 4.
+Using the function 6-tuple the attacker may obtain (aid_B[],sign(SK_B[],rb(pk(SOTK1_B[]))),pk(SOTK1_B[]),sign(SK_B[],concat2(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),pk(SK_Prov[]))),pk(SAC_B[]),ED_B[]) in phase 4.
+attacker_p4((aid_B[],sign(SK_B[],rb(pk(SOTK1_B[]))),pk(SOTK1_B[]),sign(SK_B[],concat2(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),pk(SK_Prov[]))),pk(SAC_B[]),ED_B[])).
+
+36. The message (sign(SK_CA[],concat1(aid_A[],pk(SK_A[]))),aid_A[],pk(SK_A[])) that the attacker may have in phase 2 by 10 may be received at input {25}.
+The message (aid_A[],sign(SK_A[],rb(pk(SOTK1_A[]))),pk(SOTK1_A[]),sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))),pk(SAC_A[]),ED_A[]) that the attacker may have in phase 2 by 17 may be received at input {27}.
+The message (sign(SK_CA[],concat1(aid_B[],pk(SK_B[]))),aid_B[],pk(SK_B[])) that the attacker may have in phase 4 by 28 may be received at input {36}.
+The message (aid_B[],sign(SK_B[],rb(pk(SOTK1_B[]))),pk(SOTK1_B[]),sign(SK_B[],concat2(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),pk(SK_Prov[]))),pk(SAC_B[]),ED_B[]) that the attacker may have in phase 4 by 35 may be received at input {38}.
+So the message sign(SK_Prov[],concat3(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),sign(SK_B[],concat2(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),pk(SK_Prov[]))))) may be sent to the attacker in phase 4 at output {44}.
+attacker_p4(sign(SK_Prov[],concat3(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),sign(SK_B[],concat2(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),pk(SK_Prov[])))))).
+
+37. By 12, the attacker may know ED_A[] in phase 2.
+So the attacker may know ED_A[] in phase 3.
+attacker_p3(ED_A[]).
+
+38. By 37, the attacker may know ED_A[] in phase 3.
+So the attacker may know ED_A[] in phase 4.
+attacker_p4(ED_A[]).
+
+39. By 38, the attacker may know ED_A[] in phase 4.
+So the attacker may know ED_A[] in phase 5.
+attacker_p5(ED_A[]).
+
+40. By 13, the attacker may know pk(SAC_A[]) in phase 2.
+So the attacker may know pk(SAC_A[]) in phase 3.
+attacker_p3(pk(SAC_A[])).
+
+41. By 40, the attacker may know pk(SAC_A[]) in phase 3.
+So the attacker may know pk(SAC_A[]) in phase 4.
+attacker_p4(pk(SAC_A[])).
+
+42. By 41, the attacker may know pk(SAC_A[]) in phase 4.
+So the attacker may know pk(SAC_A[]) in phase 5.
+attacker_p5(pk(SAC_A[])).
+
+43. By 14, the attacker may know sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))) in phase 2.
+So the attacker may know sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))) in phase 3.
+attacker_p3(sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[])))).
+
+44. By 43, the attacker may know sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))) in phase 3.
+So the attacker may know sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))) in phase 4.
+attacker_p4(sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[])))).
+
+45. By 44, the attacker may know sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))) in phase 4.
+So the attacker may know sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))) in phase 5.
+attacker_p5(sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[])))).
+
+46. By 15, the attacker may know pk(SOTK1_A[]) in phase 2.
+So the attacker may know pk(SOTK1_A[]) in phase 3.
+attacker_p3(pk(SOTK1_A[])).
+
+47. By 46, the attacker may know pk(SOTK1_A[]) in phase 3.
+So the attacker may know pk(SOTK1_A[]) in phase 4.
+attacker_p4(pk(SOTK1_A[])).
+
+48. By 47, the attacker may know pk(SOTK1_A[]) in phase 4.
+So the attacker may know pk(SOTK1_A[]) in phase 5.
+attacker_p5(pk(SOTK1_A[])).
+
+49. By 16, the attacker may know sign(SK_A[],rb(pk(SOTK1_A[]))) in phase 2.
+So the attacker may know sign(SK_A[],rb(pk(SOTK1_A[]))) in phase 3.
+attacker_p3(sign(SK_A[],rb(pk(SOTK1_A[])))).
+
+50. By 49, the attacker may know sign(SK_A[],rb(pk(SOTK1_A[]))) in phase 3.
+So the attacker may know sign(SK_A[],rb(pk(SOTK1_A[]))) in phase 4.
+attacker_p4(sign(SK_A[],rb(pk(SOTK1_A[])))).
+
+51. By 50, the attacker may know sign(SK_A[],rb(pk(SOTK1_A[]))) in phase 4.
+So the attacker may know sign(SK_A[],rb(pk(SOTK1_A[]))) in phase 5.
+attacker_p5(sign(SK_A[],rb(pk(SOTK1_A[])))).
+
+52. By 7, the attacker may know aid_A[] in phase 2.
+So the attacker may know aid_A[] in phase 3.
+attacker_p3(aid_A[]).
+
+53. By 52, the attacker may know aid_A[] in phase 3.
+So the attacker may know aid_A[] in phase 4.
+attacker_p4(aid_A[]).
+
+54. By 53, the attacker may know aid_A[] in phase 4.
+So the attacker may know aid_A[] in phase 5.
+attacker_p5(aid_A[]).
+
+55. The attacker has some term Cert_B_4 in phase 5.
+attacker_p5(Cert_B_4).
+
+56. By 9, the attacker may know sign(SK_CA[],concat1(aid_A[],pk(SK_A[]))) in phase 2.
+So the attacker may know sign(SK_CA[],concat1(aid_A[],pk(SK_A[]))) in phase 3.
+attacker_p3(sign(SK_CA[],concat1(aid_A[],pk(SK_A[])))).
+
+57. By 56, the attacker may know sign(SK_CA[],concat1(aid_A[],pk(SK_A[]))) in phase 3.
+So the attacker may know sign(SK_CA[],concat1(aid_A[],pk(SK_A[]))) in phase 4.
+attacker_p4(sign(SK_CA[],concat1(aid_A[],pk(SK_A[])))).
+
+58. By 57, the attacker may know sign(SK_CA[],concat1(aid_A[],pk(SK_A[]))) in phase 4.
+So the attacker may know sign(SK_CA[],concat1(aid_A[],pk(SK_A[]))) in phase 5.
+attacker_p5(sign(SK_CA[],concat1(aid_A[],pk(SK_A[])))).
+
+59. By 58, the attacker may know sign(SK_CA[],concat1(aid_A[],pk(SK_A[]))) in phase 5.
+By 55, the attacker may know Cert_B_4 in phase 5.
+By 54, the attacker may know aid_A[] in phase 5.
+By 51, the attacker may know sign(SK_A[],rb(pk(SOTK1_A[]))) in phase 5.
+By 48, the attacker may know pk(SOTK1_A[]) in phase 5.
+By 45, the attacker may know sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))) in phase 5.
+By 42, the attacker may know pk(SAC_A[]) in phase 5.
+By 39, the attacker may know ED_A[] in phase 5.
+Using the function 8-tuple the attacker may obtain (sign(SK_CA[],concat1(aid_A[],pk(SK_A[]))),Cert_B_4,aid_A[],sign(SK_A[],rb(pk(SOTK1_A[]))),pk(SOTK1_A[]),sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))),pk(SAC_A[]),ED_A[]) in phase 5.
+attacker_p5((sign(SK_CA[],concat1(aid_A[],pk(SK_A[]))),Cert_B_4,aid_A[],sign(SK_A[],rb(pk(SOTK1_A[]))),pk(SOTK1_A[]),sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))),pk(SAC_A[]),ED_A[])).
+
+60. The message (sign(SK_CA[],concat1(aid_A[],pk(SK_A[]))),aid_A[],pk(SK_A[])) that the attacker may have in phase 2 by 10 may be received at input {25}.
+The message (aid_A[],sign(SK_A[],rb(pk(SOTK1_A[]))),pk(SOTK1_A[]),sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))),pk(SAC_A[]),ED_A[]) that the attacker may have in phase 2 by 17 may be received at input {27}.
+So the message sign(SK_Prov[],concat3(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))))) may be sent to the attacker in phase 2 at output {33}.
+attacker_p2(sign(SK_Prov[],concat3(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[])))))).
+
+61. By 36, the attacker may know sign(SK_Prov[],concat3(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),sign(SK_B[],concat2(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),pk(SK_Prov[]))))) in phase 4.
+So the attacker may know sign(SK_Prov[],concat3(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),sign(SK_B[],concat2(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),pk(SK_Prov[]))))) in phase 5.
+attacker_p5(sign(SK_Prov[],concat3(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),sign(SK_B[],concat2(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),pk(SK_Prov[])))))).
+
+62. By 32, the attacker may know sign(SK_B[],concat2(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),pk(SK_Prov[]))) in phase 4.
+So the attacker may know sign(SK_B[],concat2(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),pk(SK_Prov[]))) in phase 5.
+attacker_p5(sign(SK_B[],concat2(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),pk(SK_Prov[])))).
+
+63. By 31, the attacker may know pk(SAC_B[]) in phase 4.
+So the attacker may know pk(SAC_B[]) in phase 5.
+attacker_p5(pk(SAC_B[])).
+
+64. By 30, the attacker may know ED_B[] in phase 4.
+So the attacker may know ED_B[] in phase 5.
+attacker_p5(ED_B[]).
+
+65. The attacker has some term Cert_B_5 in phase 5.
+attacker_p5(Cert_B_5).
+
+66. By 25, the attacker may know aid_B[] in phase 4.
+So the attacker may know aid_B[] in phase 5.
+attacker_p5(aid_B[]).
+
+67. By 66, the attacker may know aid_B[] in phase 5.
+By 65, the attacker may know Cert_B_5 in phase 5.
+By 64, the attacker may know ED_B[] in phase 5.
+By 63, the attacker may know pk(SAC_B[]) in phase 5.
+By 62, the attacker may know sign(SK_B[],concat2(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),pk(SK_Prov[]))) in phase 5.
+By 61, the attacker may know sign(SK_Prov[],concat3(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),sign(SK_B[],concat2(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),pk(SK_Prov[]))))) in phase 5.
+Using the function 6-tuple the attacker may obtain (aid_B[],Cert_B_5,ED_B[],pk(SAC_B[]),sign(SK_B[],concat2(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),pk(SK_Prov[]))),sign(SK_Prov[],concat3(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),sign(SK_B[],concat2(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),pk(SK_Prov[])))))) in phase 5.
+attacker_p5((aid_B[],Cert_B_5,ED_B[],pk(SAC_B[]),sign(SK_B[],concat2(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),pk(SK_Prov[]))),sign(SK_Prov[],concat3(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),sign(SK_B[],concat2(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),pk(SK_Prov[]))))))).
+
+68. The message sign(SK_Prov[],concat3(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))))) that the attacker may have in phase 2 by 60 may be received at input {56}.
+The message (aid_B[],Cert_B_5,ED_B[],pk(SAC_B[]),sign(SK_B[],concat2(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),pk(SK_Prov[]))),sign(SK_Prov[],concat3(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),sign(SK_B[],concat2(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),pk(SK_Prov[])))))) that the attacker may have in phase 5 by 67 may be received at input {60}.
+So the message (sign(SK_A[],token[]),senc(dh(pk(SOTK1_A[]),SAC_B[]),token[])) may be sent to the attacker in phase 5 at output {66}.
+attacker_p5((sign(SK_A[],token[]),senc(dh(pk(SOTK1_A[]),SAC_B[]),token[]))).
+
+69. By 68, the attacker may know (sign(SK_A[],token[]),senc(dh(pk(SOTK1_A[]),SAC_B[]),token[])) in phase 5.
+Using the function 2-proj-2-tuple the attacker may obtain senc(dh(pk(SOTK1_A[]),SAC_B[]),token[]) in phase 5.
+attacker_p5(senc(dh(pk(SOTK1_A[]),SAC_B[]),token[])).
+
+70. By 69, the attacker may know senc(dh(pk(SOTK1_A[]),SAC_B[]),token[]) in phase 5.
+So the attacker may know senc(dh(pk(SOTK1_A[]),SAC_B[]),token[]) in phase 6.
+attacker_p6(senc(dh(pk(SOTK1_A[]),SAC_B[]),token[])).
+
+71. The attacker has some term Cert_B_6 in phase 5.
+attacker_p5(Cert_B_6).
+
+72. By 66, the attacker may know aid_B[] in phase 5.
+By 71, the attacker may know Cert_B_6 in phase 5.
+By 64, the attacker may know ED_B[] in phase 5.
+By 63, the attacker may know pk(SAC_B[]) in phase 5.
+By 62, the attacker may know sign(SK_B[],concat2(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),pk(SK_Prov[]))) in phase 5.
+By 61, the attacker may know sign(SK_Prov[],concat3(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),sign(SK_B[],concat2(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),pk(SK_Prov[]))))) in phase 5.
+Using the function 6-tuple the attacker may obtain (aid_B[],Cert_B_6,ED_B[],pk(SAC_B[]),sign(SK_B[],concat2(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),pk(SK_Prov[]))),sign(SK_Prov[],concat3(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),sign(SK_B[],concat2(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),pk(SK_Prov[])))))) in phase 5.
+attacker_p5((aid_B[],Cert_B_6,ED_B[],pk(SAC_B[]),sign(SK_B[],concat2(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),pk(SK_Prov[]))),sign(SK_Prov[],concat3(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),sign(SK_B[],concat2(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),pk(SK_Prov[]))))))).
+
+73. The message sign(SK_Prov[],concat3(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))))) that the attacker may have in phase 2 by 60 may be received at input {56}.
+The message (aid_B[],Cert_B_6,ED_B[],pk(SAC_B[]),sign(SK_B[],concat2(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),pk(SK_Prov[]))),sign(SK_Prov[],concat3(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),sign(SK_B[],concat2(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),pk(SK_Prov[])))))) that the attacker may have in phase 5 by 72 may be received at input {60}.
+So the message (sign(SK_A[],token[]),senc(dh(pk(SAC_B[]),SOTK1_A[]),token[])) may be sent to the attacker in phase 5 at output {66}.
+attacker_p5((sign(SK_A[],token[]),senc(dh(pk(SAC_B[]),SOTK1_A[]),token[]))).
+
+74. By 73, the attacker may know (sign(SK_A[],token[]),senc(dh(pk(SAC_B[]),SOTK1_A[]),token[])) in phase 5.
+Using the function 1-proj-2-tuple the attacker may obtain sign(SK_A[],token[]) in phase 5.
+attacker_p5(sign(SK_A[],token[])).
+
+75. By 74, the attacker may know sign(SK_A[],token[]) in phase 5.
+So the attacker may know sign(SK_A[],token[]) in phase 6.
+attacker_p6(sign(SK_A[],token[])).
+
+76. By 75, the attacker may know sign(SK_A[],token[]) in phase 6.
+By 70, the attacker may know senc(dh(pk(SOTK1_A[]),SAC_B[]),token[]) in phase 6.
+Using the function 2-tuple the attacker may obtain (sign(SK_A[],token[]),senc(dh(pk(SOTK1_A[]),SAC_B[]),token[])) in phase 6.
+attacker_p6((sign(SK_A[],token[]),senc(dh(pk(SOTK1_A[]),SAC_B[]),token[]))).
+
+77. The message sign(SK_Prov[],concat3(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),sign(SK_B[],concat2(aid_B[],ED_B[],pk(SK_B[]),pk(SAC_B[]),pk(SK_Prov[]))))) that the attacker may have in phase 4 by 36 may be received at input {76}.
+The message (sign(SK_CA[],concat1(aid_A[],pk(SK_A[]))),Cert_B_4,aid_A[],sign(SK_A[],rb(pk(SOTK1_A[]))),pk(SOTK1_A[]),sign(SK_A[],concat2(aid_A[],ED_A[],pk(SK_A[]),pk(SAC_A[]),pk(SK_Prov[]))),pk(SAC_A[]),ED_A[]) that the attacker may have in phase 5 by 59 may be received at input {80}.
+The message (sign(SK_A[],token[]),senc(dh(pk(SOTK1_A[]),SAC_B[]),token[])) that the attacker may have in phase 6 by 76 may be received at input {87}.
+So event Accept(aid_A[],aid_B[],token[]) may be executed at {91}.
+event(Accept(aid_A[],aid_B[],token[])).
+
+78. By 77, event(Accept(aid_A[],aid_B[],token[])).
+The goal is reached, represented in the following fact:
+event(Accept(aid_A[],aid_B[],token[])).
+
+
+A more detailed output of the traces is available with
+  set traceDisplay = long.
+
+new SK_CA: skey creating SK_CA_2 at {1}
+
+new SK_Prov: skey creating SK_Prov_2 at {3}
+
+new SK_A: skey creating SK_A_2 at {5}
+
+new SK_B: skey creating SK_B_2 at {7}
+
+out(a, (~M,~M_1,~M_2,~M_3)) with ~M = pk(SK_A_2), ~M_1 = pk(SK_B_2), ~M_2 = pk(SK_Prov_2), ~M_3 = pk(SK_CA_2) at {9}
+
+event start at {10}
+
+event PolicyDeny(aid_A,aid_B) at {11}
+
+out(prov_ca, (~M_4,~M_5,~M_6)) with ~M_4 = sign(SK_CA_2,concat1(aid_A,pk(SK_A_2))), ~M_5 = aid_A, ~M_6 = pk(SK_A_2) at {16} in copy a_1
+
+out(prov_ca, (~M_7,~M_8,~M_9)) with ~M_7 = sign(SK_CA_2,concat1(aid_A,pk(SK_A_2))), ~M_8 = aid_A, ~M_9 = pk(SK_A_2) at {16} in copy a_2
+
+out(c, (~M_10,~M_11,~M_12,~M_13,~M_14,~M_15)) with ~M_10 = aid_A, ~M_11 = sign(SK_A_2,rb(pk(SOTK1_A))), ~M_12 = pk(SOTK1_A), ~M_13 = sign(SK_A_2,concat2(aid_A,ED_A,pk(SK_A_2),pk(SAC_A),pk(SK_Prov_2))), ~M_14 = pk(SAC_A), ~M_15 = ED_A at {55} in copy a_3
+
+out(c, (~M_16,~M_17,~M_18,~M_19,~M_20,~M_21)) with ~M_16 = aid_A, ~M_17 = sign(SK_A_2,rb(pk(SOTK1_A))), ~M_18 = pk(SOTK1_A), ~M_19 = sign(SK_A_2,concat2(aid_A,ED_A,pk(SK_A_2),pk(SAC_A),pk(SK_Prov_2))), ~M_20 = pk(SAC_A), ~M_21 = ED_A at {55} in copy a_4
+
+out(c, (~M_22,~M_23,~M_24,~M_25,~M_26,~M_27)) with ~M_22 = aid_A, ~M_23 = sign(SK_A_2,rb(pk(SOTK1_A))), ~M_24 = pk(SOTK1_A), ~M_25 = sign(SK_A_2,concat2(aid_A,ED_A,pk(SK_A_2),pk(SAC_A),pk(SK_Prov_2))), ~M_26 = pk(SAC_A), ~M_27 = ED_A at {55} in copy a_5
+
+in(prov_ca, (~M_4,~M_5,~M)) with ~M_4 = sign(SK_CA_2,concat1(aid_A,pk(SK_A_2))), ~M_5 = aid_A, ~M = pk(SK_A_2) at {25} in copy a_6
+
+in(c, (~M_5,~M_11,~M_12,~M_13,~M_14,~M_15)) with ~M_5 = aid_A, ~M_11 = sign(SK_A_2,rb(pk(SOTK1_A))), ~M_12 = pk(SOTK1_A), ~M_13 = sign(SK_A_2,concat2(aid_A,ED_A,pk(SK_A_2),pk(SAC_A),pk(SK_Prov_2))), ~M_14 = pk(SAC_A), ~M_15 = ED_A at {27} in copy a_6
+
+event EndProviderAuthA(ED_A,aid_A,pk(SOTK1_A)) at {32} in copy a_6
+
+out(c, ~M_28) with ~M_28 = sign(SK_Prov_2,concat3(aid_A,ED_A,pk(SK_A_2),pk(SAC_A),sign(SK_A_2,concat2(aid_A,ED_A,pk(SK_A_2),pk(SAC_A),pk(SK_Prov_2))))) at {33} in copy a_6
+
+in(prov_ca, (~M_4,~M_5,~M)) with ~M_4 = sign(SK_CA_2,concat1(aid_A,pk(SK_A_2))), ~M_5 = aid_A, ~M = pk(SK_A_2) at {25} in copy a_7
+
+in(c, (~M_5,~M_11,~M_12,~M_13,~M_14,~M_15)) with ~M_5 = aid_A, ~M_11 = sign(SK_A_2,rb(pk(SOTK1_A))), ~M_12 = pk(SOTK1_A), ~M_13 = sign(SK_A_2,concat2(aid_A,ED_A,pk(SK_A_2),pk(SAC_A),pk(SK_Prov_2))), ~M_14 = pk(SAC_A), ~M_15 = ED_A at {27} in copy a_7
+
+event EndProviderAuthA(ED_A,aid_A,pk(SOTK1_A)) at {32} in copy a_7
+
+out(c, ~M_29) with ~M_29 = sign(SK_Prov_2,concat3(aid_A,ED_A,pk(SK_A_2),pk(SAC_A),sign(SK_A_2,concat2(aid_A,ED_A,pk(SK_A_2),pk(SAC_A),pk(SK_Prov_2))))) at {33} in copy a_7
+
+in(c, ~M_28) with ~M_28 = sign(SK_Prov_2,concat3(aid_A,ED_A,pk(SK_A_2),pk(SAC_A),sign(SK_A_2,concat2(aid_A,ED_A,pk(SK_A_2),pk(SAC_A),pk(SK_Prov_2))))) at {56} in copy a_5
+
+event EndAuthA(ED_A,aid_A,pk(SOTK1_A)) at {58} in copy a_5
+
+in(c, ~M_28) with ~M_28 = sign(SK_Prov_2,concat3(aid_A,ED_A,pk(SK_A_2),pk(SAC_A),sign(SK_A_2,concat2(aid_A,ED_A,pk(SK_A_2),pk(SAC_A),pk(SK_Prov_2))))) at {56} in copy a_4
+
+event EndAuthA(ED_A,aid_A,pk(SOTK1_A)) at {58} in copy a_4
+
+out(prov_ca, (~M_30,~M_31,~M_32)) with ~M_30 = sign(SK_CA_2,concat1(aid_B,pk(SK_B_2))), ~M_31 = aid_B, ~M_32 = pk(SK_B_2) at {20} in copy a_1
+
+out(prov_ca, (~M_33,~M_34,~M_35)) with ~M_33 = sign(SK_CA_2,concat1(aid_B,pk(SK_B_2))), ~M_34 = aid_B, ~M_35 = pk(SK_B_2) at {20} in copy a_2
+
+out(c, (~M_36,~M_37,~M_38,~M_39,~M_40,~M_41)) with ~M_36 = aid_B, ~M_37 = sign(SK_B_2,rb(pk(SOTK1_B))), ~M_38 = pk(SOTK1_B), ~M_39 = sign(SK_B_2,concat2(aid_B,ED_B,pk(SK_B_2),pk(SAC_B),pk(SK_Prov_2))), ~M_40 = pk(SAC_B), ~M_41 = ED_B at {75} in copy a_8
+
+out(c, (~M_42,~M_43,~M_44,~M_45,~M_46,~M_47)) with ~M_42 = aid_B, ~M_43 = sign(SK_B_2,rb(pk(SOTK1_B))), ~M_44 = pk(SOTK1_B), ~M_45 = sign(SK_B_2,concat2(aid_B,ED_B,pk(SK_B_2),pk(SAC_B),pk(SK_Prov_2))), ~M_46 = pk(SAC_B), ~M_47 = ED_B at {75} in copy a_9
+
+in(prov_ca, (~M_30,~M_31,~M_1)) with ~M_30 = sign(SK_CA_2,concat1(aid_B,pk(SK_B_2))), ~M_31 = aid_B, ~M_1 = pk(SK_B_2) at {36} in copy a_7
+
+in(c, (~M_31,~M_37,~M_38,~M_39,~M_40,~M_41)) with ~M_31 = aid_B, ~M_37 = sign(SK_B_2,rb(pk(SOTK1_B))), ~M_38 = pk(SOTK1_B), ~M_39 = sign(SK_B_2,concat2(aid_B,ED_B,pk(SK_B_2),pk(SAC_B),pk(SK_Prov_2))), ~M_40 = pk(SAC_B), ~M_41 = ED_B at {38} in copy a_7
+
+event EndProviderAuthB(ED_B,aid_B,pk(SOTK1_B)) at {43} in copy a_7
+
+out(c, ~M_48) with ~M_48 = sign(SK_Prov_2,concat3(aid_B,ED_B,pk(SK_B_2),pk(SAC_B),sign(SK_B_2,concat2(aid_B,ED_B,pk(SK_B_2),pk(SAC_B),pk(SK_Prov_2))))) at {44} in copy a_7
+
+in(c, ~M_48) with ~M_48 = sign(SK_Prov_2,concat3(aid_B,ED_B,pk(SK_B_2),pk(SAC_B),sign(SK_B_2,concat2(aid_B,ED_B,pk(SK_B_2),pk(SAC_B),pk(SK_Prov_2))))) at {76} in copy a_8
+
+event EndAuthB(ED_B,aid_B,pk(SOTK1_B)) at {78} in copy a_8
+
+out(prov_b, (~M_49,~M_50,~M_51,~M_52,~M_53,~M_54,~M_55,~M_56)) with ~M_49 = sign(SK_CA_2,concat1(aid_A,pk(SK_A_2))), ~M_50 = sign(SK_CA_2,concat1(aid_B,pk(SK_B_2))), ~M_51 = aid_A, ~M_52 = sign(SK_A_2,rb(pk(SOTK1_A))), ~M_53 = pk(SOTK1_A), ~M_54 = sign(SK_A_2,concat2(aid_A,ED_A,pk(SK_A_2),pk(SAC_A),pk(SK_Prov_2))), ~M_55 = pk(SAC_A), ~M_56 = ED_A at {46} in copy a_7
+
+in(c, (~M_31,a_10,~M_41,~M_40,~M_39,~M_48)) with ~M_31 = aid_B, ~M_41 = ED_B, ~M_40 = pk(SAC_B), ~M_39 = sign(SK_B_2,concat2(aid_B,ED_B,pk(SK_B_2),pk(SAC_B),pk(SK_Prov_2))), ~M_48 = sign(SK_Prov_2,concat3(aid_B,ED_B,pk(SK_B_2),pk(SAC_B),sign(SK_B_2,concat2(aid_B,ED_B,pk(SK_B_2),pk(SAC_B),pk(SK_Prov_2))))) at {60} in copy a_5
+
+event EndAgentAuthA(token,ED_A,dh(pk(SAC_B),SOTK1_A)) at {64} in copy a_5
+
+event TokenIssue(aid_A,aid_B,token) at {65} in copy a_5
+
+out(c, (~M_57,~M_58)) with ~M_57 = sign(SK_A_2,token), ~M_58 = senc(dh(pk(SAC_B),SOTK1_A),token) at {66} in copy a_5
+
+in(c, (~M_31,a_11,~M_41,~M_40,~M_39,~M_48)) with ~M_31 = aid_B, ~M_41 = ED_B, ~M_40 = pk(SAC_B), ~M_39 = sign(SK_B_2,concat2(aid_B,ED_B,pk(SK_B_2),pk(SAC_B),pk(SK_Prov_2))), ~M_48 = sign(SK_Prov_2,concat3(aid_B,ED_B,pk(SK_B_2),pk(SAC_B),sign(SK_B_2,concat2(aid_B,ED_B,pk(SK_B_2),pk(SAC_B),pk(SK_Prov_2))))) at {60} in copy a_4
+
+event EndAgentAuthA(token,ED_A,dh(pk(SAC_B),SOTK1_A)) at {64} in copy a_4
+
+event TokenIssue(aid_A,aid_B,token) at {65} in copy a_4
+
+out(c, (~M_59,~M_60)) with ~M_59 = sign(SK_A_2,token), ~M_60 = senc(dh(pk(SAC_B),SOTK1_A),token) at {66} in copy a_4
+
+in(prov_b, (~M_4,a_12,~M_5,~M_11,~M_12,~M_13,~M_14,~M_15)) with ~M_4 = sign(SK_CA_2,concat1(aid_A,pk(SK_A_2))), ~M_5 = aid_A, ~M_11 = sign(SK_A_2,rb(pk(SOTK1_A))), ~M_12 = pk(SOTK1_A), ~M_13 = sign(SK_A_2,concat2(aid_A,ED_A,pk(SK_A_2),pk(SAC_A),pk(SK_Prov_2))), ~M_14 = pk(SAC_A), ~M_15 = ED_A at {80} in copy a_8
+
+out(c, (~M_61,~M_62,~M_63,~M_64,~M_65,~M_66)) with ~M_61 = aid_B, ~M_62 = a_12, ~M_63 = ED_B, ~M_64 = pk(SAC_B), ~M_65 = sign(SK_B_2,concat2(aid_B,ED_B,pk(SK_B_2),pk(SAC_B),pk(SK_Prov_2))), ~M_66 = sign(SK_Prov_2,concat3(aid_B,ED_B,pk(SK_B_2),pk(SAC_B),sign(SK_B_2,concat2(aid_B,ED_B,pk(SK_B_2),pk(SAC_B),pk(SK_Prov_2))))) at {85} in copy a_8
+
+in(c, (~M_57,~M_58)) with ~M_57 = sign(SK_A_2,token), ~M_58 = senc(dh(pk(SOTK1_A),SAC_B),token) at {87} in copy a_8
+
+event EndAgentAuthB(token,ED_A,dh(pk(SOTK1_A),SAC_B)) at {90} in copy a_8
+
+event Accept(aid_A,aid_B,token) at {91} in copy a_8 (goal)
+
+The event Accept(aid_A,aid_B,token) is executed at {91} in copy a_8.
+A trace has been found.
+RESULT event(Accept(issuer,recipient,tok)) ==> event(PolicyAllow(issuer,recipient)) is false.

@@ -1,0 +1,51 @@
+{
+  "case": {
+    "id": "aa",
+    "impl_budget": 10,
+    "pair": "A/A",
+    "rules": [
+      {
+        "budget": 10,
+        "pattern": "alice@example.com:*"
+      },
+      {
+        "budget": 10,
+        "pattern": "*"
+      }
+    ],
+    "spec_budget": 10
+  },
+  "context": {
+    "initiator": "alice@example.com:agent",
+    "policy_hash": "f5a37ea2c84fa2f460ce93c30b38410a5202f88b3c3229ca8e937b7d3a756eb4",
+    "receiver": "bob@example.com:receiver",
+    "receiver_binding": "observed fixture owner in this consumer execution",
+    "rules": [
+      {
+        "budget": 10,
+        "id": "r0",
+        "pattern": "alice@example.com:*",
+        "position": 0
+      },
+      {
+        "budget": 10,
+        "id": "r1",
+        "pattern": "*",
+        "position": 1
+      }
+    ],
+    "target": "alice@example.com:agent"
+  },
+  "evaluation_fingerprint": "5a7a03110c1272a9e3702db2fdae5e722703c2ae6a7ec1eeda46bc7fc4ea9c32",
+  "initiator_cert_sha256": "433a2f92db607d06492e8eb56dd67163d2202f25686366cdee3e897920e85b03",
+  "q_max": 50,
+  "receiver_cert_sha256": "b879086c19b651ecfd0f2d0ae4bf91cc989888095531d1f2d49e4a9347a3aa4c",
+  "spec": {
+    "budget": 10,
+    "budget_class": "Positive",
+    "decision": "Allow",
+    "specificity": 70,
+    "status": "OK",
+    "winning_rule": "r0"
+  }
+}

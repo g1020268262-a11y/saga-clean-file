@@ -1,0 +1,30 @@
+name: Bob Smith
+email: bob@mail.com
+passwd: "bob"
+
+agents:
+  - name: "dummy_agent"
+    
+    description: "A dummy agent for protocol testing."
+    endpoint:
+      ip: 127.0.0.1
+      port: 7001
+      device_name: lambda
+    contact_rulebook: [
+      {
+        "pattern": "*",
+        "budget": 10
+      },
+      {
+        "pattern": "*@mail.com:dummy_agent",
+        "budget": 10
+      }
+    ]
+    num_one_time_keys: 100
+    local_agent_config:
+      model: null
+      tools:
+        - email
+        - calendar
+      model_type: null
+      api_base: null

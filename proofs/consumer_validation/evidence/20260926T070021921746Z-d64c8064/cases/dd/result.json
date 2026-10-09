@@ -1,0 +1,325 @@
+{
+  "after": {
+    "active_tokens": {},
+    "counter": [],
+    "provider_otk_sigs": [
+      "f433fa0f09a6f25ff15931db7cff934cc78a085520ca2a96fc940741c410ee78"
+    ],
+    "provider_otks": [
+      "a3980e43a2cbe516822ded506065d6f9a6d16dbe5199c1eb2ac9da26a514fb88"
+    ],
+    "provider_rules": [
+      {
+        "budget": 10,
+        "pattern": "*"
+      },
+      {
+        "budget": -1,
+        "pattern": "alice@example.com:*"
+      }
+    ],
+    "receiver_otks": [
+      "a3980e43a2cbe516822ded506065d6f9a6d16dbe5199c1eb2ac9da26a514fb88"
+    ],
+    "receiver_rules": [
+      {
+        "budget": 10,
+        "pattern": "*"
+      },
+      {
+        "budget": -1,
+        "pattern": "alice@example.com:*"
+      }
+    ]
+  },
+  "assertions": [
+    {
+      "actual": "OK",
+      "expected": "OK",
+      "name": "supported_spec",
+      "status": "pass",
+      "through_event": 0
+    },
+    {
+      "actual": -1,
+      "expected": -1,
+      "name": "spec_budget",
+      "status": "pass",
+      "through_event": 0
+    },
+    {
+      "actual": [
+        {
+          "budget": 10,
+          "pattern": "*"
+        },
+        {
+          "budget": -1,
+          "pattern": "alice@example.com:*"
+        }
+      ],
+      "expected": [
+        {
+          "budget": 10,
+          "pattern": "*"
+        },
+        {
+          "budget": -1,
+          "pattern": "alice@example.com:*"
+        }
+      ],
+      "name": "provider_rules",
+      "status": "pass",
+      "through_event": 0
+    },
+    {
+      "actual": [
+        {
+          "budget": 10,
+          "pattern": "*"
+        },
+        {
+          "budget": -1,
+          "pattern": "alice@example.com:*"
+        }
+      ],
+      "expected": [
+        {
+          "budget": 10,
+          "pattern": "*"
+        },
+        {
+          "budget": -1,
+          "pattern": "alice@example.com:*"
+        }
+      ],
+      "name": "receiver_rules",
+      "status": "pass",
+      "through_event": 0
+    },
+    {
+      "actual": [],
+      "expected": [],
+      "name": "initial_counter",
+      "status": "pass",
+      "through_event": 0
+    },
+    {
+      "actual": {},
+      "expected": {},
+      "name": "initial_active_tokens",
+      "status": "pass",
+      "through_event": 0
+    },
+    {
+      "actual": 1,
+      "expected": 1,
+      "name": "initial_otk_count",
+      "status": "pass",
+      "through_event": 0
+    },
+    {
+      "actual": [
+        "a3980e43a2cbe516822ded506065d6f9a6d16dbe5199c1eb2ac9da26a514fb88"
+      ],
+      "expected": [
+        "a3980e43a2cbe516822ded506065d6f9a6d16dbe5199c1eb2ac9da26a514fb88"
+      ],
+      "name": "initial_otk_binding",
+      "status": "pass",
+      "through_event": 0
+    },
+    {
+      "actual": 403,
+      "expected": 403,
+      "name": "http_status",
+      "status": "pass",
+      "through_event": 2
+    },
+    {
+      "actual": 0,
+      "expected": 0,
+      "name": "cutoff_count",
+      "status": "pass",
+      "through_event": 5
+    },
+    {
+      "actual": [
+        "provider"
+      ],
+      "expected": [
+        "provider"
+      ],
+      "name": "matcher_consumers",
+      "status": "pass",
+      "through_event": 5
+    },
+    {
+      "actual": [
+        [
+          {
+            "budget": 10,
+            "pattern": "*"
+          },
+          {
+            "budget": -1,
+            "pattern": "alice@example.com:*"
+          }
+        ],
+        "alice@example.com:agent"
+      ],
+      "expected": [
+        [
+          {
+            "budget": 10,
+            "pattern": "*"
+          },
+          {
+            "budget": -1,
+            "pattern": "alice@example.com:*"
+          }
+        ],
+        "alice@example.com:agent"
+      ],
+      "name": "provider_matcher_input",
+      "status": "pass",
+      "through_event": 5
+    },
+    {
+      "actual": -1,
+      "expected": -1,
+      "name": "provider_matcher_budget",
+      "status": "pass",
+      "through_event": 5
+    },
+    {
+      "actual": 0,
+      "expected": 0,
+      "name": "local_agent_run_count",
+      "status": "pass",
+      "through_event": 5
+    },
+    {
+      "actual": 0,
+      "expected": 0,
+      "name": "conversation_reads",
+      "status": "pass",
+      "through_event": 5
+    },
+    {
+      "actual": {
+        "active_tokens": {},
+        "counter": [],
+        "provider_otk_sigs": [
+          "f433fa0f09a6f25ff15931db7cff934cc78a085520ca2a96fc940741c410ee78"
+        ],
+        "provider_otks": [
+          "a3980e43a2cbe516822ded506065d6f9a6d16dbe5199c1eb2ac9da26a514fb88"
+        ],
+        "provider_rules": [
+          {
+            "budget": 10,
+            "pattern": "*"
+          },
+          {
+            "budget": -1,
+            "pattern": "alice@example.com:*"
+          }
+        ],
+        "receiver_otks": [
+          "a3980e43a2cbe516822ded506065d6f9a6d16dbe5199c1eb2ac9da26a514fb88"
+        ],
+        "receiver_rules": [
+          {
+            "budget": 10,
+            "pattern": "*"
+          },
+          {
+            "budget": -1,
+            "pattern": "alice@example.com:*"
+          }
+        ]
+      },
+      "expected": {
+        "active_tokens": {},
+        "counter": [],
+        "provider_otk_sigs": [
+          "f433fa0f09a6f25ff15931db7cff934cc78a085520ca2a96fc940741c410ee78"
+        ],
+        "provider_otks": [
+          "a3980e43a2cbe516822ded506065d6f9a6d16dbe5199c1eb2ac9da26a514fb88"
+        ],
+        "provider_rules": [
+          {
+            "budget": 10,
+            "pattern": "*"
+          },
+          {
+            "budget": -1,
+            "pattern": "alice@example.com:*"
+          }
+        ],
+        "receiver_otks": [
+          "a3980e43a2cbe516822ded506065d6f9a6d16dbe5199c1eb2ac9da26a514fb88"
+        ],
+        "receiver_rules": [
+          {
+            "budget": 10,
+            "pattern": "*"
+          },
+          {
+            "budget": -1,
+            "pattern": "alice@example.com:*"
+          }
+        ]
+      },
+      "name": "denial_state_unchanged",
+      "status": "pass",
+      "through_event": 5
+    }
+  ],
+  "before": {
+    "active_tokens": {},
+    "counter": [],
+    "provider_otk_sigs": [
+      "f433fa0f09a6f25ff15931db7cff934cc78a085520ca2a96fc940741c410ee78"
+    ],
+    "provider_otks": [
+      "a3980e43a2cbe516822ded506065d6f9a6d16dbe5199c1eb2ac9da26a514fb88"
+    ],
+    "provider_rules": [
+      {
+        "budget": 10,
+        "pattern": "*"
+      },
+      {
+        "budget": -1,
+        "pattern": "alice@example.com:*"
+      }
+    ],
+    "receiver_otks": [
+      "a3980e43a2cbe516822ded506065d6f9a6d16dbe5199c1eb2ac9da26a514fb88"
+    ],
+    "receiver_rules": [
+      {
+        "budget": 10,
+        "pattern": "*"
+      },
+      {
+        "budget": -1,
+        "pattern": "alice@example.com:*"
+      }
+    ]
+  },
+  "case_id": "dd",
+  "execution_status": "completed",
+  "expectations_met": true,
+  "http": {
+    "body": {
+      "message": "Access denied."
+    },
+    "raw_body": "{\"message\": \"Access denied.\"}",
+    "status": 403
+  },
+  "pair": "D/D"
+}

@@ -1,0 +1,26 @@
+Model: proofs/proverif/agent_communication_authz_chat_turepass.pv
+ProVerif: Proverif 2.05. Cryptographic protocol verifier, by Bruno Blanchet, Vincent Cheval, and Marc Sylvestre
+Exit code: 0
+
+Declared queries (extracted from unchanged model):
+query receiver: bitstring, sender: bitstring, tok: bitstring, msg: bitstring; event(ChatAccept(receiver, sender, tok, msg)) ==> event(TokenIssue(receiver, sender, tok)).
+query receiver: bitstring, sender: bitstring, tok: bitstring, msg: bitstring; event(ChatAccept(receiver, sender, tok, msg)).
+
+Raw verification results (extracted verbatim from stdout):
+RESULT event(ChatAccept(receiver,sender_1,tok,msg)) ==> event(TokenIssue(receiver,sender_1,tok)) is true.
+RESULT not event(ChatAccept(receiver,sender_1,tok,msg)) is false.
+
+ChatAccept reachability result:
+RESULT not event(ChatAccept(receiver,sender_1,tok,msg)) is false.
+
+Relevant correspondence result:
+RESULT event(ChatAccept(receiver,sender_1,tok,msg)) ==> event(TokenIssue(receiver,sender_1,tok)) is true.
+
+TokenIssue standalone reachability query: NOT PRESENT; no standalone query result is asserted.
+TokenIssue occurrences in the generated symbolic witness (stdout line numbers):
+3836: event TokenIssue(aid_A,aid_B,senc(dh(pk(SAC_B),SOTK1_A),token_3)) at {74} in copy a_5
+3852: event TokenIssue(aid_A,aid_B,senc(dh(pk(SAC_B),SOTK1_A),token_4)) at {74} in copy a_3
+
+A false not-event result with a reconstructed trace denotes existential reachability; it is not a cryptographic failure.
+This run does not execute the Python matcher or establish implementation-to-model refinement.
+This is new-run provenance, not provenance for the historical turetrace file.

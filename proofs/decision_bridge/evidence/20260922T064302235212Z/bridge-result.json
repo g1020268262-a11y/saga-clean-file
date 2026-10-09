@@ -1,0 +1,51 @@
+{
+  "status": "OK",
+  "generator_version": "decision-bridge-1",
+  "context": {
+    "policy_id": "stage1-alice",
+    "policy_version": "1",
+    "initiator": "alice@example.com:agent",
+    "target": "alice@example.com:agent",
+    "receiver": "aid_A",
+    "receiver_binding": "symbolic policy owner; not recorded by matcher",
+    "source": "saga/common/contact_policy.py",
+    "source_sha256": "2e37f59651acc31ed9fad8436462faabcb49c52ab3032eccd1529cd72870aa97",
+    "source_commit": "7372111bea150e32cee390a616849316d2780bfc",
+    "rules": [
+      {
+        "id": "r0",
+        "position": 0,
+        "pattern": "alice@example.com:*",
+        "budget": -1
+      },
+      {
+        "id": "r1",
+        "position": 1,
+        "pattern": "*",
+        "budget": 10
+      }
+    ],
+    "policy_hash": "23cfaf931100d7e47702e962a38b99bd8c837e0b15624438658b9b8f4ca5138c"
+  },
+  "evaluation_fingerprint": "40888f0bb40808888091783a8f63adb9fb9a6615a04a13efdd9d31c4a8d010a5",
+  "spec": {
+    "status": "OK",
+    "winning_rule": "r0",
+    "specificity": 70,
+    "budget": -1,
+    "budget_class": "Negative",
+    "decision": "Deny"
+  },
+  "impl_observed": {
+    "budget": 10,
+    "budget_class": "Positive",
+    "decision": "Allow",
+    "observation": {
+      "path": "proofs/evidence/authz-stage1-20260916T123834944479Z/policy-matcher-sanity.json",
+      "sha256": "b1148bdb2e2b450ca318b28266deb2dcd30d74af1ccec405ff855bf43c7fc56d",
+      "format": "stage1",
+      "field": "actual_specific_deny_then_wildcard_allow"
+    }
+  },
+  "divergence": true
+}

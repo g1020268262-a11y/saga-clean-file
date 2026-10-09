@@ -1,0 +1,58 @@
+# Python caches and packaging output
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+# Virtual environments and local runtimes
+.venv/
+venv/
+env/
+.runtime/
+runtime/
+
+# Test, type-checker, and coverage caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
+.coverage
+.coverage.*
+htmlcov/
+
+# Editors and operating-system metadata
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Local configuration and secrets
+.env
+.env.*
+*.key
+*.pem
+*.crt
+*.pub
+*.p12
+*.pfx
+
+# Local databases and logs
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+*.log
+
+# LaTeX build products (sources are not part of this artifact)
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.out
+*.synctex.gz
+
+# SAGA-generated local user state
+saga/user/*/*.json

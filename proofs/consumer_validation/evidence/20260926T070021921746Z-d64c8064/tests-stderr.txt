@@ -1,0 +1,13 @@
+test_archive_cannot_be_overwritten_or_escape (proofs.consumer_validation.test_harness.HarnessTests.test_archive_cannot_be_overwritten_or_escape) ... ok
+test_backend_is_forbidden_and_counted (proofs.consumer_validation.test_harness.HarnessTests.test_backend_is_forbidden_and_counted) ... ok
+test_conversation_reads_fail (proofs.consumer_validation.test_harness.HarnessTests.test_conversation_reads_fail) ... ok
+test_production_framing_roundtrip (proofs.consumer_validation.test_harness.HarnessTests.test_production_framing_roundtrip) ... ok
+test_secrets_are_removed_from_logs (proofs.consumer_validation.test_harness.HarnessTests.test_secrets_are_removed_from_logs) ... ok
+test_serialization_failure_does_not_leave_partial_file (proofs.consumer_validation.test_harness.HarnessTests.test_serialization_failure_does_not_leave_partial_file) ... ok
+test_spy_preserves_exception (proofs.consumer_validation.test_harness.HarnessTests.test_spy_preserves_exception) ... ok
+test_spy_preserves_real_result_and_order (proofs.consumer_validation.test_harness.HarnessTests.test_spy_preserves_real_result_and_order) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.008s
+
+OK
