@@ -30,9 +30,23 @@ python -B -m unittest discover -s proofs/decision_bridge -p test_bridge.py -v
 
 Decision Bridge tests require local Git history containing the revisions bound
 by the archived observations: `7372111bea150e32cee390a616849316d2780bfc`
-and `b5d0a6365d40fdeff240e54cce5ef7572f01808a`. Consumer tests require the
-packages in `consumer_validation/requirements.txt` but do not require a running
-MongoDB.
+from original SAGA and `b5d0a6365d40fdeff240e54cce5ef7572f01808a`
+from the development fork's `my-modification` branch. They are distinct commits
+with the same matcher Git blob. For a fresh clone, run:
+
+```text
+git remote add saga-upstream https://github.com/gsiros/saga.git
+git remote add saga-development https://github.com/g1020268262-a11y/saga.git
+git fetch saga-upstream main
+git fetch saga-development my-modification
+git cat-file -e 7372111bea150e32cee390a616849316d2780bfc:saga/common/contact_policy.py
+git cat-file -e b5d0a6365d40fdeff240e54cce5ef7572f01808a:saga/common/contact_policy.py
+```
+
+The root `.gitattributes` fixes the frozen model to LF and preserves the exact
+archive-specific LF/CRLF bytes on Windows. Do not renormalize evidence. Consumer
+tests require the packages in `consumer_validation/requirements.txt` but do not
+require a running MongoDB.
 
 ## Formal reproduction
 

@@ -54,21 +54,25 @@ implementation-to-model refinement proof.
   run used MongoDB 8.0.17. The harness starts an isolated loopback-only instance
   and never attaches to an existing database.
 - Git history containing the revisions named by the Decision Bridge observation
-  archives. The primary matcher observation is pinned to
-  `7372111bea150e32cee390a616849316d2780bfc`; the normal allow/deny controls used
-  by the test suite are pinned to `b5d0a6365d40fdeff240e54cce5ef7572f01808a`.
-  Verify the primary revision with:
-
-  ```text
-  git cat-file -e 7372111bea150e32cee390a616849316d2780bfc:saga/common/contact_policy.py
-  ```
-
-  If the object is absent, fetch the upstream history before running the bridge:
+  archives. The primary matcher observation is pinned to the original SAGA
+  revision `7372111bea150e32cee390a616849316d2780bfc`. The normal allow/deny
+  controls are pinned to `b5d0a6365d40fdeff240e54cce5ef7572f01808a`, a
+  historical commit from the development fork's `my-modification` branch. These
+  are different commits with the same matcher Git blob. In a fresh clone, fetch
+  and verify both sources with:
 
   ```text
   git remote add saga-upstream https://github.com/gsiros/saga.git
-  git fetch saga-upstream
+  git remote add saga-development https://github.com/g1020268262-a11y/saga.git
+  git fetch saga-upstream main
+  git fetch saga-development my-modification
+  git cat-file -e 7372111bea150e32cee390a616849316d2780bfc:saga/common/contact_policy.py
+  git cat-file -e b5d0a6365d40fdeff240e54cce5ef7572f01808a:saga/common/contact_policy.py
   ```
+
+On Windows, the root `.gitattributes` keeps the frozen ProVerif template in LF
+form and preserves the exact LF/CRLF bytes bound by archived manifests. Do not
+renormalize archived evidence.
 
 Install the consumer-validation dependencies from the repository root:
 

@@ -1,0 +1,22 @@
+/proofs/proverif/agent_communication_authz_chat_turepass.pv text eol=lf
+/proofs/decision_bridge/evidence/** -text
+/proofs/evidence/** -text
+/proofs/consumer_validation/evidence/** -text
+
+# These archived files were originally hashed with CRLF bytes.
+/proofs/evidence/authz-chat-gates-20260918T023621017067Z/proverif-version.txt text eol=crlf
+/proofs/evidence/authz-chat-gates-20260918T023621017067Z/p_allow_r_allow.stdout.txt text eol=crlf
+/proofs/evidence/authz-chat-gates-20260918T023621017067Z/p_allow_r_deny.stdout.txt text eol=crlf
+/proofs/evidence/authz-chat-gates-20260918T023621017067Z/p_deny_r_allow.stdout.txt text eol=crlf
+/proofs/evidence/authz-chat-gates-20260918T023621017067Z/verification-summary.txt text eol=crlf
+/proofs/evidence/authz-stage1-20260916T123834944479Z/agent_communication.stdout.txt text eol=crlf
+/proofs/evidence/authz-stage1-20260916T123834944479Z/agent_communication_authz.stdout.txt text eol=crlf
+/proofs/evidence/authz-stage1-20260916T123834944479Z/authorization-trace.txt text eol=crlf
+/proofs/evidence/authz-stage1-20260916T123834944479Z/model-additions.diff text eol=crlf
+/proofs/evidence/authz-stage1-20260916T123834944479Z/policy-matcher-sanity.json text eol=crlf
+/proofs/evidence/authz-stage1-20260916T123834944479Z/proverif-version.txt text eol=crlf
+/proofs/evidence/authz-stage1-20260916T123834944479Z/registration.stdout.txt text eol=crlf
+/proofs/evidence/authz-stage1-20260916T123834944479Z/verification-summary.txt text eol=crlf
+/proofs/evidence/authz-turepass-20260919T090826295518Z/agent_communication_authz_chat_turepass.stdout.txt text eol=crlf
+/proofs/evidence/authz-turepass-20260919T090826295518Z/proverif-version.txt text eol=crlf
+/proofs/evidence/authz-turepass-20260919T090826295518Z/verification-summary.txt text eol=crlf

@@ -23,12 +23,26 @@ The default replay uses:
   source hash, and observation reference recorded in `input.json`.
 
 The local Git object database must contain the revisions named by the observation
-archives. The main counterexample uses
+archives. The main counterexample uses original SAGA revision
 `7372111bea150e32cee390a616849316d2780bfc`; the normal allow/deny controls use
-`b5d0a6365d40fdeff240e54cce5ef7572f01808a`. The bridge checks each source blob
-against the archived source hash under explicitly
-enumerated raw, LF, and CRLF encodings and fails closed on missing or mismatched
-provenance.
+`b5d0a6365d40fdeff240e54cce5ef7572f01808a` from the development fork's
+`my-modification` branch. They are distinct commits containing the same matcher
+Git blob. Fetch and verify both histories in a fresh clone:
+
+```text
+git remote add saga-upstream https://github.com/gsiros/saga.git
+git remote add saga-development https://github.com/g1020268262-a11y/saga.git
+git fetch saga-upstream main
+git fetch saga-development my-modification
+git cat-file -e 7372111bea150e32cee390a616849316d2780bfc:saga/common/contact_policy.py
+git cat-file -e b5d0a6365d40fdeff240e54cce5ef7572f01808a:saga/common/contact_policy.py
+```
+
+The bridge checks each source blob against the archived source hash under
+explicitly enumerated raw, LF, and CRLF encodings and fails closed on missing or
+mismatched provenance. The root `.gitattributes` fixes the frozen model to LF
+and preserves the exact archive-specific LF/CRLF bytes on Windows; archived
+evidence must not be renormalized.
 
 ## Finite specification semantics
 
